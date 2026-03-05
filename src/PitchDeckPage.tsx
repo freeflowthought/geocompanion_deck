@@ -175,7 +175,7 @@ const roadmapRows = [
   {
     phase: 'Phase 5',
     when: 'Months 18-24',
-    ships: 'ERC8004 on MegaETH, trust score',
+    ships: 'ERC8004 on EVM chains (i.e. Ethereum mainnet, BNB), trust score',
     target: '15-20% take-rate active',
   },
 ];
@@ -983,7 +983,7 @@ const PitchDeckPage = () => {
               },
               {
                 title: 'On-chain verification (Phase 4-5)',
-                body: 'ERC8004 contracts on MegaETH hash campaign outcomes into immutable proof trails.',
+                body: 'ERC8004 contracts on EVM chains (i.e. Ethereum mainnet, BNB) hash campaign outcomes into immutable proof trails.',
               },
             ].map((item) => (
               <article key={item.title} className="deck-card rounded-2xl p-5">
