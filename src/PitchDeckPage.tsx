@@ -57,6 +57,53 @@ const GeoCompanionMark = ({ size = 36 }: { size?: number }) => (
   </div>
 );
 
+type HookWeight = {
+  label: string;
+  weight: number;
+  tone: string;
+};
+
+type PublicAgentCardProps = {
+  name: string;
+  cloud: string;
+  context: string;
+  accent: string;
+  hooks: HookWeight[];
+};
+
+const HookWeightBar = ({ label, weight, tone }: HookWeight) => (
+  <div>
+    <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-300">
+      <span>{label}</span>
+      <span>{Math.round(weight * 100)}%</span>
+    </div>
+    <div className="mt-1 h-2 rounded-full bg-slate-800/90">
+      <div className={`h-full rounded-full bg-gradient-to-r ${tone}`} style={{ width: `${weight * 100}%` }} />
+    </div>
+  </div>
+);
+
+const PublicAgentCard = ({ name, cloud, context, accent, hooks }: PublicAgentCardProps) => (
+  <article className="rounded-2xl border border-slate-700/70 bg-slate-900/55 p-4">
+    <div className="flex items-start justify-between gap-3">
+      <div>
+        <p className="text-[10px] uppercase tracking-[0.14em] text-emerald-200">{cloud}</p>
+        <p className="mt-1 font-['Space_Grotesk'] text-lg font-semibold text-white">{name}</p>
+        <p className="mt-1 text-xs leading-relaxed text-slate-400">{context}</p>
+      </div>
+      <div className={`flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-slate-700 bg-slate-950/80 shadow-[0_18px_45px_rgba(15,23,42,0.4)] ${accent}`}>
+        <Bot className="h-7 w-7" aria-hidden="true" />
+      </div>
+    </div>
+
+    <div className="mt-4 space-y-3">
+      {hooks.map((hook) => (
+        <HookWeightBar key={hook.label} {...hook} />
+      ))}
+    </div>
+  </article>
+);
+
 const competitorRows = [
   {
     category: 'GEO / AI search scoring',
@@ -931,22 +978,94 @@ const PitchDeckPage = () => {
             </div>
           </div>
 
+          <div className="deck-card mt-5 rounded-2xl p-6">
+            <div className="flex flex-col gap-5 xl:flex-row xl:items-center">
+              <div className="xl:w-[42%]">
+                <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">A2A routing model</p>
+                <h3 className="mt-2 font-['Space_Grotesk'] text-2xl font-semibold text-white">Personal agent to public agent, routed by context.</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  GeoCompanion fits directly into A2A workflows: a private personal agent sends context, our router finds the best
+                  public agent, and execution runs on cloud-deployed agent profiles tuned by hook-weight combinations.
+                </p>
+                <div className="mt-4 grid gap-2 text-xs text-slate-300 sm:grid-cols-3">
+                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 px-3 py-2">Private inputs: platform, product, industry</div>
+                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 px-3 py-2">Router picks the highest-fit public agent</div>
+                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 px-3 py-2">Best outcome feeds back into ranking and weights</div>
+                </div>
+              </div>
+
+              <div className="grid flex-1 gap-4 lg:grid-cols-[0.92fr,0.72fr,1.4fr] lg:items-center">
+                <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-4">
+                  <p className="text-[10px] uppercase tracking-[0.14em] text-cyan-200">Personal agent</p>
+                  <div className="mt-3 flex items-center gap-3">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-cyan-200/30 bg-slate-950/80">
+                      <Bot className="h-7 w-7 text-cyan-200" aria-hidden="true" />
+                    </div>
+                    <div className="text-xs text-slate-200">
+                      <p className="font-semibold uppercase tracking-[0.1em] text-white">Private context</p>
+                      <p className="mt-1">TikTok</p>
+                      <p>Skincare launch</p>
+                      <p>Beauty / DTC</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-emerald-300/30 bg-emerald-300/10 p-4 text-center">
+                  <p className="text-[10px] uppercase tracking-[0.14em] text-emerald-200">GeoCompanion router</p>
+                  <div className="mt-3 flex items-center justify-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-emerald-200/30 bg-slate-950/80">
+                      <Server className="h-7 w-7 text-emerald-200" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-slate-200">Scores hook-fit, cloud availability, and ERC8004 performance.</p>
+                </div>
+
+                <div className="grid gap-3 md:grid-cols-2">
+                  <PublicAgentCard
+                    name="Alice"
+                    cloud="AWS"
+                    context="Public agent profile composed from multiple hook weights for a specific content style."
+                    accent="text-emerald-200"
+                    hooks={[
+                      { label: 'Contrast hook', weight: 0.3, tone: 'from-emerald-400 to-emerald-300' },
+                      { label: 'Humble flex', weight: 0.35, tone: 'from-cyan-400 to-cyan-300' },
+                      { label: 'Curiosity gap', weight: 0.2, tone: 'from-teal-400 to-teal-300' },
+                      { label: 'Soft CTA', weight: 0.15, tone: 'from-slate-300 to-slate-200' },
+                    ]}
+                  />
+                  <PublicAgentCard
+                    name="Bob"
+                    cloud="GCP"
+                    context="Another public agent with a different hook distribution and ranking history."
+                    accent="text-cyan-200"
+                    hooks={[
+                      { label: 'Humble flex', weight: 0.2, tone: 'from-cyan-400 to-cyan-300' },
+                      { label: 'Hot take', weight: 0.4, tone: 'from-emerald-400 to-emerald-300' },
+                      { label: 'Proof stack', weight: 0.25, tone: 'from-teal-400 to-teal-300' },
+                      { label: 'Authority cue', weight: 0.15, tone: 'from-slate-300 to-slate-200' },
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-5 grid gap-4 lg:grid-cols-2">
             <article className="deck-card rounded-2xl p-6">
               <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Hook Intelligence</h3>
               <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
                 <li>- Hooks are algorithmic patterns that drive distribution and engagement.</li>
-                <li>- Public agents are deployed with different hook-weight combinations.</li>
-                <li>- Users can deploy custom hook weights for platform, product, and industry context.</li>
+                <li>- Each public agent is a weighted basket of hooks, not a single-hook identity.</li>
+                <li>- Teams can use marketplace agents or deploy custom hook-weight agents for their exact context.</li>
               </ul>
             </article>
 
             <article className="deck-card rounded-2xl p-6">
-              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Agent Routing Logic</h3>
+              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Why The A2A Fit Matters</h3>
               <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
-                <li>- Personal agents query context: platform, product, and industry.</li>
-                <li>- Routing selects the highest ERC8004-credit public agent for that context.</li>
-                <li>- Outcomes feed back into ranking, improving future routing quality.</li>
+                <li>- Personal agents keep user context private and only request the best matching public agent.</li>
+                <li>- Public agents run on cloud infrastructure like AWS or GCP and expose a clean agent-to-agent surface.</li>
+                <li>- Outcomes feed back into ranking, so routing quality and hook weights improve every cycle.</li>
               </ul>
             </article>
           </div>
@@ -958,7 +1077,7 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-7" index={7} title="How It Is Built" subtitle="Designed for agents from day one.">
+        <SlideShell id="slide-7" index={7} title="How It Is Built" subtitle="Designed for A2A traffic and cloud-deployed public agents from day one.">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -970,20 +1089,20 @@ const PitchDeckPage = () => {
                 body: 'AI logic in Markdown/JSON skill files so viral patterns can update without redeployment.',
               },
               {
-                title: 'Practical compliance',
-                body: 'Billing stays in fiat; no native token required, reducing regulatory complexity.',
+                title: 'Cloud public agents',
+                body: 'Public agents run as cloud workloads on AWS or GCP, each with its own hook-weight profile and runtime configuration.',
               },
               {
                 title: 'Agentic API (Phase 1)',
-                body: 'Stable REST endpoints for programmatic consumption with x402 authorization and stablecoin-ready micro-payments.',
+                body: 'Stable REST endpoints for agent-to-agent consumption so personal agents can query, route, and pay per call.',
               },
               {
-                title: 'Dynamic intelligence (Phase 2-3)',
-                body: 'Real-time trend and competitor monitoring feeds predictive analytics trained on live data.',
+                title: 'Routing + ranking engine',
+                body: 'Context-aware routing selects the best public agent by hook fit, measured outcomes, and ERC8004-linked credit.',
               },
               {
-                title: 'On-chain verification (Phase 4-5)',
-                body: 'ERC8004 contracts on EVM chains (i.e. Ethereum mainnet, BNB) hash campaign outcomes into immutable proof trails.',
+                title: 'Verification + settlement',
+                body: 'x402, stablecoin-ready rails, and ERC8004 proof trails support machine payments plus verifiable agent performance.',
               },
             ].map((item) => (
               <article key={item.title} className="deck-card rounded-2xl p-5">
