@@ -12,6 +12,11 @@ type SlideShellProps = {
   children: React.ReactNode;
 };
 
+type SlideFootnoteLink = {
+  label: string;
+  href: string;
+};
+
 const SlideShell = ({ id, index, title, subtitle, children }: SlideShellProps) => (
   <section
     id={id}
@@ -35,6 +40,22 @@ const SlideShell = ({ id, index, title, subtitle, children }: SlideShellProps) =
       <div className="deck-slide-body mt-10 flex-1">{children}</div>
     </div>
   </section>
+);
+
+const SlideFootnotes = ({ items }: { items: SlideFootnoteLink[] }) => (
+  <div className="mt-5 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.12em] text-slate-500">
+    {items.map((item) => (
+      <a
+        key={item.href}
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+        className="rounded-full border border-slate-700/70 bg-slate-900/50 px-3 py-1 transition hover:border-emerald-300/50 hover:text-emerald-200"
+      >
+        {item.label}
+      </a>
+    ))}
+  </div>
 );
 
 const GeoCompanionMark = ({ size = 36 }: { size?: number }) => (
@@ -84,7 +105,7 @@ const HookWeightBar = ({ label, weight, tone }: HookWeight) => (
 );
 
 const PublicAgentCard = ({ name, cloud, context, accent, hooks }: PublicAgentCardProps) => (
-  <article className="rounded-2xl border border-slate-700/70 bg-slate-900/55 p-4">
+  <article className="h-full rounded-2xl border border-slate-700/70 bg-slate-900/55 p-4">
     <div className="flex items-start justify-between gap-3">
       <div>
         <p className="text-[10px] uppercase tracking-[0.14em] text-emerald-200">{cloud}</p>
@@ -166,7 +187,7 @@ const competitorRows = [
     athena: '$295/mo',
     surfer: '$79/mo',
     jasper: '$39/mo',
-    geoCompanion: 'Beta free -> <$10/mo + pay-per-call',
+    geoCompanion: 'Beta free -> <$10/mo starter',
   },
 ];
 
@@ -188,49 +209,54 @@ const marketRows = [
   },
 ];
 
-const roadmapRows = [
+const buildPathRows = [
   {
     phase: 'Phase 0',
     when: 'Live',
-    ships: 'GEO Audit + Vibe Marketing, beta free + Starter (<$10/mo) + Agency',
-    target: '[INSERT] current MRR',
+    ships: 'GEO Audit + Vibe Marketing',
+    target: 'Own the diagnosis-to-execution workflow and generate the outcome data that makes everything downstream defensible.',
   },
   {
-    phase: 'Phase 1',
-    when: 'Months 1-3',
-    ships: 'Backend API, server-side model orchestration, x402 + stablecoin payment rails',
-    target: 'First API paying customers',
+    phase: 'Phase 1-3',
+    when: 'Next',
+    ships: 'Enterprise Strategic Intelligence',
+    target: 'Move from snapshot analysis to continuous decision support with Vision Navigator, Market Intelligence Engine, and Predictive Analytics.',
   },
   {
-    phase: 'Phase 2',
-    when: 'Months 3-6',
-    ships: 'Dynamic market monitoring, competitor alerts',
-    target: '5+ enterprise betas',
+    phase: 'Phase 4-5',
+    when: 'Platform',
+    ships: 'Agent Marketplace + On-Chain Trust',
+    target: 'Agents rank on verified performance history while ERC8004 attestation becomes the enterprise trust primitive. Billing stays on fiat.',
+  },
+];
+
+const flywheelRows = [
+  {
+    title: 'Diagnose',
+    body: 'Run a GEO audit to surface visibility gaps, citation risks, and priority fixes.',
+    icon: <Radar className="h-4 w-4 text-cyan-200" aria-hidden="true" />,
   },
   {
-    phase: 'Phase 3',
-    when: 'Months 6-12',
-    ships: 'Vision Navigator, Predictive Analytics',
-    target: '10+ enterprise, $50K MRR',
+    title: 'Create',
+    body: 'Turn those gaps into platform-native hooks, campaigns, and content systems.',
+    icon: <Sparkles className="h-4 w-4 text-emerald-200" aria-hidden="true" />,
   },
   {
-    phase: 'Phase 4',
-    when: 'Months 12-18',
-    ships: 'Agent Marketplace, hook combination data',
-    target: '[X] agents, $[Y] GMV',
+    title: 'Deploy',
+    body: 'Ship through SaaS workflows today and through agent/API calls as usage expands.',
+    icon: <Rocket className="h-4 w-4 text-teal-200" aria-hidden="true" />,
   },
   {
-    phase: 'Phase 5',
-    when: 'Months 18-24',
-    ships: 'ERC8004 on EVM chains (i.e. Ethereum mainnet, BNB), trust score',
-    target: '15-20% take-rate active',
+    title: 'Learn',
+    body: 'Outcome data improves recommendations, routing, and future marketplace trust signals.',
+    icon: <Activity className="h-4 w-4 text-emerald-100" aria-hidden="true" />,
   },
 ];
 
 const askRows = [
   {
     allocation: '40% Engineering',
-    use: 'Backend API, provider-agnostic model runtime, x402 + stablecoin rails, Phase 2 intelligence pipeline',
+    use: 'Backend API, provider-agnostic model runtime, agent orchestration, and the Phase 2 intelligence pipeline',
   },
   {
     allocation: '30% GTM',
@@ -238,11 +264,11 @@ const askRows = [
   },
   {
     allocation: '20% Infrastructure',
-    use: 'Multi-model API costs, cloud, data pipeline, payment and settlement infrastructure',
+    use: 'Multi-model API costs, cloud, data pipeline, and analytics infrastructure',
   },
   {
     allocation: '10% Legal / Web3 R&D',
-    use: 'ERC8004 architecture prep, compliance groundwork',
+    use: 'ERC8004 trust-layer architecture prep and compliance groundwork',
   },
 ];
 
@@ -631,39 +657,39 @@ const PitchDeckPage = () => {
         <SlideShell
           id="slide-1"
           index={1}
-          title="AI search has replaced Google. The creator economy has replaced brand marketing."
-          subtitle="Most businesses are losing on both fronts and do not know it."
+          title="AI now decides who gets found. Most businesses have no system to change that."
+          subtitle="Discovery and execution have both shifted. GeoCompanion starts by fixing both and becomes the intelligence layer that tells businesses where to go next."
         >
           <div className="grid gap-6 lg:grid-cols-[1.3fr,1fr]">
             <div className="deck-card rounded-3xl p-7 sm:p-9">
               <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-emerald-300/35 bg-emerald-300/10 px-4 py-2">
                 <GeoCompanionMark size={28} />
-                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100">Super Intelligence Layer</span>
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100">Enterprise Strategic Intelligence Platform</span>
               </div>
               <p className="text-sm uppercase tracking-[0.16em] text-slate-400">What we do</p>
               <p className="mt-4 text-xl leading-relaxed text-slate-100 sm:text-2xl">
-                GeoCompanion.ai makes you visible to AI search engines and builds your social content system.
+                GeoCompanion starts by helping businesses get cited by AI search engines and build platform-native content that wins attention.
               </p>
               <p className="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
-                One platform, built for the era where AI agents run marketing.
+                Over time, it becomes the Enterprise Strategic Intelligence Platform that tells businesses where their market is going, what to build next, and which verified agents can execute that vision. One workflow from diagnosis to execution, built for an AI-shaped world.
               </p>
             </div>
 
             <div className="space-y-4">
               <div className="deck-card deck-hero-ring rounded-2xl p-5">
-                <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Platform Loop</p>
+                <p className="text-xs uppercase tracking-[0.14em] text-slate-400">The Three-Pillar Destination</p>
                 <div className="mt-4 grid gap-2 text-sm text-slate-200">
-                  <p className="flex items-center gap-2"><Radar className="h-4 w-4 text-emerald-300" /> Diagnose AI visibility gaps</p>
-                  <p className="flex items-center gap-2"><Bot className="h-4 w-4 text-cyan-300" /> Generate platform-native content</p>
-                  <p className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-emerald-200" /> Rank agents by verified outcomes</p>
+                  <p className="flex items-center gap-2"><Radar className="h-4 w-4 text-emerald-300" /> Enterprise Strategic Intelligence: vision, market positioning, and predictive analytics</p>
+                  <p className="flex items-center gap-2"><Bot className="h-4 w-4 text-cyan-300" /> AI Agent Marketplace: agents ranked by verified outcome data, not claims</p>
+                  <p className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-emerald-200" /> On-Chain Trust Layer: immutable performance attestation via ERC8004</p>
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { icon: <BarChart3 className="h-4 w-4 text-emerald-200" />, label: 'AI Search', value: 'GEO' },
-                  { icon: <Sparkles className="h-4 w-4 text-cyan-200" />, label: 'Content', value: 'Vibe' },
-                  { icon: <Coins className="h-4 w-4 text-teal-200" />, label: 'Agents', value: 'x402' },
+                  { icon: <Sparkles className="h-4 w-4 text-emerald-200" />, label: 'Today', value: 'GEO + Vibe Marketing' },
+                  { icon: <BarChart3 className="h-4 w-4 text-cyan-200" />, label: 'Phase 1-3', value: 'Enterprise Intelligence' },
+                  { icon: <Coins className="h-4 w-4 text-teal-200" />, label: 'Phase 4-5', value: 'Agent Marketplace + Trust' },
                 ].map((item) => (
                   <div key={item.label} className="deck-card rounded-xl p-3">
                     <div>{item.icon}</div>
@@ -680,13 +706,13 @@ const PitchDeckPage = () => {
           </p>
         </SlideShell>
 
-        <SlideShell id="slide-2" index={2} title="The Problem" subtitle="Two things broke at the same time.">
+        <SlideShell id="slide-2" index={2} title="The Problem" subtitle="Discovery got harder. Content execution stayed expensive and fragmented.">
           <div className="grid gap-4 md:grid-cols-4">
             {[
-              { label: 'AI Retrieval Shift', value: '60%+', note: 'Information retrieval handled by generative AI' },
-              { label: 'Referral Shock', value: '+752%', note: 'YoY AI-driven e-commerce referral surge' },
+              { label: 'AI Search Shift', value: '58%', note: 'Consumers using GenAI tools instead of traditional search for recommendations' },
+              { label: 'AI Commerce Traffic', value: '+1,300%', note: 'Holiday-season traffic from AI sources to U.S. retail sites' },
               { label: 'Creator Economy', value: '$214B', note: 'Authentic creator-native content now leads' },
-              { label: 'Execution Cost', value: '$850K-$1.2M', note: 'Annual cost for 12-18 person content ops' },
+              { label: 'Execution Cost', value: '$850K-$1.2M', note: 'Estimated annual cost of a 12-18 person in-house content operation' },
             ].map((item) => (
               <article key={item.label} className="deck-card rounded-2xl p-4">
                 <p className="text-[11px] uppercase tracking-[0.12em] text-slate-400">{item.label}</p>
@@ -740,19 +766,25 @@ const PitchDeckPage = () => {
               <div className="rounded-xl border border-emerald-300/35 bg-emerald-300/10 p-4 text-sm font-medium text-emerald-50">GeoCompanion connects diagnosis, execution, and compounding outcomes.</div>
             </div>
           </div>
+
+          <SlideFootnotes
+            items={[
+              { label: 'Source: Capgemini Research Institute (AI search shift)', href: 'https://www.capgemini.com/insights/research-library/what-matters-to-todays-consumer-2025/' },
+              { label: 'Source: Adobe Analytics (AI commerce traffic)', href: 'https://news.adobe.com/news/news-details/2025/Adobe-Analytics-Generative-AI-Traffic-to-US-Retail-Sites-Jumps-1300-Percent-over-Holiday-Season/default.aspx' },
+              { label: 'Source: APC salary guide + internal team-cost model', href: 'https://www.apc.org.au/resources/annual-salary-guide/' },
+            ]}
+          />
         </SlideShell>
 
-        <SlideShell id="slide-3" index={3} title="Why Now" subtitle="Three shifts are colliding right now.">
+        <SlideShell id="slide-3" index={3} title="Why Now" subtitle="The category is opening before the stack is settled.">
           <div className="grid gap-5 md:grid-cols-3">
             <article className="deck-card rounded-2xl p-6">
               <div className="mb-3 inline-flex rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-cyan-200">
                 Shift 1
               </div>
-              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">AI search is default</h3>
+              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">AI discovery behavior is changing faster than tooling</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                GEO / AEO is now an emerging infrastructure category, estimated around ~$1B today with a path to
-                $10B+ as AI-answer behavior scales. Competitors raised $200M+ in the last 12 months. Enterprise is
-                spending while SMB and creators are ignored.
+                Buyers are moving toward AI answers and recommendation flows now, but most teams still use SEO and content stacks built for the old web.
               </p>
             </article>
 
@@ -760,10 +792,9 @@ const PitchDeckPage = () => {
               <div className="mb-3 inline-flex rounded-full border border-emerald-300/35 bg-emerald-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-200">
                 Shift 2
               </div>
-              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Agent payments are live</h3>
+              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Budgets are reallocating toward creator-native execution</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                x402 (Coinbase + Cloudflare) launched in September 2025 and processed 15M+ transactions.
-                Infrastructure for autonomous agents paying per query already exists.
+                Teams want content that feels native to each platform, but the tooling market still separates strategy, generation, and measurement into different products.
               </p>
             </article>
 
@@ -771,10 +802,9 @@ const PitchDeckPage = () => {
               <div className="mb-3 inline-flex rounded-full border border-teal-300/35 bg-teal-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-teal-200">
                 Shift 3
               </div>
-              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Vibe beats brand campaigns</h3>
+              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">API and agent infrastructure make a platform play possible</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                Influencer marketing reached $32.55B in 2025 (+35.6% YoY). Lean teams with authentic,
-                platform-native content outperform expensive agencies.
+                Per-call billing, server-side orchestration, and machine-to-machine workflows mean this can become more than a point solution over time.
               </p>
             </article>
           </div>
@@ -783,10 +813,10 @@ const PitchDeckPage = () => {
             <div className="deck-card rounded-2xl p-6">
               <p className="text-sm uppercase tracking-[0.14em] text-emerald-200">Window for GeoCompanion.ai</p>
               <p className="mt-3 text-lg leading-relaxed text-slate-100">
-                Incumbents are locked in enterprise contract structures. The SMB + creator + agent-native layer is open.
+                Incumbents skew enterprise and reporting-first. The SMB, creator, and agent-native layer is still underbuilt.
               </p>
               <div className="mt-4 rounded-xl border border-emerald-300/35 bg-emerald-300/10 p-4 text-sm leading-relaxed text-emerald-50">
-                Timing advantage: category budgets are forming now, before long-tail market share is locked.
+                Timing advantage: this is early enough to define the workflow, not just compete inside an established one.
               </div>
             </div>
 
@@ -802,12 +832,12 @@ const PitchDeckPage = () => {
                   <p className="mt-1 text-xs leading-relaxed text-slate-300">Enterprise AI visibility measurement and optimization platform.</p>
                 </div>
               </div>
-              <p className="mt-3 text-xs uppercase tracking-[0.1em] text-emerald-200">$12K-$36K+/year contract orientation</p>
+              <p className="mt-3 text-xs uppercase tracking-[0.1em] text-emerald-200">Reporting-first tools. Enterprise contract orientation.</p>
             </div>
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-4" index={4} title="What Is Live Today" subtitle="Two tools. One session. URL to action plan.">
+        <SlideShell id="slide-4" index={4} title="Our Solution" subtitle="Two engines, one workflow, one prioritized action plan.">
           <div className="grid gap-5 lg:grid-cols-[1.1fr,1fr]">
             <article className="deck-card rounded-2xl p-6">
               <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">Left side: Inputs and processing</p>
@@ -851,7 +881,7 @@ const PitchDeckPage = () => {
                 {[
                   { source: 'From GEO Audit', title: 'Visibility Package', bullets: ['GEO scorecard + EEAT breakdown', 'Citation-share competitor view', 'Schema + CTA rewrite suggestions'] },
                   { source: 'From Vibe Engine', title: 'Content Package', bullets: ['9 hook-pattern campaign planning', 'Platform-native formatting', 'Voice-consistent generation'] },
-                  { source: 'Combined Output', title: 'Action Package', bullets: ['One prioritized backlog to execute now', 'Clear ownership across marketing workflows', 'Pricing: beta free, then starter under $10/month + agent pay-per-call'] },
+                  { source: 'Combined Output', title: 'Action Package', bullets: ['One prioritized backlog to execute now', 'Clear ownership across marketing workflows', 'Pricing: beta free, then starter under $10/month with premium tiers later'] },
                 ].map((block) => (
                   <div key={block.title} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
                     <p className="text-[10px] uppercase tracking-[0.12em] text-emerald-200">{block.source}</p>
@@ -879,8 +909,8 @@ const PitchDeckPage = () => {
         <SlideShell
           id="slide-5"
           index={5}
-          title="Why Every Competitor Is Half an Answer"
-          subtitle="Serious money is in the GEO category. Each winner is good at one thing."
+          title="Why We’re Different"
+          subtitle="Others either diagnose or create. We do both, and connect the loop."
         >
           <div className="deck-card overflow-x-auto rounded-2xl">
             <table className="deck-table min-w-[900px]">
@@ -914,7 +944,7 @@ const PitchDeckPage = () => {
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
               'GEO + content execution in one product.',
-              'Agent-queryable API with pay-per-call billing (fractional-dollar calls).',
+              'Agent-queryable API and ranking layer built on proprietary outcome data.',
               'Verifiable agent performance for enterprise trust.',
             ].map((gap, idx) => (
               <div key={gap} className="deck-card rounded-xl p-5">
@@ -926,194 +956,282 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-lg leading-relaxed text-slate-100">
-              Others provide tools. We provide an operating system for AI-era growth.
+              Others either diagnose or create. We do both, and connect the loop.
             </p>
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-6" index={6} title="Where We Are Going" subtitle="GEO + Vibe gets us in the door. We are building the foundational intelligence layer for businesses and autonomous agents.">
+        <SlideShell id="slide-6" index={6} title="Platform Vision" subtitle="Start with diagnosis and execution. Expand into intelligence, agents, and verified trust.">
           <div className="deck-card rounded-2xl p-6">
-            <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">Step-by-step build path</p>
-            <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {[
-                {
-                  step: 'Step 1',
-                  phase: 'Today',
-                  title: 'Ship GEO + Vibe',
-                  desc: 'Run audits and campaigns; collect real outcome data from every session.',
-                  icon: <Rocket className="h-4 w-4 text-emerald-300" aria-hidden="true" />,
-                },
-                {
-                  step: 'Step 2',
-                  phase: 'Phase 1',
-                  title: 'Open agent API',
-                  desc: 'Move intelligence server-side so autonomous agents can query and pay per call.',
-                  icon: <Server className="h-4 w-4 text-cyan-300" aria-hidden="true" />,
-                },
-                {
-                  step: 'Step 3',
-                  phase: 'Phase 2-3',
-                  title: 'Continuous intelligence',
-                  desc: 'Track competitors and white-space opportunities in real time.',
-                  icon: <Activity className="h-4 w-4 text-teal-300" aria-hidden="true" />,
-                },
-                {
-                  step: 'Step 4',
-                  phase: 'Phase 4-5',
-                  title: 'Verified marketplace',
-                  desc: 'Rank agents by ERC8004 performance so enterprise can select winners.',
-                  icon: <ShieldCheck className="h-4 w-4 text-emerald-200" aria-hidden="true" />,
-                },
-              ].map((item) => (
-                <article key={item.step} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] uppercase tracking-[0.12em] text-slate-400">{item.step}</span>
-                    {item.icon}
-                  </div>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-emerald-200">{item.phase}</p>
-                  <p className="mt-1 font-['Space_Grotesk'] text-lg font-semibold text-white">{item.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.desc}</p>
-                </article>
-              ))}
+            <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">Why the marketing tool creates a moat no intelligence platform can replicate</p>
+            <div className="mt-4 grid gap-4 lg:grid-cols-[1.2fr,0.8fr]">
+              <div className="rounded-xl border border-emerald-300/35 bg-emerald-300/10 p-5">
+                <p className="text-lg leading-relaxed text-emerald-50">
+                  Every GEO audit tells us what AI engines are citing and why. Every campaign tells us which content
+                  patterns drive real results by platform and industry. That outcome data is the training signal for
+                  our agent ranking model.
+                </p>
+              </div>
+              <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-5">
+                <p className="text-sm leading-relaxed text-slate-200">
+                  When we launch the Agent Marketplace, agents compete on verified performance history, not claims.
+                  No one can buy their way to the top. That data asset compounds with every workflow we run today,
+                  and it cannot be replicated by a competitor starting from scratch.
+                </p>
+              </div>
             </div>
           </div>
 
           <div className="deck-card mt-5 rounded-2xl p-6">
-            <div className="flex flex-col gap-5 xl:flex-row xl:items-center">
-              <div className="xl:w-[42%]">
-                <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">A2A routing model</p>
-                <h3 className="mt-2 font-['Space_Grotesk'] text-2xl font-semibold text-white">Personal agent to public agent, routed by context.</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  GeoCompanion fits directly into A2A workflows: a private personal agent sends context, our router finds the best
-                  public agent, and execution runs on cloud-deployed agent profiles tuned by hook-weight combinations.
-                </p>
-                <div className="mt-4 grid gap-2 text-xs text-slate-300 sm:grid-cols-3">
-                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 px-3 py-2">Private inputs: platform, product, industry</div>
-                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 px-3 py-2">Router picks the highest-fit public agent</div>
-                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 px-3 py-2">Best outcome feeds back into ranking and weights</div>
-                </div>
-              </div>
+            <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">Step-by-step build path</p>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {buildPathRows.map((item, idx) => {
+                const icon = [
+                  <Rocket className="h-4 w-4 text-emerald-300" aria-hidden="true" />,
+                  <Server className="h-4 w-4 text-cyan-300" aria-hidden="true" />,
+                  <Activity className="h-4 w-4 text-teal-300" aria-hidden="true" />,
+                ][idx];
 
-              <div className="grid flex-1 gap-4 lg:grid-cols-[0.92fr,0.72fr,1.4fr] lg:items-center">
-                <div className="rounded-2xl border border-cyan-300/30 bg-cyan-300/10 p-4">
-                  <p className="text-[10px] uppercase tracking-[0.14em] text-cyan-200">Personal agent</p>
-                  <div className="mt-3 flex items-center gap-3">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-cyan-200/30 bg-slate-950/80">
-                      <Bot className="h-7 w-7 text-cyan-200" aria-hidden="true" />
-                    </div>
-                    <div className="text-xs text-slate-200">
-                      <p className="font-semibold uppercase tracking-[0.1em] text-white">Private context</p>
-                      <p className="mt-1">TikTok</p>
-                      <p>Skincare launch</p>
-                      <p>Beauty / DTC</p>
-                    </div>
+                return (
+                <article key={item.phase} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] uppercase tracking-[0.12em] text-slate-400">{item.phase}</span>
+                    {icon}
                   </div>
-                </div>
-
-                <div className="rounded-2xl border border-emerald-300/30 bg-emerald-300/10 p-4 text-center">
-                  <p className="text-[10px] uppercase tracking-[0.14em] text-emerald-200">GeoCompanion router</p>
-                  <div className="mt-3 flex items-center justify-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-[1.15rem] border border-emerald-200/30 bg-slate-950/80">
-                      <Server className="h-7 w-7 text-emerald-200" aria-hidden="true" />
-                    </div>
-                  </div>
-                  <p className="mt-3 text-xs leading-relaxed text-slate-200">Scores hook-fit, cloud availability, and ERC8004 performance.</p>
-                </div>
-
-                <div className="grid gap-3 md:grid-cols-2">
-                  <PublicAgentCard
-                    name="Alice"
-                    cloud="AWS"
-                    context="Public agent profile composed from multiple hook weights for a specific content style."
-                    accent="text-emerald-200"
-                    hooks={[
-                      { label: 'Contrast hook', weight: 0.3, tone: 'from-emerald-400 to-emerald-300' },
-                      { label: 'Humble flex', weight: 0.35, tone: 'from-cyan-400 to-cyan-300' },
-                      { label: 'Curiosity gap', weight: 0.2, tone: 'from-teal-400 to-teal-300' },
-                      { label: 'Soft CTA', weight: 0.15, tone: 'from-slate-300 to-slate-200' },
-                    ]}
-                  />
-                  <PublicAgentCard
-                    name="Bob"
-                    cloud="GCP"
-                    context="Another public agent with a different hook distribution and ranking history."
-                    accent="text-cyan-200"
-                    hooks={[
-                      { label: 'Humble flex', weight: 0.2, tone: 'from-cyan-400 to-cyan-300' },
-                      { label: 'Hot take', weight: 0.4, tone: 'from-emerald-400 to-emerald-300' },
-                      { label: 'Proof stack', weight: 0.25, tone: 'from-teal-400 to-teal-300' },
-                      { label: 'Authority cue', weight: 0.15, tone: 'from-slate-300 to-slate-200' },
-                    ]}
-                  />
-                </div>
-              </div>
+                  <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-emerald-200">{item.when}</p>
+                  <p className="mt-1 font-['Space_Grotesk'] text-lg font-semibold text-white">{item.ships}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.target}</p>
+                </article>
+                );
+              })}
             </div>
           </div>
 
-          <div className="mt-5 grid gap-4 lg:grid-cols-2">
-            <article className="deck-card rounded-2xl p-6">
-              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Hook Intelligence</h3>
-              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
-                <li>- Hooks are algorithmic patterns that drive distribution and engagement.</li>
-                <li>- Each public agent is a weighted basket of hooks, not a single-hook identity.</li>
-                <li>- Teams can use marketplace agents or deploy custom hook-weight agents for their exact context.</li>
-              </ul>
-            </article>
-
-            <article className="deck-card rounded-2xl p-6">
-              <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">Why The A2A Fit Matters</h3>
-              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
-                <li>- Personal agents keep user context private and only request the best matching public agent.</li>
-                <li>- Public agents run on cloud infrastructure like AWS or GCP and expose a clean agent-to-agent surface.</li>
-                <li>- Outcomes feed back into ranking, so routing quality and hook weights improve every cycle.</li>
-              </ul>
-            </article>
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
+            {[
+              ['Training signal', 'Each audit and campaign adds the ranking data that improves which agent wins future jobs.'],
+              ['Enterprise intelligence', 'The next layer is continuous decision support, not just another dashboard or one-off report.'],
+              ['Verified trust', 'The marketplace only works if enterprise buyers can audit real performance history before they trust an agent.'],
+            ].map(([title, body]) => (
+              <article key={title} className="deck-card rounded-2xl p-5">
+                <h3 className="font-['Space_Grotesk'] text-lg font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{body}</p>
+              </article>
+            ))}
           </div>
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-slate-200">
-              Compounding model: Phase 0 outcome data improves Phase 2 intelligence. Better intelligence improves Phase 4 marketplace ranking and enterprise results.
+              Phase 0 is intentional. The app generates the proprietary training signal that makes Phase 1 routing defensible. We are not pivoting to infra; we are building toward it with every workflow we run today.
             </p>
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-7" index={7} title="How It Is Built" subtitle="Designed for A2A traffic and cloud-deployed public agents from day one.">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <SlideShell id="slide-7" index={7} title="How the Agent Marketplace Works" subtitle="Private context in, best-fit public agent out.">
+          <div className="deck-card rounded-2xl p-6">
+            <div className="grid gap-6 lg:grid-cols-[0.92fr,1.18fr]">
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">Agent marketplace routing</p>
+                <h3 className="mt-2 font-['Space_Grotesk'] text-2xl font-semibold text-white">Personal agent to public agent, routed by context.</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  Agents compete on results, not on marketing. A brand sends context, platform, industry, and objective.
+                  GeoCompanion's ranking layer selects the best agent by verified hook performance, platform fit, and
+                  outcome history. That history lives on-chain so enterprise buyers can audit it. Public agents run on
+                  AWS or GCP, and the ranking improves with every campaign run through the platform.
+                </p>
+                <div className="mt-5 space-y-3 text-sm text-slate-300">
+                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                    <p className="text-[10px] uppercase tracking-[0.12em] text-cyan-200">1. Personal agent</p>
+                    <p className="mt-1">Sends private context: platform, product, industry, and objective.</p>
+                  </div>
+                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                    <p className="text-[10px] uppercase tracking-[0.12em] text-emerald-200">2. GeoCompanion router</p>
+                    <p className="mt-1">Selects the best public agent using verified hook performance, platform fit, and outcome history.</p>
+                  </div>
+                  <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                    <p className="text-[10px] uppercase tracking-[0.12em] text-teal-200">3. Public agent</p>
+                    <p className="mt-1">Executes with a weighted hook profile and feeds outcomes back into the ranking loop.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
+                  <p className="text-[10px] uppercase tracking-[0.14em] text-slate-400">Request flow</p>
+                  <div className="mt-4 grid gap-3 md:grid-cols-3">
+                    <div className="rounded-xl border border-cyan-300/30 bg-cyan-300/10 p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-200/30 bg-slate-950/80">
+                          <Bot className="h-5 w-5 text-cyan-200" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] uppercase tracking-[0.12em] text-cyan-200">Personal agent</p>
+                          <p className="text-sm font-semibold text-white">Private context</p>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-xs leading-relaxed text-slate-200">TikTok, skincare launch, beauty / DTC.</p>
+                    </div>
+
+                    <div className="rounded-xl border border-emerald-300/30 bg-emerald-300/10 p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-emerald-200/30 bg-slate-950/80">
+                          <Server className="h-5 w-5 text-emerald-200" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] uppercase tracking-[0.12em] text-emerald-200">GeoCompanion</p>
+                          <p className="text-sm font-semibold text-white">Routing layer</p>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-xs leading-relaxed text-slate-200">Scores hook fit, availability, and performance.</p>
+                    </div>
+
+                    <div className="rounded-xl border border-teal-300/30 bg-teal-300/10 p-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-teal-200/30 bg-slate-950/80">
+                          <ShieldCheck className="h-5 w-5 text-teal-200" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <p className="text-[10px] uppercase tracking-[0.12em] text-teal-200">Public agent layer</p>
+                          <p className="text-sm font-semibold text-white">Marketplace agents</p>
+                        </div>
+                      </div>
+                      <p className="mt-3 text-xs leading-relaxed text-slate-200">AWS / GCP deployed agents with different hook mixes.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-700/70 bg-slate-950/45 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.14em] text-slate-400">Public agent examples</p>
+                      <p className="mt-1 text-sm text-slate-300">Each agent mixes several hook patterns at different weights, like a recipe for tone and structure.</p>
+                    </div>
+                    <p className="text-[10px] uppercase tracking-[0.14em] text-emerald-200">Cloud-deployed</p>
+                  </div>
+                  <div className="mt-4 grid gap-3 md:grid-cols-2">
+                    <PublicAgentCard
+                      name="Alice"
+                      cloud="AWS"
+                      context="Weighted for contrast-led product storytelling."
+                      accent="text-emerald-200"
+                      hooks={[
+                        { label: 'Contrast hook', weight: 0.3, tone: 'from-emerald-400 to-emerald-300' },
+                        { label: 'Humble flex', weight: 0.35, tone: 'from-cyan-400 to-cyan-300' },
+                        { label: 'Curiosity gap', weight: 0.2, tone: 'from-teal-400 to-teal-300' },
+                        { label: 'Soft CTA', weight: 0.15, tone: 'from-slate-300 to-slate-200' },
+                      ]}
+                    />
+                    <PublicAgentCard
+                      name="Bob"
+                      cloud="GCP"
+                      context="Weighted for sharper opinion-led campaign framing."
+                      accent="text-cyan-200"
+                      hooks={[
+                        { label: 'Humble flex', weight: 0.2, tone: 'from-cyan-400 to-cyan-300' },
+                        { label: 'Hot take', weight: 0.4, tone: 'from-emerald-400 to-emerald-300' },
+                        { label: 'Proof stack', weight: 0.25, tone: 'from-teal-400 to-teal-300' },
+                        { label: 'Authority cue', weight: 0.15, tone: 'from-slate-300 to-slate-200' },
+                      ]}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
-              {
-                title: 'Structured outputs (live)',
-                body: 'Our model layer is constrained to strict JSON contracts for consistent rendering and stable UI.',
-              },
-              {
-                title: 'Prompts-as-Skills',
-                body: 'AI logic in Markdown/JSON skill files so viral patterns can update without redeployment.',
-              },
-              {
-                title: 'Cloud public agents',
-                body: 'Public agents run as cloud workloads on AWS or GCP, each with its own hook-weight profile and runtime configuration.',
-              },
-              {
-                title: 'Agentic API (Phase 1)',
-                body: 'Stable REST endpoints for agent-to-agent consumption so personal agents can query, route, and pay per call.',
-              },
-              {
-                title: 'Routing + ranking engine',
-                body: 'Context-aware routing selects the best public agent by hook fit, measured outcomes, and ERC8004-linked credit.',
-              },
-              {
-                title: 'Verification + settlement',
-                body: 'x402, stablecoin-ready rails, and ERC8004 proof trails support machine payments plus verifiable agent performance.',
-              },
-            ].map((item) => (
-              <article key={item.title} className="deck-card rounded-2xl p-5">
-                <h3 className="font-['Space_Grotesk'] text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.body}</p>
+              ['Weighted agents', 'Each public agent is a weighted basket of hooks, not a single-hook identity. In plain English: each agent blends several messaging patterns in different proportions, like a recipe tuned to a brand context.'],
+              ['Cloud-native layer', 'Public agents run on AWS or GCP while personal agents keep private context local.'],
+              ['Compounding loop', 'Measured outcomes improve routing quality, ranking history, and future hook weights.'],
+            ].map(([title, body]) => (
+              <article key={title} className="deck-card rounded-2xl p-5">
+                <h3 className="font-['Space_Grotesk'] text-lg font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{body}</p>
               </article>
             ))}
           </div>
+
+          <div className="deck-card mt-5 rounded-2xl p-6">
+            <p className="text-sm leading-relaxed text-slate-200">
+              The on-chain layer (ERC8004) is a trust primitive, not a payment mechanism. Billing stays on fiat throughout.
+              The chain provides immutable performance attestation that enterprise buyers require before trusting autonomous
+              agents with their brand.
+            </p>
+          </div>
         </SlideShell>
 
-        <SlideShell id="slide-8" index={8} title="Market Size" subtitle="At the intersection of three fast-growing markets.">
+        <SlideShell id="slide-8" index={8} title="Early Signal" subtitle="Pre-revenue for now. Here is the signal we are building toward.">
+          <div className="grid gap-4 md:grid-cols-4">
+            {[
+              { label: 'Product Status', value: 'Live in beta', icon: <Users className="h-4 w-4 text-emerald-200" aria-hidden="true" /> },
+              { label: 'Design Partners', value: 'Recruiting first 3', icon: <Search className="h-4 w-4 text-cyan-200" aria-hidden="true" /> },
+              { label: 'Enterprise Access', value: 'Warm intros open', icon: <BarChart3 className="h-4 w-4 text-teal-200" aria-hidden="true" /> },
+              { label: 'Paid Launch', value: 'Post-beta conversion proof', icon: <DollarSign className="h-4 w-4 text-emerald-100" aria-hidden="true" /> },
+            ].map((kpi) => (
+              <article key={kpi.label} className="deck-card rounded-2xl p-5">
+                <div>{kpi.icon}</div>
+                <p className="mt-3 text-[11px] uppercase tracking-[0.13em] text-slate-400">{kpi.label}</p>
+                <p className="mt-1 font-['Space_Grotesk'] text-3xl font-semibold text-white">{kpi.value}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-5 grid gap-5 lg:grid-cols-[1.05fr,1fr]">
+            <article className="deck-card rounded-2xl p-6">
+              <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">Why we are raising before revenue</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                We are live in beta and focused on proving one core behavior before we charge at scale: brands that run
+                a GEO audit should naturally pull through to content execution in the same workflow.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                That diagnosis-to-execution conversion rate is the right early signal for this business. If the loop holds,
+                it validates retention, pricing power, and the long-term routing model.
+              </p>
+              <div className="mt-4 rounded-xl border border-emerald-300/35 bg-emerald-300/10 p-4 text-sm leading-relaxed text-emerald-100">
+                This round funds distribution and partner acquisition so we can prove the loop at volume, then turn the
+                strongest cohort into paid usage.
+              </div>
+            </article>
+
+            <article className="deck-card rounded-2xl p-6">
+              <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">Owned distribution channels</h3>
+              <div className="mt-4 grid gap-3">
+                {[
+                  {
+                    title: 'Enterprise',
+                    desc: 'Relationship-led access through Austin’s network around LayerZero, Sei, and Xiaomi.',
+                    target: 'Target: 3 signed design partners by Month 3, 5 paid pilots by Month 6',
+                    icon: <Building2 className="h-4 w-4 text-cyan-200" aria-hidden="true" />,
+                  },
+                  {
+                    title: 'Creators',
+                    desc: 'Warm network activation through creator onboarding and early campaign partnerships.',
+                    target: 'Target: 10 active campaigns in the first 60 days',
+                    icon: <Users className="h-4 w-4 text-emerald-200" aria-hidden="true" />,
+                  },
+                  {
+                    title: 'Agencies',
+                    desc: 'White-label GEO reports create expandable multi-client revenue.',
+                    target: 'Target: 2 agency contracts in the first 90 days',
+                    icon: <Handshake className="h-4 w-4 text-teal-200" aria-hidden="true" />,
+                  },
+                ].map((channel) => (
+                  <div key={channel.title} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                    <div className="flex items-center gap-2">
+                      {channel.icon}
+                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-100">{channel.title}</p>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-300">{channel.desc}</p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.1em] text-emerald-200">{channel.target}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </SlideShell>
+
+        <SlideShell id="slide-9" index={9} title="Market Size" subtitle="At the intersection of three fast-growing markets.">
           <div className="deck-card overflow-x-auto rounded-2xl">
             <table className="deck-table min-w-[720px]">
               <thead>
@@ -1170,7 +1288,7 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-9" index={9} title="How We Make Money" subtitle="Three layers, each compounding the previous one.">
+        <SlideShell id="slide-10" index={10} title="Business Model" subtitle="Three layers, each compounding the previous one.">
           <div className="grid gap-5 md:grid-cols-3">
             {[
               {
@@ -1179,7 +1297,7 @@ const PitchDeckPage = () => {
               },
               {
                 title: 'Agent API (Phase 1)',
-                body: 'Pay-per-call billing for autonomous agents via x402 + stablecoin settlement rails, including fractional-dollar calls per request.',
+                body: 'Usage-based API billing for autonomous agents and enterprise workflows, billed in fiat while the trust layer stays separate.',
               },
               {
                 title: 'Marketplace take-rate (Phase 4+)',
@@ -1199,8 +1317,8 @@ const PitchDeckPage = () => {
               <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-300">
                 <li>- Public agents are listed by hook-combination profiles (including different hook weights).</li>
                 <li>- Users may use public agents or deploy custom hook-weight agents.</li>
-                <li>- Personal agents query context (platform A, product B, industry X) and select the best public agent by ERC8004 credit.</li>
-                <li>- Measured outcomes feed back into on-chain credit, continuously improving ranking quality.</li>
+                <li>- Personal agents query context and select the best public agent by verified performance history and brand fit.</li>
+                <li>- Measured outcomes feed back into ranking quality, while ERC8004 stores the trust record buyers can audit.</li>
               </ul>
             </article>
 
@@ -1221,93 +1339,73 @@ const PitchDeckPage = () => {
               outcome verification and trust-layer switching costs.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-slate-300">
-              Payment logic: x402 handles machine-to-machine authorization while stablecoins provide efficient
-              per-call settlement for global agents and low-friction micro-transactions.
+              Billing stays on fiat. The on-chain layer exists to prove performance history and make agent selection
+              auditable for enterprise buyers.
             </p>
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-10" index={10} title="Traction and Growth Plan" subtitle="Insert hard metrics before investor send.">
-          <div className="grid gap-4 md:grid-cols-4">
-            {[
-              { label: 'Registered Users', value: '[X]', icon: <Users className="h-4 w-4 text-emerald-200" aria-hidden="true" /> },
-              { label: 'GEO Audits Run', value: '[X]', icon: <Search className="h-4 w-4 text-cyan-200" aria-hidden="true" /> },
-              { label: 'Campaigns Generated', value: '[X]', icon: <BarChart3 className="h-4 w-4 text-teal-200" aria-hidden="true" /> },
-              { label: 'Paying / MRR', value: '[X] / $[Y]', icon: <DollarSign className="h-4 w-4 text-emerald-100" aria-hidden="true" /> },
-            ].map((kpi) => (
-              <article key={kpi.label} className="deck-card rounded-2xl p-5">
-                <div>{kpi.icon}</div>
-                <p className="mt-3 text-[11px] uppercase tracking-[0.13em] text-slate-400">{kpi.label}</p>
-                <p className="mt-1 font-['Space_Grotesk'] text-3xl font-semibold text-white">{kpi.value}</p>
+        <SlideShell id="slide-11" index={11} title="Flywheel" subtitle="Every workflow improves the next one.">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {flywheelRows.map((item) => (
+              <article key={item.title} className="deck-card rounded-2xl p-5">
+                <div>{item.icon}</div>
+                <h3 className="mt-3 font-['Space_Grotesk'] text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.body}</p>
               </article>
             ))}
           </div>
 
-          <div className="mt-5 grid gap-5 lg:grid-cols-[1.05fr,1fr]">
+          <div className="mt-5 grid gap-5 lg:grid-cols-[1.1fr,1fr]">
             <article className="deck-card rounded-2xl p-6">
-              <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">Current traction narrative</h3>
-              <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-300">
-                <li>- GEO audits completed: [X]</li>
-                <li>- Vibe campaigns generated: [X]</li>
-                <li>- Paying customers: [X] with $[Y] MRR</li>
-                <li>- [Insert one customer story or early signal before investor send]</li>
-              </ul>
-              <div className="mt-4 rounded-xl border border-emerald-300/35 bg-emerald-300/10 p-4 text-sm leading-relaxed text-emerald-100">
-                Core message: we already own the workflow from diagnosis to execution. This round scales distribution and machine-to-machine usage.
+              <p className="text-sm uppercase tracking-[0.14em] text-emerald-200">Compounding loop</p>
+              <p className="mt-3 text-lg leading-relaxed text-slate-100">
+                Better audits drive better content. Better content creates better outcome data. Better outcome data improves future recommendations and routing quality.
+              </p>
+              <div className="mt-4 grid gap-3 md:grid-cols-3">
+                {[
+                  ['Phase 0', 'Own the diagnosis -> execution workflow'],
+                  ['Phase 1', 'Open the loop to agent/API traffic'],
+                  ['Phase 2', 'Turn repeated usage into recurring intelligence'],
+                ].map(([phase, detail]) => (
+                  <div key={phase} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                    <p className="text-[10px] uppercase tracking-[0.12em] text-cyan-200">{phase}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-slate-200">{detail}</p>
+                  </div>
+                ))}
               </div>
             </article>
 
             <article className="deck-card rounded-2xl p-6">
-              <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">Owned distribution channels</h3>
-              <div className="mt-4 grid gap-3">
-                {[
-                  {
-                    title: 'Creators',
-                    desc: 'Warm network activation and creator partnerships.',
-                    target: 'Target: [X] creator partnerships in first 90 days',
-                    icon: <Users className="h-4 w-4 text-emerald-200" aria-hidden="true" />,
-                  },
-                  {
-                    title: 'Enterprise',
-                    desc: 'Austin-led access via LayerZero, Sei, and Xiaomi relationships.',
-                    target: 'Target: 5 signed pilots by month 6',
-                    icon: <Building2 className="h-4 w-4 text-cyan-200" aria-hidden="true" />,
-                  },
-                  {
-                    title: 'Agencies',
-                    desc: 'White-label GEO reports create expandable multi-client revenue.',
-                    target: 'One agency contract unlocks multiple downstream accounts',
-                    icon: <Handshake className="h-4 w-4 text-teal-200" aria-hidden="true" />,
-                  },
-                ].map((channel) => (
-                  <div key={channel.title} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
-                    <div className="flex items-center gap-2">
-                      {channel.icon}
-                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-100">{channel.title}</p>
-                    </div>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-300">{channel.desc}</p>
-                    <p className="mt-2 text-xs uppercase tracking-[0.1em] text-emerald-200">{channel.target}</p>
-                  </div>
-                ))}
+              <p className="text-sm uppercase tracking-[0.14em] text-slate-400">Longer-term upside</p>
+              <div className="mt-4 space-y-3">
+                <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                  <p className="text-sm font-semibold text-slate-100">Marketplace routing</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-300">As machine-to-machine traffic grows, routing and ranking become a monetizable layer.</p>
+                </div>
+                <div className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-4">
+                  <p className="text-sm font-semibold text-slate-100">Verification layer</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-300">ERC8004-style proof can remain part of the long-term trust story for crypto-native or enterprise buyers.</p>
+                </div>
               </div>
             </article>
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-11" index={11} title="The Team" subtitle="Engineering depth, product insight, and distribution in one founding group.">
+        <SlideShell id="slide-12" index={12} title="Team" subtitle="Engineering depth, product insight, and distribution in one founding group.">
           <div className="grid gap-5 lg:grid-cols-3">
             {[
               {
                 name: 'Wilson - Founder & Architect',
-                body: 'Serial technical founder across Web2 and Web3. Built Honeypot Finance from 0 to 1, raised $1.3M VC, and generated ~$1.3M in mechanism-driven NFT sales. Previously Co-Founder/CTO of Antslabor (Top 30 innovative startup in Canada, later acquired), CTO of Cosmostarter, and Senior Software Architect at Mastodon.',
+                body: 'Serial technical founder with two exits. Raised $1.3M in venture capital and generated $1.3M in product revenue at Honeypot Finance. Previously Co-Founder/CTO at Antslabor (acquired; ranked Top 30 most innovative startups in Canada) and Senior Software Architect at Mastodon, one of the largest decentralized social infrastructure projects in production. Brings a rare combination of product engineering depth, agent architecture experience, and prior fundraising across Web2 and Web3.',
               },
               {
                 name: 'Huan - Co-Founder & Product',
-                body: 'Cross-functional background across Web3, AI, and traditional finance. At GeoCompanion, focuses on product strategy and translating technical capability into practical customer use cases.',
+                body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between GEO signal and content execution, the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
               },
               {
                 name: 'Austin - Co-Founder & GTM',
-                body: 'Led partnerships at LayerZero and Sei, secured Xiaomi, and grew a music project to 100M+ organic streams.',
+                body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook GeoCompanion sells to brands. Understands creator economics from both the operator side and the platform side.',
               },
             ].map((member) => (
               <article key={member.name} className="deck-card rounded-2xl p-6">
@@ -1325,54 +1423,11 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        <SlideShell id="slide-12" index={12} title="Roadmap" subtitle="Each phase compounds defensibility and data advantage.">
-          <div className="deck-card rounded-2xl p-6">
-            <p className="text-xs uppercase tracking-[0.14em] text-emerald-200">Roadmap Snapshot</p>
-            <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {roadmapRows.map((row) => (
-                <article key={row.phase} className="rounded-2xl border border-slate-700/70 bg-slate-900/45 p-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="font-['Space_Grotesk'] text-xl font-semibold text-emerald-200">{row.phase}</p>
-                    <span className="rounded-full border border-slate-600 bg-slate-800/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-300">
-                      {row.when}
-                    </span>
-                  </div>
-                  <p className="mt-4 text-sm leading-relaxed text-slate-200">{row.ships}</p>
-                  <div className="mt-4 rounded-lg border border-emerald-300/30 bg-emerald-300/10 px-3 py-2">
-                    <p className="text-[11px] uppercase tracking-[0.1em] text-emerald-100">Target</p>
-                    <p className="mt-1 text-sm font-medium leading-relaxed text-emerald-50">{row.target}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="deck-card mt-5 rounded-2xl p-6">
-            <p className="text-sm leading-relaxed text-slate-200">
-              Phase 0 data trains Phase 2 intelligence. Phase 2 trains Phase 4 ranking. Phase 4 is locked by Phase 5
-              verification. Every step increases moat and copying cost.
-            </p>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {[
-                { label: 'Near-term', value: 'API + first machine-paying usage', icon: <Server className="h-4 w-4 text-cyan-200" aria-hidden="true" /> },
-                { label: 'Mid-term', value: 'Predictive intelligence + enterprise beta depth', icon: <Activity className="h-4 w-4 text-emerald-200" aria-hidden="true" /> },
-                { label: 'Long-term', value: 'Marketplace ranking locked by ERC8004 verification', icon: <ShieldCheck className="h-4 w-4 text-teal-200" aria-hidden="true" /> },
-              ].map((item) => (
-                <div key={item.label} className="rounded-xl border border-slate-700/70 bg-slate-900/45 p-3">
-                  <div>{item.icon}</div>
-                  <p className="mt-2 text-[11px] uppercase tracking-[0.12em] text-slate-400">{item.label}</p>
-                  <p className="text-sm leading-relaxed text-slate-200">{item.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </SlideShell>
-
         <SlideShell
           id="slide-13"
           index={13}
           title="The Ask"
-          subtitle="Raising $[X]M at $[Y]M post-money cap to reach $50K MRR and launch a live agentic API."
+          subtitle="Raising seed capital to reach live Enterprise Intelligence, 5+ enterprise pilots, and $50K MRR."
         >
           <div className="grid gap-5 lg:grid-cols-[1fr,1.12fr]">
             <article className="deck-card rounded-2xl p-6">
@@ -1419,7 +1474,7 @@ const PitchDeckPage = () => {
               <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">Round outcome targets</h3>
               <div className="mt-4 grid gap-3 sm:grid-cols-3">
                 {[
-                  { title: 'API Revenue', value: 'Live', detail: 'First machine-paying customers', icon: <Rocket className="h-4 w-4 text-emerald-300" aria-hidden="true" /> },
+                  { title: 'Enterprise Intelligence', value: 'Live', detail: 'Commercial intelligence layer in market', icon: <Rocket className="h-4 w-4 text-emerald-300" aria-hidden="true" /> },
                   { title: 'Enterprise', value: '5+', detail: 'Pilots into Phase 3 pipeline', icon: <Building2 className="h-4 w-4 text-cyan-300" aria-hidden="true" /> },
                   { title: 'MRR', value: '$50K', detail: 'Clear Series A narrative', icon: <CheckCircle2 className="h-4 w-4 text-teal-300" aria-hidden="true" /> },
                 ].map((item) => (
@@ -1441,9 +1496,9 @@ const PitchDeckPage = () => {
           <div className="mt-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.12em] text-slate-400">
             <span className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1">
               <Sparkles className="h-3.5 w-3.5 text-emerald-300" aria-hidden="true" />
-              Deck ready for investor review
+              Pre-final investor deck
             </span>
-            <span className="inline-flex rounded-full border border-slate-700 px-3 py-1">Replace all [INSERT] values before send</span>
+            <span className="inline-flex rounded-full border border-slate-700 px-3 py-1">Round size and valuation to finalize</span>
           </div>
         </SlideShell>
       </main>
