@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download, ChevronDown, Sparkles, Radar, Bot, ShieldCheck, BarChart3, Coins, Users, Search, DollarSign, Building2, Handshake, Rocket, Target, Activity, Wallet, Cpu, Server, CheckCircle2 } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import wilsonImage from './team/wilson_image_optimized.jpg';
+import huanImage from './team/huan_image.jpg';
+import austinImage from './team/Austin_image_optimized.jpg';
 
 type SlideShellProps = {
   id: string;
@@ -92,6 +95,15 @@ type PublicAgentCardProps = {
   hooks: HookWeight[];
 };
 
+type TeamMember = {
+  name: string;
+  role: string;
+  photo: string;
+  photoAlt: string;
+  photoPosition: string;
+  body: string;
+};
+
 const HookWeightBar = ({ label, weight, tone }: HookWeight) => (
   <div>
     <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-300">
@@ -124,6 +136,57 @@ const PublicAgentCard = ({ name, cloud, context, accent, hooks }: PublicAgentCar
     </div>
   </article>
 );
+
+const teamMembers: TeamMember[] = [
+  {
+    name: 'Wilson',
+    role: 'Founder & Architect',
+    photo: wilsonImage,
+    photoAlt: 'Portrait of Wilson',
+    photoPosition: 'center 18%',
+    body: 'Serial technical founder with two exits. Raised $1.3M in venture capital and generated $1.3M in product revenue at Honeypot Finance. Previously Co-Founder/CTO at Antslabor (acquired; ranked Top 30 most innovative startups in Canada) and Senior Software Architect at Mastodon, one of the largest decentralized social infrastructure projects in production. Brings a rare combination of product engineering depth, agent architecture experience, and prior fundraising across Web2 and Web3.',
+  },
+  {
+    name: 'Huan',
+    role: 'Co-Founder & Product',
+    photo: huanImage,
+    photoAlt: 'Portrait of Huan',
+    photoPosition: 'center 20%',
+    body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between GEO signal and content execution, the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
+  },
+  {
+    name: 'Austin',
+    role: 'Co-Founder & GTM',
+    photo: austinImage,
+    photoAlt: 'Portrait of Austin',
+    photoPosition: 'center 16%',
+    body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook GeoCompanion sells to brands. Understands creator economics from both the operator side and the platform side.',
+  },
+];
+
+const TeamAvatar = ({ member }: { member: TeamMember }) => {
+  const initials = member.name.slice(0, 1);
+
+  return (
+    <div className="relative h-36 w-28 shrink-0 overflow-hidden rounded-[1.5rem] border border-slate-700/80 bg-slate-900 shadow-[0_20px_44px_rgba(15,23,42,0.34)] ring-1 ring-white/5">
+      <img
+        src={member.photo}
+        alt={member.photoAlt}
+        className="h-full w-full object-cover"
+        style={{ objectPosition: member.photoPosition }}
+        loading="lazy"
+        onError={(event) => {
+          event.currentTarget.style.display = 'none';
+          const fallback = event.currentTarget.nextElementSibling as HTMLDivElement | null;
+          if (fallback) fallback.style.display = 'flex';
+        }}
+      />
+      <div className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-emerald-400/20 via-cyan-400/10 to-slate-950 text-2xl font-semibold text-white">
+        {initials}
+      </div>
+    </div>
+  );
+};
 
 const competitorRows = [
   {
@@ -1394,23 +1457,19 @@ const PitchDeckPage = () => {
 
         <SlideShell id="slide-12" index={12} title="Team" subtitle="Engineering depth, product insight, and distribution in one founding group.">
           <div className="grid gap-5 lg:grid-cols-3">
-            {[
-              {
-                name: 'Wilson - Founder & Architect',
-                body: 'Serial technical founder with two exits. Raised $1.3M in venture capital and generated $1.3M in product revenue at Honeypot Finance. Previously Co-Founder/CTO at Antslabor (acquired; ranked Top 30 most innovative startups in Canada) and Senior Software Architect at Mastodon, one of the largest decentralized social infrastructure projects in production. Brings a rare combination of product engineering depth, agent architecture experience, and prior fundraising across Web2 and Web3.',
-              },
-              {
-                name: 'Huan - Co-Founder & Product',
-                body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between GEO signal and content execution, the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
-              },
-              {
-                name: 'Austin - Co-Founder & GTM',
-                body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook GeoCompanion sells to brands. Understands creator economics from both the operator side and the platform side.',
-              },
-            ].map((member) => (
-              <article key={member.name} className="deck-card rounded-2xl p-6">
-                <h3 className="font-['Space_Grotesk'] text-xl font-semibold text-white">{member.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">{member.body}</p>
+            {teamMembers.map((member) => (
+              <article key={member.name} className="deck-card flex h-full flex-col rounded-2xl p-5">
+                <div className="flex items-start gap-4">
+                  <TeamAvatar member={member} />
+                  <div>
+                    <h3 className="font-['Space_Grotesk'] text-2xl font-semibold text-white">{member.name}</h3>
+                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-200">{member.role}</p>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-[13px] leading-relaxed text-slate-300">
+                  {member.body}
+                </p>
               </article>
             ))}
           </div>
