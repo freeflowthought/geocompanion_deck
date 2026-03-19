@@ -1023,8 +1023,9 @@ const PitchDeckPage = () => {
             <article className="lg:col-span-6 space-y-6">
               <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform rotate-1">
                 <p className="deck-mono text-[10px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-4">The Output</p>
-                <h3 className="text-2xl font-bold mb-4 text-ink">The "Prioritized Action Plan"</h3>
-                <p className="text-ink leading-relaxed font-medium">We don't just dump data. GeoCompanion produces a single backlog of high-impact moves across SEO, AI citation, and social content.</p>
+                <h3 className="text-2xl font-bold mb-4 text-ink">The API-Ready Action Plan</h3>
+                <p className="text-ink leading-relaxed font-medium mb-3">We don't just dump data. GeoCompanion produces a single backlog of high-impact moves across SEO, AI citation, and social content.</p>
+                <p className="text-ink leading-relaxed font-medium italic">We keep the core product simple. Teams can act on the workflow today, while future API access lets partners build richer wrappers without turning GeoCompanion into a bloated all-in-one app.</p>
                 <div className="mt-8 flex items-center gap-4">
                    <div className="h-px flex-1 bg-ink/10" />
                    <div className="text-[10px] deck-mono text-sage/95 font-medium italic">AUTOMATED WORKFLOW</div>
@@ -1085,7 +1086,7 @@ const PitchDeckPage = () => {
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
               'GEO + content execution in one product.',
-              'Agent-queryable API and ranking layer built on proprietary outcome data.',
+              'API layer built on proprietary outcome data.',
               'Verifiable agent performance for enterprise trust.',
             ].map((gap, idx) => (
               <div key={gap} className="bg-hull border border-ink/10 shadow-brutalist p-5">
@@ -1097,7 +1098,7 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-lg leading-relaxed text-ink">
-              Others either diagnose or create. We do both, and connect the loop.
+              Others either diagnose or create. We do both, and connect the loop. Over time, that same execution layer can also power partner products through the API.
             </p>
           </div>
         </SlideShell>
@@ -1148,7 +1149,7 @@ const PitchDeckPage = () => {
             {[
               ['Training signal', 'Each audit and campaign adds the ranking data that improves which agent wins future jobs.'],
               ['Enterprise intelligence', 'The next layer is continuous decision support, not just another dashboard or one-off report.'],
-              ['Verified trust', 'The marketplace only works if enterprise buyers can audit real performance history before they trust an agent.'],
+              ['API-First Standard', 'GeoCompanion stays focused on the core workflow. Developers can build wrappers on top of it, such as KOL publishing flows, richer media generation, or milestone check-ins.'],
             ].map(([title, body]) => (
               <article key={title} className="deck-card rounded-2xl p-5">
                 <h3 className="text-base font-semibold text-ink mb-2">{title}</h3>
@@ -1280,7 +1281,10 @@ const PitchDeckPage = () => {
             ))}
           </div>
 
-          <div className="deck-card mt-5 rounded-2xl p-6">
+          <div className="deck-card mt-5 rounded-2xl p-6 space-y-3">
+            <p className="text-sm leading-relaxed text-ink font-medium">
+              The API opens a massive third-party builder ecosystem. Developers can deploy lightweight, consumerized frontends (e.g., Duolingo-style milestone or daily check-in wrappers) powered entirely by GeoCompanion's underlying routing engine.
+            </p>
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
               The on-chain layer (ERC8004) is a trust primitive, not a payment mechanism. Billing stays on fiat throughout.
               The chain provides immutable performance attestation that enterprise buyers require before trusting autonomous
@@ -1422,7 +1426,7 @@ const PitchDeckPage = () => {
               },
               {
                 title: 'Agent API (Phase 1)',
-                body: 'Usage-based API billing for autonomous agents and enterprise workflows, billed in fiat while the trust layer stays separate.',
+                body: 'A usage-based API layer for teams and partner products that want to build on GeoCompanion without recreating the intelligence underneath.',
               },
               {
                 title: 'Marketplace take-rate (Phase 4+)',
@@ -1455,8 +1459,8 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              Comparable benchmark: Shopify takes 1.5\u20133% of GMV. GeoCompanion targets higher defensibility through
-              outcome verification and trust-layer switching costs.
+              GeoCompanion starts with subscription revenue, expands into API usage, and can later add marketplace take-rate
+              once routing and verification become part of the workflow.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink/80 font-medium italic">
               Billing stays on fiat. The on-chain layer exists to prove performance history and make agent selection
@@ -1492,7 +1496,7 @@ const PitchDeckPage = () => {
                 {[
                   ['Phase 0', 'Own the diagnosis \u2192 execution workflow'],
                   ['Phase 1', 'Vision Navigator: turn usage into directional guidance'],
-                  ['Phase 2', 'Open the loop to agent/API traffic'],
+                  ['Phase 2', 'Open the workflow to partner and agent traffic'],
                 ].map(([phase, detail]) => (
                   <div key={phase} className="rounded-xl border border-slate-100 bg-white p-4">
                     <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{phase}</p>
@@ -1511,7 +1515,7 @@ const PitchDeckPage = () => {
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="text-sm font-semibold text-ink mb-1">Marketplace routing</p>
-                  <p className="text-sm leading-relaxed text-ink/80 font-medium italic">As machine-to-machine traffic grows, routing and ranking become a monetizable execution layer on top of that intelligence system.</p>
+                  <p className="text-sm leading-relaxed text-ink/80 font-medium italic">As more partner products plug in, routing and ranking become a monetizable execution layer on top of that intelligence system.</p>
                 </div>
               </div>
             </article>
