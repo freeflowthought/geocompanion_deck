@@ -221,7 +221,7 @@ const TeamAvatar = ({ member }: { member: TeamMember }) => {
 
 const competitorRows = [
   {
-    category: 'GEO / AI search scoring',
+    category: 'AI Visibility Scoring',
     brightedge: 'Yes',
     evertune: 'Yes (measurement)',
     athena: 'Yes (monitoring)',
@@ -287,7 +287,7 @@ const competitorRows = [
 
 const marketRows = [
   {
-    market: 'AI Search Optimization (GEO / AEO)',
+    market: 'AI Discovery & Visibility Layer',
     size: '~$1B today \u2192 $10B+',
     growth: '40%+ CAGR',
   },
@@ -800,7 +800,7 @@ const PitchDeckPage = () => {
         <SlideShell
           id="slide-1"
           index={1}
-          title="AI now decides who gets found. Most businesses have no system to change that."
+          title="AI now decides what gets seen — and what gets executed. Most businesses have no system to change that."
           subtitle="The intelligence layer for an AI-first world. One workflow from diagnosis to execution."
         >
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
@@ -811,7 +811,7 @@ const PitchDeckPage = () => {
               </div>
               <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-3">Core Mission</p>
               <p className="text-2xl font-semibold leading-relaxed text-ink sm:text-3xl">
-                Helping brands win AI citations and build platform-native content that captures market attention.
+                Helping brands win AI-native distribution and turn visibility into execution.
               </p>
               <p className="mt-6 text-lg leading-relaxed text-sage/95 font-medium italic">
                 GeoCompanion bridges the gap between diagnosis and execution, surfacing exactly where you are missing citations and providing the native content system to fix it.
@@ -842,7 +842,7 @@ const PitchDeckPage = () => {
 
               <div className="grid grid-cols-1 gap-4">
                 {[
-                  { icon: <Sparkles className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Today', value: 'GEO + Vibe Marketing' },
+                  { icon: <Sparkles className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Today', value: 'AI Visibility + Execution' },
                   { icon: <BarChart3 className="h-4 w-4 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Phase 1\u20133', value: 'Enterprise Intelligence' },
                 ].map((item) => (
                   <div key={item.label} className="bg-hull border-2 border-ink shadow-brutalist p-4">
@@ -917,14 +917,14 @@ const PitchDeckPage = () => {
                   Platform-native creator execution wins attention, but requires a repeatable multi-platform system.
                 </p>
               </div>
-            </article>
+            </article
           </div>
 
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8 mt-5">
             <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">The structural gap</p>
             <div className="grid gap-4 md:grid-cols-3">
-              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">GEO tools measure visibility but do not create content.</div>
-              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Content tools generate posts but do not optimize AI citation share.</div>
+              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Measurement tools show visibility, but don’t drive execution.</div>
+              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Content tools generate outputs, but don’t optimize for outcomes.</div>
               <div className="bg-clay/5 border border-clay/20 p-4 text-sm font-medium text-ink">GeoCompanion connects diagnosis, execution, and compounding outcomes.</div>
             </div>
           </div>
@@ -996,7 +996,7 @@ const PitchDeckPage = () => {
                   <div className="rounded-2xl border border-slate-100 bg-slate-50 p-5 group transition-all hover:bg-white hover:shadow-sm">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="p-2 rounded-lg bg-white border border-slate-100"><Search className="h-5 w-5 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /></div>
-                      <p className="text-lg font-bold text-ink">GEO Audit Engine</p>
+                      <p className="text-lg font-bold text-ink">Visibility Intelligence Engine</p>
                     </div>
                     <ul className="space-y-2 text-sm text-sage/95 font-medium italic">
                       <li>• Citation-share competitive analysis</li>
