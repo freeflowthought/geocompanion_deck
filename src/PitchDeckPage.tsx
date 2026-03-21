@@ -307,7 +307,7 @@ const buildPathRows = [
   {
     phase: 'Phase 0',
     when: 'Now \u2192 Q2 2026',
-    ships: 'GEO Audit + Vibe Marketing',
+    ships: 'AI Audit + Vibe Marketing',
     target: '1,500+ users, 10K+ search events, 50 creator accounts, and first 10 paying teams.',
   },
   {
@@ -327,7 +327,7 @@ const buildPathRows = [
 const flywheelRows = [
   {
     title: 'Diagnose',
-    body: 'Run a GEO audit to surface visibility gaps, citation risks, and priority fixes.',
+    body: 'Run an AI audit to surface distribution gaps, execution risks, and priority fixes.',
     icon: <Radar className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />,
   },
   {
@@ -897,7 +897,7 @@ const PitchDeckPage = () => {
               <div className="mt-3 rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-4">
                 <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-1.5">New reality</p>
                 <p className="text-sm leading-relaxed text-ink">
-                  AI answer engines decide visibility. Ranking pages no longer guarantees citation in answers.
+                  AI answer engines increasingly shape discovery. Ranking pages no longer guarantees distribution.
                 </p>
               </div>
             </article>
@@ -1085,7 +1085,7 @@ const PitchDeckPage = () => {
 
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
-              'GEO + content execution in one product.',
+              'Intelligence + execution in one product.',
               'API layer built on proprietary outcome data.',
               'Verifiable agent performance for enterprise trust.',
             ].map((gap, idx) => (
