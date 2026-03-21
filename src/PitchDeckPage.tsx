@@ -917,7 +917,7 @@ const PitchDeckPage = () => {
                   Platform-native creator execution wins attention, but requires a repeatable multi-platform system.
                 </p>
               </div>
-            </article
+            </article>
           </div>
 
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8 mt-5">
