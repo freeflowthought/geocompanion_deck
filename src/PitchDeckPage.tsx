@@ -947,8 +947,8 @@ const PitchDeckPage = () => {
               },
               {
                 tag: 'Shift 3',
-                title: 'Agent Infrastructure',
-                body: "AI agents are beginning to replace human marketing workflows. Google's Agent2Agent (A2A) protocol just launched with 50+ enterprise partners — standardizing how agents discover and hire each other. The marketing execution node in that network doesn't exist yet.",
+                title: 'Agent-to-Agent Commerce',
+                body: "Your personal AI agent will soon discover a specialist marketing agent, pay it to run your campaign, and report back — no human in the loop. Google's A2A protocol, backed by 50+ enterprise partners, is making this real. We're building the specialized agents that get hired.",
               },
             ].map((item, idx) => (
               <article key={item.tag} className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-4 flex flex-col justify-between">
