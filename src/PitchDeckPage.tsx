@@ -169,7 +169,7 @@ const teamMembers: TeamMember[] = [
     photo: huanImage,
     photoAlt: 'Portrait of Huan',
     photoPosition: 'center 20%',
-    body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between GEO signal and content execution, the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
+    body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between visibility signal and content execution — the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
   },
   {
     name: 'Austin',
@@ -221,65 +221,58 @@ const TeamAvatar = ({ member }: { member: TeamMember }) => {
 
 const competitorRows = [
   {
-    category: 'AI Visibility Scoring',
-    brightedge: 'Yes',
-    evertune: 'Yes (measurement)',
-    athena: 'Yes (monitoring)',
-    surfer: 'No',
+    category: 'AI citation visibility & scoring',
+    cloverlabs: 'No',
+    hootsuite: 'No',
+    semrush: 'Partial',
     jasper: 'No',
     geoCompanion: 'Yes',
   },
   {
-    category: 'Fix outputs you can deploy',
-    brightedge: 'No',
-    evertune: 'No',
-    athena: 'No',
-    surfer: 'No',
+    category: 'Deployable code fixes',
+    cloverlabs: 'No',
+    hootsuite: 'No',
+    semrush: 'No',
     jasper: 'No',
     geoCompanion: 'Yes',
   },
   {
-    category: 'Social content execution',
-    brightedge: 'No',
-    evertune: 'No',
-    athena: 'No',
-    surfer: 'No',
-    jasper: 'Yes (generic)',
-    geoCompanion: 'Yes (platform-native)',
+    category: 'Platform-native content',
+    cloverlabs: 'Yes',
+    hootsuite: 'Scheduling only',
+    semrush: 'No',
+    jasper: 'Generic',
+    geoCompanion: 'Yes (hook-based)',
   },
   {
     category: 'Agent API (machine-to-machine)',
-    brightedge: 'No',
-    evertune: 'No',
-    athena: 'No',
-    surfer: 'No',
+    cloverlabs: 'No',
+    hootsuite: 'No',
+    semrush: 'No',
     jasper: 'No',
     geoCompanion: 'Yes (Phase 1)',
   },
   {
     category: 'On-chain performance verification',
-    brightedge: 'No',
-    evertune: 'No',
-    athena: 'No',
-    surfer: 'No',
+    cloverlabs: 'No',
+    hootsuite: 'No',
+    semrush: 'No',
     jasper: 'No',
-    geoCompanion: 'Yes (Phase 5)',
+    geoCompanion: 'Yes (Phase 3)',
   },
   {
-    category: 'SMB / creator accessible',
-    brightedge: 'No',
-    evertune: 'No',
-    athena: 'Partial',
-    surfer: 'Yes',
-    jasper: 'Yes',
+    category: 'Open infra / ecosystem model',
+    cloverlabs: 'No',
+    hootsuite: 'No',
+    semrush: 'No',
+    jasper: 'No',
     geoCompanion: 'Yes',
   },
   {
     category: 'Entry price',
-    brightedge: '$12K+/yr',
-    evertune: '$3K/mo',
-    athena: '$295/mo',
-    surfer: '$79/mo',
+    cloverlabs: 'Enterprise',
+    hootsuite: '$99/mo',
+    semrush: '$130/mo',
     jasper: '$39/mo',
     geoCompanion: 'Beta free \u2192 <$10/mo starter',
   },
@@ -287,7 +280,7 @@ const competitorRows = [
 
 const marketRows = [
   {
-    market: 'AI Discovery & Visibility Layer',
+    market: 'AI Search & Answer Optimization',
     size: '~$1B today \u2192 $10B+',
     growth: '40%+ CAGR',
   },
@@ -307,19 +300,19 @@ const buildPathRows = [
   {
     phase: 'Phase 0',
     when: 'Now \u2192 Q2 2026',
-    ships: 'AI Audit + Vibe Marketing',
+    ships: 'Hook Intelligence + Content Execution',
     target: '1,500+ users, 10K+ search events, 50 creator accounts, and first 10 paying teams.',
   },
   {
-    phase: 'Phase 1\u20133',
+    phase: 'Phase 1\u20132',
     when: 'Q3 2026 \u2192 Q4 2027',
-    ships: 'Enterprise Strategic Intelligence',
+    ships: 'Agent API + Agent Marketplace',
     target: '$100K MRR, 25+ agency customers, 500 creator accounts, and upmarket expansion.',
   },
   {
-    phase: 'Phase 4\u20135',
+    phase: 'Phase 3\u20134',
     when: '2028+',
-    ships: 'Agent Marketplace + On-Chain Trust',
+    ships: 'On-Chain Trust + Vision Navigator',
     target: '$50M+ ARR, 120+ enterprise customers, 5,000 creator accounts, and verified infrastructure.',
   },
 ];
@@ -327,7 +320,7 @@ const buildPathRows = [
 const flywheelRows = [
   {
     title: 'Diagnose',
-    body: 'Run an AI audit to surface distribution gaps, execution risks, and priority fixes.',
+    body: 'Run a visibility audit to surface where AI assistants ignore your brand, why, and what to fix first.',
     icon: <Radar className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />,
   },
   {
@@ -800,21 +793,21 @@ const PitchDeckPage = () => {
         <SlideShell
           id="slide-1"
           index={1}
-          title="AI now decides what gets seen — and what gets executed. Most businesses have no system to change that."
-          subtitle="The intelligence layer for an AI-first world. One workflow from diagnosis to execution."
+          title="Marketing teams are being replaced by AI agents. We build the infrastructure those agents run on."
+          subtitle="The content execution infrastructure for the AI era. Signal to content to distribution to verified outcomes — one compounding loop."
         >
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform -rotate-1 lg:col-span-7">
               <div className="mb-6 flex items-center gap-3">
                 <GeoCompanionMark size={28} />
-                <span className="deck-mono text-[10px] tracking-[0.2em] uppercase text-sage/95 font-medium italic">Enterprise Strategic Intelligence Platform</span>
+                <span className="deck-mono text-[10px] tracking-[0.2em] uppercase text-sage/95 font-medium italic">Content Execution Infrastructure</span>
               </div>
               <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-3">Core Mission</p>
               <p className="text-2xl font-semibold leading-relaxed text-ink sm:text-3xl">
-                Helping brands win AI-native distribution and turn visibility into execution.
+                The infrastructure layer connecting AI visibility signal, hook-based content execution, and agent-powered distribution into one compounding loop.
               </p>
               <p className="mt-6 text-lg leading-relaxed text-sage/95 font-medium italic">
-                GeoCompanion bridges the gap between diagnosis and execution, surfacing exactly where you are missing citations and providing the native content system to fix it.
+                Built because the founder had to run 90% of marketing himself. Now rebuilt as the system that runs whether or not humans show up.
               </p>
             </div>
 
@@ -842,8 +835,8 @@ const PitchDeckPage = () => {
 
               <div className="grid grid-cols-1 gap-4">
                 {[
-                  { icon: <Sparkles className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Today', value: 'AI Visibility + Execution' },
-                  { icon: <BarChart3 className="h-4 w-4 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Phase 1\u20133', value: 'Enterprise Intelligence' },
+                  { icon: <Sparkles className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Today', value: 'Hook Intelligence + Content Engines' },
+                  { icon: <BarChart3 className="h-4 w-4 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Phase 1\u20132', value: 'Agent API + Marketplace' },
                 ].map((item) => (
                   <div key={item.label} className="bg-hull border-2 border-ink shadow-brutalist p-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50">{item.icon}</div>
@@ -897,7 +890,7 @@ const PitchDeckPage = () => {
               <div className="mt-3 rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-4">
                 <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-1.5">New reality</p>
                 <p className="text-sm leading-relaxed text-ink">
-                  AI answer engines increasingly shape discovery. Ranking pages no longer guarantees distribution.
+                  AI answer engines decide visibility. Ranking pages no longer guarantees citation in answers.
                 </p>
               </div>
             </article>
@@ -923,9 +916,9 @@ const PitchDeckPage = () => {
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8 mt-5">
             <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">The structural gap</p>
             <div className="grid gap-4 md:grid-cols-3">
-              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Measurement tools show visibility, but don’t drive execution.</div>
-              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Content tools generate outputs, but don’t optimize for outcomes.</div>
-              <div className="bg-clay/5 border border-clay/20 p-4 text-sm font-medium text-ink">GeoCompanion connects diagnosis, execution, and compounding outcomes.</div>
+              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Visibility tools tell you what's broken. They don't fix it or create the content to replace it.</div>
+              <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Content tools write posts. They don't know if AI assistants will ever cite that content.</div>
+              <div className="bg-clay/5 border border-clay/20 p-4 text-sm font-medium text-ink">GeoCompanion is the only system that diagnoses, executes, and learns from every outcome — closing the loop that every other tool leaves open.</div>
             </div>
           </div>
 
@@ -955,7 +948,7 @@ const PitchDeckPage = () => {
               {
                 tag: 'Shift 3',
                 title: 'Agent Infrastructure',
-                body: 'Machine-to-machine workflows mean this becomes a platform play, not just a point solution.',
+                body: "AI agents are beginning to replace human marketing workflows. Google's Agent2Agent (A2A) protocol just launched with 50+ enterprise partners — standardizing how agents discover and hire each other. The marketing execution node in that network doesn't exist yet.",
               },
             ].map((item, idx) => (
               <article key={item.tag} className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-4 flex flex-col justify-between">
@@ -987,63 +980,109 @@ const PitchDeckPage = () => {
         </SlideShell>
 
         {/* Slide 4 */}
-        <SlideShell id="slide-4" index={4} title="Our Solution" subtitle="Two engines, one workflow, one prioritized action plan.">
-          <div className="grid gap-8 lg:grid-cols-12">
-            <article className="bg-hull border bg-noise border-2 border-ink shadow-brutalist p-10 flex flex-col justify-between transform -rotate-1 lg:col-span-6">
-              <div>
-                <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-6">Execution Engines</p>
-                <div className="space-y-4">
-                  <div className="rounded-2xl border border-slate-100 bg-slate-50 p-5 group transition-all hover:bg-white hover:shadow-sm">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-white border border-slate-100"><Search className="h-5 w-5 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /></div>
-                      <p className="text-lg font-bold text-ink">Visibility Intelligence Engine</p>
-                    </div>
-                    <ul className="space-y-2 text-sm text-sage/95 font-medium italic">
-                      <li>• Citation-share competitive analysis</li>
-                      <li>• EEAT & algorithm fit scoring</li>
-                      <li>• Deployable fix prioritization</li>
-                    </ul>
-                  </div>
+        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. The infra opens to an ecosystem as the platform matures.">
+          <div className="grid gap-6 lg:grid-cols-2">
 
-                  <div className="rounded-2xl border border-slate-100 bg-slate-50 p-5 group transition-all hover:bg-white hover:shadow-sm">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 rounded-lg bg-white border border-slate-100"><Sparkles className="h-5 w-5 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /></div>
-                      <p className="text-lg font-bold text-ink">Vibe Marketing Engine</p>
-                    </div>
-                    <ul className="space-y-2 text-sm text-sage/95 font-medium italic">
-                      <li>• Platform-native voice detection</li>
-                      <li>• Hook-based campaign architecting</li>
-                      <li>• Voice-consistent automated generation</li>
-                    </ul>
-                  </div>
-                </div>
+            {/* Live Now */}
+            <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-2 w-2 rounded-full bg-sage" />
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage font-bold">Live Now</p>
               </div>
-            </article>
-
-            <article className="lg:col-span-6 space-y-6">
-              <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform rotate-1">
-                <p className="deck-mono text-[10px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-4">The Output</p>
-                <h3 className="text-2xl font-bold mb-4 text-ink">The API-Ready Action Plan</h3>
-                <p className="text-ink leading-relaxed font-medium mb-3">We don't just dump data. GeoCompanion produces a single backlog of high-impact moves across SEO, AI citation, and social content.</p>
-                <p className="text-ink leading-relaxed font-medium italic">We keep the core product simple. Teams can act on the workflow today, while future API access lets partners build richer wrappers without turning GeoCompanion into a bloated all-in-one app.</p>
-                <div className="mt-8 flex items-center gap-4">
-                   <div className="h-px flex-1 bg-ink/10" />
-                   <div className="text-[10px] deck-mono text-sage/95 font-medium italic">AUTOMATED WORKFLOW</div>
-                </div>
-              </div>
-
-               <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: 'Latency', value: '15s' },
-                    { label: 'Price', value: '<$10/mo' },
-                  ].map(stat => (
-                    <div key={stat.label} className="bg-hull border-2 border-ink shadow-brutalist p-8 text-center">
-                       <p className="deck-mono text-[9px] text-sage/95 font-medium italic uppercase tracking-widest">{stat.label}</p>
-                       <p className="text-2xl font-bold text-ink mt-1">{stat.value}</p>
+              <div className="space-y-4">
+                {[
+                  {
+                    icon: <Radar className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
+                    name: 'Hook Intelligence Engine',
+                    desc: 'A continuously updated database of what makes content go viral — captured and scored across every major platform. The pattern library that powers everything else.',
+                  },
+                  {
+                    icon: <Search className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
+                    name: 'AI Visibility Audit Engine',
+                    desc: 'Finds exactly why AI assistants like ChatGPT skip your brand in their answers — then generates the code fixes and content updates you can ship the same day.',
+                  },
+                  {
+                    icon: <Sparkles className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
+                    name: 'Platform Content Engine',
+                    desc: 'Generates platform-native posts, threads, and articles for 7+ channels — written in your brand\'s voice, structured around proven viral patterns.',
+                  },
+                ].map((mod) => (
+                  <div key={mod.name} className="rounded-xl border border-slate-100 bg-white p-5">
+                    <div className="flex items-start gap-3">
+                      {mod.icon}
+                      <div>
+                        <p className="text-sm font-bold text-ink">{mod.name}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-ink/70 font-medium italic">{mod.desc}</p>
+                      </div>
                     </div>
-                  ))}
-               </div>
-            </article>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Coming */}
+            <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-2 w-2 rounded-full bg-clay" />
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-clay font-bold">Coming</p>
+              </div>
+              <div className="space-y-4">
+                {[
+                  {
+                    name: 'Agent API',
+                    phase: 'Phase 1',
+                    desc: 'Lets any AI agent or partner app call our engine directly — no human required. Built to the A2A open standard, so GeoCompanion agents are discoverable by any enterprise agent network.',
+                  },
+                  {
+                    name: 'Agent Marketplace',
+                    phase: 'Phase 2',
+                    desc: 'A marketplace of specialized content agents — each with a verified performance track record. Pick the agent that performs best for your niche. Deploy your own and earn from every job it runs.',
+                  },
+                  {
+                    name: 'On-Chain Trust',
+                    phase: 'Phase 3',
+                    desc: "Every agent's performance history written on-chain — tamper-proof and permanently auditable. Enterprise buyers can verify an agent's real track record before trusting it with their brand.",
+                  },
+                  {
+                    name: 'Vision Navigator',
+                    phase: 'Phase 4',
+                    desc: 'Answers the hardest marketing question: are you targeting the right audience before you scale spend? Built on millions of content outcomes across the platform.',
+                  },
+                ].map((mod) => (
+                  <div key={mod.name} className="rounded-xl border border-slate-100 bg-white p-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="text-sm font-bold text-ink">{mod.name}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-ink/70 font-medium italic">{mod.desc}</p>
+                      </div>
+                      <span className="label-stamp shrink-0">{mod.phase}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Ecosystem boundary */}
+          <div className="mt-5 bg-hull border-2 border-ink shadow-brutalist p-6 transform -rotate-[0.3deg]">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="text-center md:text-left">
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage font-bold mb-1">Core Platform</p>
+                <p className="text-sm text-ink/80 font-medium italic">We own, ship, and guarantee this layer</p>
+              </div>
+              <div className="hidden md:flex flex-1 items-center gap-3 mx-4">
+                <div className="h-px flex-1 border-t-2 border-dashed border-ink/20" />
+                <span className="deck-mono text-[8px] uppercase tracking-widest text-ink/40">opens here</span>
+                <div className="h-px flex-1 border-t-2 border-dashed border-ink/20" />
+              </div>
+              <div className="text-center md:text-right">
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-clay font-bold mb-1">Ecosystem Layer</p>
+                <p className="text-sm text-ink/80 font-medium italic">Devs and agents build wrappers on top</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-center leading-relaxed text-ink/70 font-medium italic">
+              Less is more. We keep the core focused so external developers can build a rich ecosystem — KOL publishing flows, image generation wrappers, milestone apps — without bloating the platform.
+            </p>
           </div>
         </SlideShell>
 
@@ -1052,17 +1091,16 @@ const PitchDeckPage = () => {
           id="slide-5"
           index={5}
           title="Why We're Different"
-          subtitle="Others either diagnose or create. We do both, and connect the loop."
+          subtitle="Others are point tools built for human workflows. We're building the infrastructure layer for the agent era."
         >
           <div className="bg-hull border-2 border-ink shadow-brutalist p-4 overflow-x-auto">
             <table className="deck-table min-w-[900px]">
               <thead>
                 <tr>
                   <th>Category</th>
-                  <th>BrightEdge</th>
-                  <th>Evertune</th>
-                  <th>AthenaHQ</th>
-                  <th>Surfer SEO</th>
+                  <th>Cloverlabs</th>
+                  <th>Hootsuite</th>
+                  <th>Semrush</th>
                   <th>Jasper / Copy.ai</th>
                   <th>GeoCompanion</th>
                 </tr>
@@ -1071,10 +1109,9 @@ const PitchDeckPage = () => {
                 {competitorRows.map((row) => (
                   <tr key={row.category}>
                     <td className="font-medium text-ink">{row.category}</td>
-                    <td>{row.brightedge}</td>
-                    <td>{row.evertune}</td>
-                    <td>{row.athena}</td>
-                    <td>{row.surfer}</td>
+                    <td>{row.cloverlabs}</td>
+                    <td>{row.hootsuite}</td>
+                    <td>{row.semrush}</td>
                     <td>{row.jasper}</td>
                     <td className="font-semibold text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5">{row.geoCompanion}</td>
                   </tr>
@@ -1085,8 +1122,8 @@ const PitchDeckPage = () => {
 
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
-              'Intelligence + execution in one product.',
-              'API layer built on proprietary outcome data.',
+              'AI citation signal + content execution in one infra layer.',
+              'Agent API built on proprietary hook and outcome data.',
               'Verifiable agent performance for enterprise trust.',
             ].map((gap, idx) => (
               <div key={gap} className="bg-hull border border-ink/10 shadow-brutalist p-5">
@@ -1098,7 +1135,7 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-lg leading-relaxed text-ink">
-              Others either diagnose or create. We do both, and connect the loop. Over time, that same execution layer can also power partner products through the API.
+              Others are point tools built for human workflows. We are building the infrastructure layer for the agent era — one system connecting visibility signal, content execution, and verified outcomes.
             </p>
           </div>
         </SlideShell>
@@ -1294,13 +1331,13 @@ const PitchDeckPage = () => {
         </SlideShell>
 
         {/* Slide 8 */}
-        <SlideShell id="slide-8" index={8} title="Early Signal" subtitle="Pre-revenue for now. Here is the signal we are building toward.">
+        <SlideShell id="slide-8" index={8} title="Early Signal" subtitle="Free beta — conversion to paid starts Q2 2026. Here is what the signal already looks like.">
           <div className="grid gap-4 md:grid-cols-4">
             {[
-              { label: 'Website Visitors', value: '457', icon: <Users className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
+              { label: 'Activation Rate', value: '74%', icon: <DollarSign className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /> },
               { label: 'Active Users', value: '340', icon: <Search className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
               { label: 'Search Events', value: '2,326', icon: <BarChart3 className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
-              { label: 'Activation Rate', value: '74%', icon: <DollarSign className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /> },
+              { label: 'Website Visitors', value: '457', icon: <Users className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
             ].map((kpi) => (
               <article key={kpi.label} className="deck-card rounded-2xl p-5">
                 <div>{kpi.icon}</div>
@@ -1429,7 +1466,7 @@ const PitchDeckPage = () => {
                 body: 'A usage-based API layer for teams and partner products that want to build on GeoCompanion without recreating the intelligence underneath.',
               },
               {
-                title: 'Marketplace take-rate (Phase 4+)',
+                title: 'Marketplace take-rate (Phase 2+)',
                 body: '15\u201320% commission on verified agent transactions. Creators keep 80\u201385%, while personal agents route spend to top-ranked public agents.',
               },
             ].map((item) => (
@@ -1495,8 +1532,8 @@ const PitchDeckPage = () => {
               <div className="mt-4 grid gap-3 md:grid-cols-3">
                 {[
                   ['Phase 0', 'Own the diagnosis \u2192 execution workflow'],
-                  ['Phase 1', 'Vision Navigator: turn usage into directional guidance'],
-                  ['Phase 2', 'Open the workflow to partner and agent traffic'],
+                  ['Phase 1', 'Open the platform to agent and partner traffic via API'],
+                  ['Phase 2', 'Agent Marketplace: deploy and earn on verified agent performance'],
                 ].map(([phase, detail]) => (
                   <div key={phase} className="rounded-xl border border-slate-100 bg-white p-4">
                     <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{phase}</p>
@@ -1622,10 +1659,6 @@ const PitchDeckPage = () => {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-100 bg-white/25 px-3 py-1.5">
-              <Sparkles className="h-3 w-3 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />
-              <span className="deck-mono text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Pre-final investor deck</span>
-            </span>
             <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Ask: $1.25M SAFE on $12M cap</span>
             <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Accelerator participates only if it strengthens the same round</span>
           </div>
