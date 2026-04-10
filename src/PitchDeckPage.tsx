@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Download, ChevronDown, Sparkles, Radar, Bot, ShieldCheck, BarChart3, Coins, Users, Search, DollarSign, Building2, Handshake, Rocket, Target, Activity, Wallet, Cpu, Server, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Download, ChevronDown, Sparkles, Radar, Bot, ShieldCheck, BarChart3, Coins, Users, Search, DollarSign, Building2, Handshake, Rocket, Target, Activity, Wallet, Cpu, Server, CheckCircle2, Linkedin, Mail } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import wilsonImage from './team/wilson_image_optimized.jpg';
@@ -112,6 +112,7 @@ type TeamMember = {
   photo: string;
   photoAlt: string;
   photoPosition: string;
+  linkedin: string;
   body: string;
 };
 
@@ -161,6 +162,7 @@ const teamMembers: TeamMember[] = [
     photo: wilsonImage,
     photoAlt: 'Portrait of Wilson',
     photoPosition: 'center 18%',
+    linkedin: 'https://www.linkedin.com/in/wilson-wu-6a08893ba/',
     body: 'Serial technical founder with two exits. Raised $1.6M in venture capital and generated $1.3M in product revenue at Honeypot Finance. Previously Co-Founder/CTO at Antslabor (acquired; ranked Top 30 most innovative startups in Canada) and Senior Software Architect at Mastodon, one of the largest decentralized social infrastructure projects in production. Brings a rare combination of product engineering depth, agent architecture experience, and prior fundraising across Web2 and Web3.',
   },
   {
@@ -169,6 +171,7 @@ const teamMembers: TeamMember[] = [
     photo: huanImage,
     photoAlt: 'Portrait of Huan',
     photoPosition: 'center 20%',
+    linkedin: 'https://www.linkedin.com/in/huan-ying-713736146/',
     body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between visibility signal and content execution — the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
   },
   {
@@ -177,6 +180,7 @@ const teamMembers: TeamMember[] = [
     photo: austinImage,
     photoAlt: 'Portrait of Austin',
     photoPosition: 'center 16%',
+    linkedin: 'https://www.linkedin.com/in/austinchan910/',
     body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook GeoCompanion sells to brands. Understands creator economics from both the operator side and the platform side.',
   },
 ];
@@ -253,7 +257,7 @@ const competitorRows = [
     geoCompanion: 'Yes (Phase 1)',
   },
   {
-    category: 'On-chain performance verification',
+    category: 'Chain-agnostic on-chain verification',
     cloverlabs: 'No',
     hootsuite: 'No',
     semrush: 'No',
@@ -306,13 +310,13 @@ const buildPathRows = [
   {
     phase: 'Phase 1\u20132',
     when: 'Q3 2026 \u2192 Q4 2027',
-    ships: 'Agent API + Agent Marketplace',
+    ships: 'Stable API + Local App + CLI',
     target: '$100K MRR, 25+ agency customers, 500 creator accounts, and upmarket expansion.',
   },
   {
     phase: 'Phase 3\u20134',
     when: '2028+',
-    ships: 'On-Chain Trust + Vision Navigator',
+    ships: 'Plugin Ecosystem + Verified Marketplace',
     target: '$50M+ ARR, 120+ enterprise customers, 5,000 creator accounts, and verified infrastructure.',
   },
 ];
@@ -330,12 +334,12 @@ const flywheelRows = [
   },
   {
     title: 'Deploy',
-    body: 'Ship through SaaS workflows today and through agent/API calls as usage expands.',
+    body: 'Ship through SaaS workflows today, then expand into API, desktop, and CLI workflows as usage matures.',
     icon: <Rocket className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />,
   },
   {
     title: 'Learn',
-    body: 'Outcome data improves recommendations, routing, and future marketplace trust signals.',
+    body: 'Outcome data improves recommendations, routing, and the future plugin and agent ecosystem.',
     icon: <Activity className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />,
   },
 ];
@@ -793,8 +797,8 @@ const PitchDeckPage = () => {
         <SlideShell
           id="slide-1"
           index={1}
-          title="Marketing teams are being replaced by AI agents. We build the infrastructure those agents run on."
-          subtitle="The content execution infrastructure for the AI era. Signal to content to distribution to verified outcomes — one compounding loop."
+          title="Marketing teams are being replaced by AI agents. We build the infrastructure they run on."
+          subtitle="SaaS now, open ecosystem later. Signal to content to distribution to verified outcomes — one compounding loop."
         >
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform -rotate-1 lg:col-span-7">
@@ -804,7 +808,7 @@ const PitchDeckPage = () => {
               </div>
               <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-3">Core Mission</p>
               <p className="text-2xl font-semibold leading-relaxed text-ink sm:text-3xl">
-                The infrastructure layer connecting AI visibility signal, hook-based content execution, and agent-powered distribution into one compounding loop.
+                The infrastructure layer connecting AI visibility signal, hook-based content execution, and a future open ecosystem of agents, plugins, and local workflows.
               </p>
               <p className="mt-6 text-lg leading-relaxed text-sage/95 font-medium italic">
                 Built because the founder had to run 90% of marketing himself. Now rebuilt as the system that runs whether or not humans show up.
@@ -817,8 +821,8 @@ const PitchDeckPage = () => {
                 <div className="space-y-5">
                   {[
                     { icon: <Radar className="h-5 w-5 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, title: 'Strategic Intelligence', desc: 'Vision, market positioning, predictive analytics' },
-                    { icon: <Bot className="h-5 w-5 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, title: 'Agent Marketplace', desc: 'Agents ranked by verified outcome data' },
-                    { icon: <ShieldCheck className="h-5 w-5 text-indigo-400" aria-hidden="true" />, title: 'On-Chain Trust', desc: 'Immutable performance attestation' },
+                    { icon: <Bot className="h-5 w-5 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, title: 'Open Ecosystem', desc: 'Agents, plugins, and builders ranked by outcomes' },
+                    { icon: <ShieldCheck className="h-5 w-5 text-indigo-400" aria-hidden="true" />, title: 'On-Chain Trust', desc: 'Chain-agnostic agent attestation' },
                   ].map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
                       <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border border-ink/10 bg-void shadow-sm">
@@ -836,7 +840,7 @@ const PitchDeckPage = () => {
               <div className="grid grid-cols-1 gap-4">
                 {[
                   { icon: <Sparkles className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Today', value: 'Hook Intelligence + Content Engines' },
-                  { icon: <BarChart3 className="h-4 w-4 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Phase 1\u20132', value: 'Agent API + Marketplace' },
+                  { icon: <BarChart3 className="h-4 w-4 text-clay font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, label: 'Phase 1\u20132', value: 'API + Local App + Ecosystem' },
                 ].map((item) => (
                   <div key={item.label} className="bg-hull border-2 border-ink shadow-brutalist p-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50">{item.icon}</div>
@@ -942,13 +946,13 @@ const PitchDeckPage = () => {
               },
               {
                 tag: 'Shift 2',
-                title: 'Creator-native budgets',
-                body: 'Teams want platform-native content, but the market stills separates strategy from execution.',
+                title: 'Platform beats point solution',
+                body: 'Hundreds of AI tools are shipping, but specific point solutions get commoditized. Open ecosystems compound faster than closed SaaS.',
               },
               {
                 tag: 'Shift 3',
-                title: 'Agent-to-Agent Commerce',
-                body: "Your personal AI agent will soon discover a specialist marketing agent, pay it to run your campaign, and report back — no human in the loop. Google's A2A protocol, backed by 50+ enterprise partners, is making this real. We're building the specialized agents that get hired.",
+                title: 'Privacy + local-first demand',
+                body: 'Founders, agencies, and enterprises increasingly want workflow tools that keep knowledge private by default, with cloud collaboration as an option rather than a requirement.',
               },
             ].map((item, idx) => (
               <article key={item.tag} className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-4 flex flex-col justify-between">
@@ -963,7 +967,7 @@ const PitchDeckPage = () => {
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform -rotate-1 lg:col-span-7">
               <p className="deck-mono text-[10px] uppercase tracking-[0.16em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-3">The Window</p>
               <p className="text-xl font-medium leading-relaxed text-ink">
-                Incumbents skew toward enterprise reporting. The <span className="text-clay font-bold">SMB, creator, and agent-native layer</span> is still wide open for a category-defining workflow.
+                Incumbents skew toward enterprise reporting. The <span className="text-clay font-bold">SMB, creator, developer, and agent-native layer</span> is still wide open for a category-defining workflow.
               </p>
             </div>
 
@@ -973,14 +977,14 @@ const PitchDeckPage = () => {
                   <div className="h-2 w-2 rounded-full bg-clay" />
                   <p className="text-sm font-bold text-ink">Early Advantage</p>
                 </div>
-                <p className="mt-2 text-sm text-sage/95 font-medium italic">We aren't just competing in a workflow; we are defining it before the incumbents pivot from reporting to execution.</p>
+                <p className="mt-2 text-sm text-sage/95 font-medium italic">We are not just building a workflow. We are positioning the product to become a local-first platform with an open ecosystem before incumbents move beyond dashboards.</p>
               </div>
             </div>
           </div>
         </SlideShell>
 
         {/* Slide 4 */}
-        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. The infra opens to an ecosystem as the platform matures.">
+        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. Over time, the core expands into a local-first product and open ecosystem.">
           <div className="grid gap-6 lg:grid-cols-2">
 
             {/* Live Now */}
@@ -1031,17 +1035,22 @@ const PitchDeckPage = () => {
                   {
                     name: 'Agent API',
                     phase: 'Phase 1',
-                    desc: 'Lets any AI agent or partner app call our engine directly — no human required. Built to the A2A open standard, so GeoCompanion agents are discoverable by any enterprise agent network.',
+                    desc: 'Turns the product into stable infrastructure for partner apps, developers, and future ecosystem builders.',
                   },
                   {
-                    name: 'Agent Marketplace',
+                    name: 'Local App + CLI',
                     phase: 'Phase 2',
-                    desc: 'A marketplace of specialized content agents — each with a verified performance track record. Pick the agent that performs best for your niche. Deploy your own and earn from every job it runs.',
+                    desc: 'A local-first desktop workflow with private vaults, optional cloud sync, and terminal access for power users.',
+                  },
+                  {
+                    name: 'Plugin Ecosystem',
+                    phase: 'Phase 2',
+                    desc: 'An open plugin layer where builders extend analysis, workflows, and niche GTM use cases on top of the core platform.',
                   },
                   {
                     name: 'On-Chain Trust',
                     phase: 'Phase 3',
-                    desc: "Every agent's performance history written on-chain — tamper-proof and permanently auditable. Enterprise buyers can verify an agent's real track record before trusting it with their brand.",
+                    desc: 'A chain-agnostic trust layer for agent performance. EVM deployments use ERC8004, while Solana deployments use registry or SATI-style attestations for auditable track records.',
                   },
                   {
                     name: 'Vision Navigator',
@@ -1081,7 +1090,7 @@ const PitchDeckPage = () => {
               </div>
             </div>
             <p className="mt-4 text-sm text-center leading-relaxed text-ink/70 font-medium italic">
-              Less is more. We keep the core focused so external developers can build a rich ecosystem — KOL publishing flows, image generation wrappers, milestone apps — without bloating the platform.
+              Less is more. We keep the core focused so external developers can build a rich ecosystem of plugins, local workflows, CLI automations, and niche GTM wrappers without bloating the platform.
             </p>
           </div>
         </SlideShell>
@@ -1091,7 +1100,7 @@ const PitchDeckPage = () => {
           id="slide-5"
           index={5}
           title="Why We're Different"
-          subtitle="Others are point tools built for human workflows. We're building the infrastructure layer for the agent era."
+          subtitle="Others are point tools built for human workflows. We're building a workflow layer that can expand into a platform."
         >
           <div className="bg-hull border-2 border-ink shadow-brutalist p-4 overflow-x-auto">
             <table className="deck-table min-w-[900px]">
@@ -1123,8 +1132,8 @@ const PitchDeckPage = () => {
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
               'AI citation signal + content execution in one infra layer.',
-              'Agent API built on proprietary hook and outcome data.',
-              'Verifiable agent performance for enterprise trust.',
+              'Stable API foundation for SaaS, local app, and third-party builders.',
+              'Open ecosystem + verifiable performance create platform defensibility.',
             ].map((gap, idx) => (
               <div key={gap} className="bg-hull border border-ink/10 shadow-brutalist p-5">
                 <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">Gap {idx + 1}</p>
@@ -1135,18 +1144,18 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-lg leading-relaxed text-ink">
-              Others are point tools built for human workflows. We are building the infrastructure layer for the agent era — one system connecting visibility signal, content execution, and verified outcomes.
+              Others are point tools built for human workflows. We are building the infrastructure layer for the agent era — one system connecting visibility signal, content execution, local-first workflows, and verified outcomes.
             </p>
           </div>
         </SlideShell>
 
         {/* Slide 6 */}
-        <SlideShell id="slide-6" index={6} title="Platform Vision" subtitle="From workflow to intelligence to a verified agent economy.">
+        <SlideShell id="slide-6" index={6} title="Platform Vision" subtitle="From workflow to local-first platform to a verified open ecosystem.">
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
             <div className="grid gap-4 lg:grid-cols-[1.2fr,0.8fr]">
               <div className="rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-5">
                 <p className="text-base leading-relaxed text-ink">
-                  <span className="font-bold">The Moat:</span> Every audit and campaign feeds our ranking model. This outcome data is a proprietary training signal that no generic intelligence platform can replicate.
+                  <span className="font-bold">The Moat:</span> Every audit and campaign feeds our ranking model. That training signal becomes even more defensible once it sits underneath an API, local app, CLI, and plugin ecosystem.
                 </p>
               </div>
               <div className="rounded-xl border border-slate-100 bg-white p-5">
@@ -1182,11 +1191,12 @@ const PitchDeckPage = () => {
             </div>
           </div>
 
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
               ['Training signal', 'Each audit and campaign adds the ranking data that improves which agent wins future jobs.'],
-              ['Enterprise intelligence', 'The next layer is continuous decision support, not just another dashboard or one-off report.'],
+              ['Local-first adoption', 'Teams can run analysis against private knowledge locally, then opt into sync, collaboration, or cloud workflows only when needed.'],
               ['API-First Standard', 'GeoCompanion stays focused on the core workflow. Developers can build wrappers on top of it, such as KOL publishing flows, richer media generation, or milestone check-ins.'],
+              ['Chain-agnostic trust', 'Verification is not tied to one chain. We can support EVM deployments through ERC8004 and Solana-native deployments through registry or SATI-style attestations.'],
             ].map(([title, body]) => (
               <article key={title} className="deck-card rounded-2xl p-5">
                 <h3 className="text-base font-semibold text-ink mb-2">{title}</h3>
@@ -1197,13 +1207,13 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              Phase 0 is intentional. The app generates the proprietary training signal that makes Phase 1 routing defensible. We are not pivoting to infra; we are building toward it with every workflow we run today.
+              Phase 0 is intentional. SaaS generates the proprietary training signal that makes the future API, local app, CLI, and ecosystem defensible. We are not pivoting away from execution; we are widening the distribution surface around the same core.
             </p>
           </div>
         </SlideShell>
 
         {/* Slide 7 */}
-        <SlideShell id="slide-7" index={7} title="Agent Marketplace" subtitle="Private context in, best-fit execution out.">
+        <SlideShell id="slide-7" index={7} title="Open Ecosystem" subtitle="Private context in, best-fit execution out across agents, plugins, and local workflows.">
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
             <div className="grid gap-6 lg:grid-cols-[0.8fr,1.2fr]">
               <div className="space-y-4">
@@ -1258,10 +1268,10 @@ const PitchDeckPage = () => {
                         </div>
                         <div>
                           <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Public agents</p>
-                          <p className="text-xs font-semibold text-ink">Marketplace agents</p>
+                          <p className="text-xs font-semibold text-ink">Agents / plugins</p>
                         </div>
                       </div>
-                      <p className="text-xs leading-relaxed text-ink/80 font-medium italic">AWS / GCP deployed agents with different hook mixes.</p>
+                      <p className="text-xs leading-relaxed text-ink/80 font-medium italic">Cloud agents, plugins, and extensions with different hook mixes and workflows.</p>
                     </div>
                   </div>
                 </div>
@@ -1308,8 +1318,8 @@ const PitchDeckPage = () => {
           <div className="mt-5 grid gap-4 md:grid-cols-3">
             {[
               ['Weighted agents', 'Each public agent is a weighted basket of hooks, not a single-hook identity. In plain English: each agent blends several messaging patterns in different proportions, like a recipe tuned to a brand context.'],
-              ['Cloud-native layer', 'Public agents run on AWS or GCP while personal agents keep private context local.'],
-              ['Compounding loop', 'Measured outcomes improve routing quality, ranking history, and future hook weights.'],
+              ['Local-first core', 'Private knowledge can stay local by default while cloud agents, sync, and collaboration remain optional layers on top.'],
+              ['Compounding loop', 'Measured outcomes improve routing quality, ranking history, future hook weights, and future plugin recommendations.'],
             ].map(([title, body]) => (
               <article key={title} className="deck-card rounded-2xl p-5">
                 <h3 className="text-base font-semibold text-ink mb-2">{title}</h3>
@@ -1320,12 +1330,13 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6 space-y-3">
             <p className="text-sm leading-relaxed text-ink font-medium">
-              The API opens a massive third-party builder ecosystem. Developers can deploy lightweight, consumerized frontends (e.g., Duolingo-style milestone or daily check-in wrappers) powered entirely by GeoCompanion's underlying routing engine.
+              The API opens a third-party builder ecosystem. Developers can ship plugins, lightweight frontends, and CLI automations powered by GeoCompanion's underlying routing and analysis engine.
             </p>
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              The on-chain layer (ERC8004) is a trust primitive, not a payment mechanism. Billing stays on fiat throughout.
-              The chain provides immutable performance attestation that enterprise buyers require before trusting autonomous
-              agents with their brand.
+              The on-chain layer is a chain-agnostic trust primitive, not a payment mechanism. EVM deployments can use ERC8004, while Solana-native deployments can use a Solana Agent Registry or SATI-style attestations.
+            </p>
+            <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
+              Both paths support the same product outcomes: agent performance attestation, reputation systems, data provenance, and dispute-resolution logs. Billing stays on fiat throughout.
             </p>
           </div>
         </SlideShell>
@@ -1454,7 +1465,7 @@ const PitchDeckPage = () => {
         </SlideShell>
 
         {/* Slide 10 */}
-        <SlideShell id="slide-10" index={10} title="Business Model" subtitle="Three layers, each compounding the previous one.">
+        <SlideShell id="slide-10" index={10} title="Business Model" subtitle="SaaS first, then API, local app, and ecosystem revenue.">
           <div className="grid gap-5 md:grid-cols-3">
             {[
               {
@@ -1462,12 +1473,12 @@ const PitchDeckPage = () => {
                 body: 'Beta is free today. Paid launch starts under $10/month, then scales through Agency and Enterprise tiers.',
               },
               {
-                title: 'Agent API (Phase 1)',
-                body: 'A usage-based API layer for teams and partner products that want to build on GeoCompanion without recreating the intelligence underneath.',
+                title: 'API + cloud add-ons (Phase 1+)',
+                body: 'A usage-based API plus sync, collaboration, and analytics layers for teams that want GeoCompanion beyond the core app.',
               },
               {
-                title: 'Marketplace take-rate (Phase 2+)',
-                body: '15\u201320% commission on verified agent transactions. Creators keep 80\u201385%, while personal agents route spend to top-ranked public agents.',
+                title: 'Local app + ecosystem (Phase 2+)',
+                body: 'Freemium desktop app, premium plugins, and marketplace take-rate as the builder ecosystem matures around the core workflow.',
               },
             ].map((item) => (
               <article key={item.title} className="bg-hull border-2 border-ink shadow-brutalist p-8">
@@ -1483,7 +1494,7 @@ const PitchDeckPage = () => {
               <ul className="space-y-3 text-sm leading-relaxed text-ink/80 font-medium italic">
                 <li><span className="font-bold text-ink">Data Moat:</span> Every campaign refined our ranking model.</li>
                 <li><span className="font-bold text-ink">Outcome Lifts:</span> Better rankings drive better results, attracting demand.</li>
-                <li><span className="font-bold text-ink">Creator Lock-in:</span> Distribution and verification create switching costs.</li>
+                <li><span className="font-bold text-ink">Ecosystem Lock-in:</span> Local workflows, plugins, and verification create switching costs.</li>
               </ul>
             </article>
 
@@ -1496,12 +1507,10 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              GeoCompanion starts with subscription revenue, expands into API usage, and can later add marketplace take-rate
-              once routing and verification become part of the workflow.
+              GeoCompanion starts with subscription revenue, expands into API and cloud usage, and later adds local app, plugin, and marketplace revenue once the ecosystem matures.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink/80 font-medium italic">
-              Billing stays on fiat. The on-chain layer exists to prove performance history and make agent selection
-              auditable for enterprise buyers.
+              Billing stays on fiat. The on-chain layer is chain-agnostic and exists to prove performance history, preserve provenance, and make agent selection auditable for enterprise buyers.
             </p>
           </div>
         </SlideShell>
@@ -1532,8 +1541,8 @@ const PitchDeckPage = () => {
               <div className="mt-4 grid gap-3 md:grid-cols-3">
                 {[
                   ['Phase 0', 'Own the diagnosis \u2192 execution workflow'],
-                  ['Phase 1', 'Open the platform to agent and partner traffic via API'],
-                  ['Phase 2', 'Agent Marketplace: deploy and earn on verified agent performance'],
+                  ['Phase 1', 'Open the platform through API, desktop, and CLI workflows'],
+                  ['Phase 2', 'Plugin ecosystem and verified marketplace on top of the core engine'],
                 ].map(([phase, detail]) => (
                   <div key={phase} className="rounded-xl border border-slate-100 bg-white p-4">
                     <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{phase}</p>
@@ -1552,7 +1561,7 @@ const PitchDeckPage = () => {
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="text-sm font-semibold text-ink mb-1">Marketplace routing</p>
-                  <p className="text-sm leading-relaxed text-ink/80 font-medium italic">As more partner products plug in, routing and ranking become a monetizable execution layer on top of that intelligence system.</p>
+                  <p className="text-sm leading-relaxed text-ink/80 font-medium italic">As more partner products, plugins, and local workflows plug in, routing and ranking become a monetizable execution layer on top of that intelligence system.</p>
                 </div>
               </div>
             </article>
@@ -1569,6 +1578,15 @@ const PitchDeckPage = () => {
                   <div className="pt-1">
                     <h3 className="deck-heading text-3xl font-bold text-ink leading-none">{member.name}</h3>
                     <p className="deck-mono mt-2 text-[9px] font-medium uppercase tracking-[0.18em] text-sage/95 font-medium italic">{member.role}</p>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex items-center gap-2 text-xs font-medium text-ink/80 transition-colors hover:text-ink"
+                    >
+                      <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
+                      LinkedIn
+                    </a>
                 </div>
                 </div>
 
@@ -1655,12 +1673,25 @@ const PitchDeckPage = () => {
                 fill this same round with strategic capital, distribution, and follow-on access, not because we are changing
                 the plan.
               </p>
+              <p className="mt-4 text-sm leading-relaxed text-ink/80 font-medium italic">
+                Near term, this capital funds SaaS traction and revenue. Long term, the same core can expand into a local-first app, CLI, and plugin ecosystem without changing the product thesis.
+              </p>
             </article>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Ask: $1.25M SAFE on $12M cap</span>
             <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Accelerator participates only if it strengthens the same round</span>
+          </div>
+
+          <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-slate-100 bg-white/40 px-4 py-3">
+            <Mail className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />
+            <a
+              href="mailto:intern@geocompanion.ai"
+              className="deck-mono text-[10px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-sage"
+            >
+              intern@geocompanion.ai
+            </a>
           </div>
 
           <SlideFootnotes
