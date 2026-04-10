@@ -942,7 +942,7 @@ const PitchDeckPage = () => {
               {
                 tag: 'Shift 1',
                 title: 'Behavior shifts faster than tooling',
-                body: 'Buyers are moving toward AI answers now, but teams still use SEO stacks built for the old web.',
+                body: 'Buyers are moving toward AI answers, while content consumption keeps shifting toward creator-native, platform-specific formats. Most teams still use stacks built for the old web.',
               },
               {
                 tag: 'Shift 2',
