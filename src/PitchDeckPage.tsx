@@ -984,7 +984,65 @@ const PitchDeckPage = () => {
         </SlideShell>
 
         {/* Slide 4 */}
-        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. Audit and execution are live now, powered by a proprietary intelligence layer underneath.">
+        <SlideShell id="slide-4" index={4} title="Market Size" subtitle="At the intersection of three fast-growing markets.">
+          <div className="deck-card overflow-x-auto rounded-2xl">
+            <table className="deck-table min-w-[720px]">
+              <thead>
+                <tr>
+                  <th>Market</th>
+                  <th>2026 Size</th>
+                  <th>Growth Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                {marketRows.map((row) => (
+                  <tr key={row.market}>
+                    <td className="font-medium text-ink">{row.market}</td>
+                    <td>{row.size}</td>
+                    <td className="font-semibold text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5">{row.growth}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-4">
+            {[
+              ['TAM', '$87B', 'Global software market for marketing intelligence, content SaaS, and creator tools.'],
+              ['SAM', '$12B', 'AI-first marketing tools for SMB through enterprise.'],
+              ['Creator/SMB sub-TAM', '$6B', 'Serviceable market focused on creators and SMBs, excluding enterprise-heavy spend.'],
+              ['SOM (Year 3)', '$150M', 'Under 1.5% SAM penetration target.'],
+            ].map(([label, value, desc]) => (
+              <article key={label} className="deck-card rounded-2xl p-5">
+                <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">{label}</p>
+                <p className="deck-heading text-4xl font-bold text-ink tabular-nums">{value}</p>
+                <p className="mt-2 text-xs leading-relaxed text-ink/80 font-medium italic">{desc}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="deck-card mt-5 rounded-2xl p-6">
+            <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Market Focus</p>
+            <div className="space-y-4">
+              {[
+                { label: 'TAM $87B', width: 100, tone: 'from-emerald-500 to-emerald-400' },
+                { label: 'SAM $12B', width: 38, tone: 'from-emerald-600/80 to-emerald-500/80' },
+                { label: 'Creator/SMB $6B', width: 24, tone: 'from-slate-500 to-slate-400' },
+                { label: 'SOM $150M', width: 8, tone: 'from-slate-600 to-slate-500' },
+              ].map((bar) => (
+                <div key={bar.label}>
+                  <div className="deck-mono mb-1.5 text-[10px] tracking-[0.1em] text-sage/95 font-medium italic">{bar.label}</div>
+                  <div className="h-2 rounded-full bg-slate-100">
+                    <div className={`h-full rounded-full bg-gradient-to-r ${bar.tone}`} style={{ width: `${bar.width}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </SlideShell>
+
+        {/* Slide 5 */}
+        <SlideShell id="slide-5" index={5} title="The Execution Stack" subtitle="Three live modules today. Audit and execution are live now, powered by a proprietary intelligence layer underneath.">
           <div className="grid gap-6 lg:grid-cols-2">
 
             {/* Live Now */}
@@ -1095,10 +1153,10 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        {/* Slide 5 */}
+        {/* Slide 6 */}
         <SlideShell
-          id="slide-5"
-          index={5}
+          id="slide-6"
+          index={6}
           title="Why We're Different"
           subtitle="Others are point tools or high-priced enterprise products. We’re building the workflow layer that connects visibility, execution, and feedback for the next market down."
         >
@@ -1149,8 +1207,8 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        {/* Slide 6 */}
-        <SlideShell id="slide-6" index={6} title="Platform Vision" subtitle="From workflow to local-first platform to a verified open ecosystem.">
+        {/* Slide 7 */}
+        <SlideShell id="slide-7" index={7} title="Platform Vision" subtitle="From workflow to local-first platform to a verified open ecosystem.">
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
             <div className="grid gap-4 lg:grid-cols-[1.2fr,0.8fr]">
               <div className="rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-5">
@@ -1212,8 +1270,8 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        {/* Slide 7 */}
-        <SlideShell id="slide-7" index={7} title="Open Ecosystem" subtitle="Private context in, best-fit execution out across agents, plugins, and local workflows.">
+        {/* Slide 8 */}
+        <SlideShell id="slide-8" index={8} title="Open Ecosystem" subtitle="Private context in, best-fit execution out across agents, plugins, and local workflows.">
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
             <div className="grid gap-6 lg:grid-cols-[0.8fr,1.2fr]">
               <div className="space-y-4">
@@ -1341,8 +1399,8 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        {/* Slide 8 */}
-        <SlideShell id="slide-8" index={8} title="Early Signal" subtitle="Free beta — conversion to paid starts Q2 2026. Here is what the signal already looks like.">
+        {/* Slide 9 */}
+        <SlideShell id="slide-9" index={9} title="Early Signal" subtitle="Free beta — conversion to paid starts Q2 2026. Here is what the signal already looks like.">
           <div className="grid gap-4 md:grid-cols-4">
             {[
               { label: 'Activation Rate', value: '75%', icon: <DollarSign className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /> },
@@ -1403,64 +1461,6 @@ const PitchDeckPage = () => {
                 ))}
               </div>
             </article>
-          </div>
-        </SlideShell>
-
-        {/* Slide 9 */}
-        <SlideShell id="slide-9" index={9} title="Market Size" subtitle="At the intersection of three fast-growing markets.">
-          <div className="deck-card overflow-x-auto rounded-2xl">
-            <table className="deck-table min-w-[720px]">
-              <thead>
-                <tr>
-                  <th>Market</th>
-                  <th>2026 Size</th>
-                  <th>Growth Rate</th>
-                </tr>
-              </thead>
-              <tbody>
-                {marketRows.map((row) => (
-                  <tr key={row.market}>
-                    <td className="font-medium text-ink">{row.market}</td>
-                    <td>{row.size}</td>
-                    <td className="font-semibold text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5">{row.growth}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-5 grid gap-4 md:grid-cols-4">
-            {[
-              ['TAM', '$87B', 'Global software market for marketing intelligence, content SaaS, and creator tools.'],
-              ['SAM', '$12B', 'AI-first marketing tools for SMB through enterprise.'],
-              ['Creator/SMB sub-TAM', '$6B', 'Serviceable market focused on creators and SMBs, excluding enterprise-heavy spend.'],
-              ['SOM (Year 3)', '$150M', 'Under 1.5% SAM penetration target.'],
-            ].map(([label, value, desc]) => (
-              <article key={label} className="deck-card rounded-2xl p-5">
-                <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">{label}</p>
-                <p className="deck-heading text-4xl font-bold text-ink tabular-nums">{value}</p>
-                <p className="mt-2 text-xs leading-relaxed text-ink/80 font-medium italic">{desc}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="deck-card mt-5 rounded-2xl p-6">
-            <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Market Focus</p>
-            <div className="space-y-4">
-              {[
-                { label: 'TAM $87B', width: 100, tone: 'from-emerald-500 to-emerald-400' },
-                { label: 'SAM $12B', width: 38, tone: 'from-emerald-600/80 to-emerald-500/80' },
-                { label: 'Creator/SMB $6B', width: 24, tone: 'from-slate-500 to-slate-400' },
-                { label: 'SOM $150M', width: 8, tone: 'from-slate-600 to-slate-500' },
-              ].map((bar) => (
-                <div key={bar.label}>
-                  <div className="deck-mono mb-1.5 text-[10px] tracking-[0.1em] text-sage/95 font-medium italic">{bar.label}</div>
-                  <div className="h-2 rounded-full bg-slate-100">
-                    <div className={`h-full rounded-full bg-gradient-to-r ${bar.tone}`} style={{ width: `${bar.width}%` }} />
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </SlideShell>
 
