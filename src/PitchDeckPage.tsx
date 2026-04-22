@@ -226,7 +226,7 @@ const TeamAvatar = ({ member }: { member: TeamMember }) => {
 const competitorRows = [
   {
     category: 'AI citation visibility & scoring',
-    cloverlabs: 'No',
+    BrightEdge: 'Partial',
     hootsuite: 'No',
     semrush: 'Partial',
     jasper: 'No',
@@ -234,7 +234,7 @@ const competitorRows = [
   },
   {
     category: 'Deployable code fixes',
-    cloverlabs: 'No',
+    BrightEdge: 'No',
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
@@ -242,7 +242,7 @@ const competitorRows = [
   },
   {
     category: 'Platform-native content',
-    cloverlabs: 'Yes',
+    BrightEdge: 'No',
     hootsuite: 'Scheduling only',
     semrush: 'No',
     jasper: 'Generic',
@@ -250,7 +250,7 @@ const competitorRows = [
   },
   {
     category: 'Agent API (machine-to-machine)',
-    cloverlabs: 'No',
+    BrightEdge: 'No',
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
@@ -258,7 +258,7 @@ const competitorRows = [
   },
   {
     category: 'Chain-agnostic on-chain verification',
-    cloverlabs: 'No',
+    BrightEdge: 'No',
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
@@ -266,7 +266,7 @@ const competitorRows = [
   },
   {
     category: 'Open infra / ecosystem model',
-    cloverlabs: 'No',
+    BrightEdge: 'No',
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
@@ -274,7 +274,7 @@ const competitorRows = [
   },
   {
     category: 'Entry price',
-    cloverlabs: 'Enterprise',
+    BrightEdge: '$12K+/yr',
     hootsuite: '$99/mo',
     semrush: '$130/mo',
     jasper: '$39/mo',
@@ -797,7 +797,7 @@ const PitchDeckPage = () => {
         <SlideShell
           id="slide-1"
           index={1}
-          title="Marketing teams are being replaced by AI agents. We build the infrastructure they run on."
+          title="AI decides who gets found. Most businesses have no system in place to change that. We build the infrastructure they run on."
           subtitle="SaaS now, open ecosystem later. Signal to content to distribution to verified outcomes — one compounding loop."
         >
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
@@ -951,8 +951,8 @@ const PitchDeckPage = () => {
               },
               {
                 tag: 'Shift 3',
-                title: 'Privacy + local-first demand',
-                body: 'Founders, agencies, and enterprises increasingly want workflow tools that keep knowledge private by default, with cloud collaboration as an option rather than a requirement.',
+                title: 'A2A infrastructure is forming',
+                body: 'Google’s A2A protocol, backed by 50+ enterprise partners, is a concrete sign that agent-to-agent commerce infrastructure is taking shape now.',
               },
             ].map((item, idx) => (
               <article key={item.tag} className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-4 flex flex-col justify-between">
@@ -967,7 +967,7 @@ const PitchDeckPage = () => {
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform -rotate-1 lg:col-span-7">
               <p className="deck-mono text-[10px] uppercase tracking-[0.16em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-3">The Window</p>
               <p className="text-xl font-medium leading-relaxed text-ink">
-                Incumbents skew toward enterprise reporting. The <span className="text-clay font-bold">SMB, creator, developer, and agent-native layer</span> is still wide open for a category-defining workflow.
+                Incumbents still focus on reporting and dashboard software. But with <span className="text-clay font-bold">agent-to-agent infrastructure</span> now emerging, the <span className="text-clay font-bold"> SMB, creator, developer, and agent-native layer </span>is still wide open for a category-defining platform.
               </p>
             </div>
 
@@ -977,14 +977,14 @@ const PitchDeckPage = () => {
                   <div className="h-2 w-2 rounded-full bg-clay" />
                   <p className="text-sm font-bold text-ink">Early Advantage</p>
                 </div>
-                <p className="mt-2 text-sm text-sage/95 font-medium italic">We are not just building a workflow. We are positioning the product to become a local-first platform with an open ecosystem before incumbents move beyond dashboards.</p>
+                <p className="mt-2 text-sm text-sage/95 font-medium italic">We are not just building a workflow. We are positioning the product to become infrastructure for AI-native marketing before incumbents move beyond dashboards and point solutions.</p>
               </div>
             </div>
           </div>
         </SlideShell>
 
         {/* Slide 4 */}
-        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. Over time, the core expands into a local-first product and open ecosystem.">
+        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. Audit and execution are live now, powered by a proprietary intelligence layer underneath.">
           <div className="grid gap-6 lg:grid-cols-2">
 
             {/* Live Now */}
@@ -996,19 +996,19 @@ const PitchDeckPage = () => {
               <div className="space-y-4">
                 {[
                   {
-                    icon: <Radar className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
-                    name: 'Hook Intelligence Engine',
-                    desc: 'A continuously updated database of what makes content go viral — captured and scored across every major platform. The pattern library that powers everything else.',
-                  },
-                  {
                     icon: <Search className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
                     name: 'AI Visibility Audit Engine',
-                    desc: 'Finds exactly why AI assistants like ChatGPT skip your brand in their answers — then generates the code fixes and content updates you can ship the same day.',
+                    desc: 'Paste any URL, get a visibility score in 15 seconds. See where AI assistants skip your brand, then get the fixes you can ship right away.',
                   },
                   {
                     icon: <Sparkles className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
                     name: 'Platform Content Engine',
-                    desc: 'Generates platform-native posts, threads, and articles for 7+ channels — written in your brand\'s voice, structured around proven viral patterns.',
+                    desc: 'Paste a brand page, get a 30/60/90-day content calendar. Generates platform-native posts, threads, and articles built for how discovery actually works now.',
+                  },
+                  {
+                    icon: <Radar className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
+                    name: 'Hook Intelligence Engine',
+                    desc: 'The proprietary system underneath the platform. Continuously scores what drives engagement across channels and improves every audit and content plan.',
                   },
                 ].map((mod) => (
                   <div key={mod.name} className="rounded-xl border border-slate-100 bg-white p-5">
@@ -1100,14 +1100,14 @@ const PitchDeckPage = () => {
           id="slide-5"
           index={5}
           title="Why We're Different"
-          subtitle="Others are point tools built for human workflows. We're building a workflow layer that can expand into a platform."
+          subtitle="Others are point tools or high-priced enterprise products. We’re building the workflow layer that connects visibility, execution, and feedback for the next market down."
         >
           <div className="bg-hull border-2 border-ink shadow-brutalist p-4 overflow-x-auto">
             <table className="deck-table min-w-[900px]">
               <thead>
                 <tr>
                   <th>Category</th>
-                  <th>Cloverlabs</th>
+                  <th>BrightEdge</th>
                   <th>Hootsuite</th>
                   <th>Semrush</th>
                   <th>Jasper / Copy.ai</th>
@@ -1118,7 +1118,7 @@ const PitchDeckPage = () => {
                 {competitorRows.map((row) => (
                   <tr key={row.category}>
                     <td className="font-medium text-ink">{row.category}</td>
-                    <td>{row.cloverlabs}</td>
+                    <td>{row.BrightEdge}</td>
                     <td>{row.hootsuite}</td>
                     <td>{row.semrush}</td>
                     <td>{row.jasper}</td>
@@ -1345,9 +1345,9 @@ const PitchDeckPage = () => {
         <SlideShell id="slide-8" index={8} title="Early Signal" subtitle="Free beta — conversion to paid starts Q2 2026. Here is what the signal already looks like.">
           <div className="grid gap-4 md:grid-cols-4">
             {[
-              { label: 'Activation Rate', value: '74%', icon: <DollarSign className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /> },
-              { label: 'Active Users', value: '340', icon: <Search className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
-              { label: 'Search Events', value: '2,326', icon: <BarChart3 className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
+              { label: 'Activation Rate', value: '75%', icon: <DollarSign className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /> },
+              { label: 'Active Users', value: '571', icon: <Search className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
+              { label: 'Search Events', value: '4000+', icon: <BarChart3 className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
               { label: 'Website Visitors', value: '457', icon: <Users className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
             ].map((kpi) => (
               <article key={kpi.label} className="deck-card rounded-2xl p-5">
@@ -1362,7 +1362,7 @@ const PitchDeckPage = () => {
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
               <h3 className="text-xl font-semibold text-ink mb-4">The Beta Thesis</h3>
               <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-                We are seeing <span className="font-bold text-ink">74% activation</span> and 6.8 searches per active user. This depth of engagement proves users treat GeoCompanion as a core operating surface, not a one-time demo.
+                We are seeing <span className="font-bold text-ink">75% activation</span> and 7 searches per active user. This depth of engagement proves users treat GeoCompanion as a core operating surface, not a one-time demo.
               </p>
               <div className="mt-6 rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-4 text-sm leading-relaxed text-ink">
                 This round builds our upmarket intelligence layer and scales conversion to durable revenue.
@@ -1370,24 +1370,24 @@ const PitchDeckPage = () => {
             </article>
 
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
-              <h3 className="text-xl font-semibold text-ink mb-4">Milestones from beta to IPO window</h3>
+              <h3 className="text-xl font-semibold text-ink mb-4">Milestones from beta to scale</h3>
               <div className="space-y-3">
                 {[
                   {
-                    title: 'Pre-seed / Accelerator',
-                    desc: 'Convert beta traffic into repeat product usage and first revenue before institutional seed.',
+                    title: 'Pre-seed',
+                    desc: 'Convert free beta usage into repeat product usage, first paying teams, and early revenue.',
                     target: 'Goal by Q2 2026: 1.5K users, 10K searches, 50 creator/KOL customer accounts, 10 paying brand or agency teams, $5K\u2013$10K MRR',
                     icon: <Building2 className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />,
                   },
                   {
-                    title: 'Seed / Series A',
-                    desc: 'Move upmarket with intelligence workflows and prove expansion revenue across SMB, agency, and enterprise accounts.',
+                    title: 'Seed',
+                    desc: 'Turn early paid usage into a repeatable go-to-market motion across SMB, agency, and enterprise customers.',
                     target: 'Goal by Q4 2027: 25+ brand or agency customers, 500 creator/KOL customer accounts, $100K MRR, <3 month payback, strong retention',
                     icon: <Users className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />,
                   },
                   {
-                    title: 'Growth / IPO readiness',
-                    desc: 'Use marketplace and verification infrastructure to become the system of record for AI-native marketing performance.',
+                    title: 'Series A',
+                    desc: 'Build the system of record for AI-native marketing performance through infrastructure, APIs, and network effects.',
                     target: 'Goal by Q3 2029: $50M+ ARR, 120+ enterprise or agency customers, 5,000 creator/KOL customer accounts, enterprise-grade reporting and controls',
                     icon: <Handshake className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />,
                   },
