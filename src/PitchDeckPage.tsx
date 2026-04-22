@@ -172,7 +172,7 @@ const teamMembers: TeamMember[] = [
     photoAlt: 'Portrait of Huan',
     photoPosition: 'center 20%',
     linkedin: 'https://www.linkedin.com/in/huan-ying-713736146/',
-    body: 'Product leader spanning Web3, AI, and traditional finance. At GeoCompanion, owns the loop between visibility signal and content execution — the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
+    body: 'Product leader spanning Web3, AI, and traditional finance. At Florus, owns the loop between visibility signal and content execution — the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
   },
   {
     name: 'Austin',
@@ -181,7 +181,7 @@ const teamMembers: TeamMember[] = [
     photoAlt: 'Portrait of Austin',
     photoPosition: 'center 16%',
     linkedin: 'https://www.linkedin.com/in/austinchan910/',
-    body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook GeoCompanion sells to brands. Understands creator economics from both the operator side and the platform side.',
+    body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook Florus sells to brands. Understands creator economics from both the operator side and the platform side.',
   },
 ];
 
@@ -230,7 +230,7 @@ const competitorRows = [
     hootsuite: 'No',
     semrush: 'Partial',
     jasper: 'No',
-    geoCompanion: 'Yes',
+    Florus: 'Yes',
   },
   {
     category: 'Deployable code fixes',
@@ -238,7 +238,7 @@ const competitorRows = [
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
-    geoCompanion: 'Yes',
+    Florus: 'Yes',
   },
   {
     category: 'Platform-native content',
@@ -246,7 +246,7 @@ const competitorRows = [
     hootsuite: 'Scheduling only',
     semrush: 'No',
     jasper: 'Generic',
-    geoCompanion: 'Yes (hook-based)',
+    Florus: 'Yes (hook-based)',
   },
   {
     category: 'Agent API (machine-to-machine)',
@@ -254,7 +254,7 @@ const competitorRows = [
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
-    geoCompanion: 'Yes (Phase 1)',
+    Florus: 'Yes (Phase 1)',
   },
   {
     category: 'Chain-agnostic on-chain verification',
@@ -262,7 +262,7 @@ const competitorRows = [
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
-    geoCompanion: 'Yes (Phase 3)',
+    Florus: 'Yes (Phase 3)',
   },
   {
     category: 'Open infra / ecosystem model',
@@ -270,7 +270,7 @@ const competitorRows = [
     hootsuite: 'No',
     semrush: 'No',
     jasper: 'No',
-    geoCompanion: 'Yes',
+    Florus: 'Yes',
   },
   {
     category: 'Entry price',
@@ -278,7 +278,7 @@ const competitorRows = [
     hootsuite: '$99/mo',
     semrush: '$130/mo',
     jasper: '$39/mo',
-    geoCompanion: 'Beta free \u2192 <$10/mo starter',
+    Florus: 'Beta free \u2192 <$15/mo starter',
   },
 ];
 
@@ -922,7 +922,7 @@ const PitchDeckPage = () => {
             <div className="grid gap-4 md:grid-cols-3">
               <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Visibility tools tell you what's broken. They don't fix it or create the content to replace it.</div>
               <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Content tools write posts. They don't know if AI assistants will ever cite that content.</div>
-              <div className="bg-clay/5 border border-clay/20 p-4 text-sm font-medium text-ink">GeoCompanion is the only system that diagnoses, executes, and learns from every outcome — closing the loop that every other tool leaves open.</div>
+              <div className="bg-clay/5 border border-clay/20 p-4 text-sm font-medium text-ink">Florus is the only system that diagnoses, executes, and learns from every outcome — closing the loop that every other tool leaves open.</div>
             </div>
           </div>
 
@@ -1111,7 +1111,7 @@ const PitchDeckPage = () => {
                   <th>Hootsuite</th>
                   <th>Semrush</th>
                   <th>Jasper / Copy.ai</th>
-                  <th>GeoCompanion</th>
+                  <th>Florus</th>
                 </tr>
               </thead>
               <tbody>
@@ -1122,7 +1122,7 @@ const PitchDeckPage = () => {
                     <td>{row.hootsuite}</td>
                     <td>{row.semrush}</td>
                     <td>{row.jasper}</td>
-                    <td className="font-semibold text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5">{row.geoCompanion}</td>
+                    <td className="font-semibold text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5">{row.Florus}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1195,7 +1195,7 @@ const PitchDeckPage = () => {
             {[
               ['Training signal', 'Each audit and campaign adds the ranking data that improves which agent wins future jobs.'],
               ['Local-first adoption', 'Teams can run analysis against private knowledge locally, then opt into sync, collaboration, or cloud workflows only when needed.'],
-              ['API-First Standard', 'GeoCompanion stays focused on the core workflow. Developers can build wrappers on top of it, such as KOL publishing flows, richer media generation, or milestone check-ins.'],
+              ['API-First Standard', 'Florus stays focused on the core workflow. Developers can build wrappers on top of it, such as KOL publishing flows, richer media generation, or milestone check-ins.'],
               ['Chain-agnostic trust', 'Verification is not tied to one chain. We can support EVM deployments through ERC8004 and Solana-native deployments through registry or SATI-style attestations.'],
             ].map(([title, body]) => (
               <article key={title} className="deck-card rounded-2xl p-5">
@@ -1223,7 +1223,7 @@ const PitchDeckPage = () => {
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">2. Smart Routing</p>
-                  <p className="text-sm text-ink/90 font-medium italic">GeoCompanion selects agents by verified hook performance and outcome history.</p>
+                  <p className="text-sm text-ink/90 font-medium italic">Florus selects agents by verified hook performance and outcome history.</p>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">3. Native Execution</p>
@@ -1254,7 +1254,7 @@ const PitchDeckPage = () => {
                           <Server className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />
                         </div>
                         <div>
-                          <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">GeoCompanion</p>
+                          <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Florus</p>
                           <p className="text-xs font-semibold text-ink">Routing layer</p>
                         </div>
                       </div>
@@ -1330,7 +1330,7 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6 space-y-3">
             <p className="text-sm leading-relaxed text-ink font-medium">
-              The API opens a third-party builder ecosystem. Developers can ship plugins, lightweight frontends, and CLI automations powered by GeoCompanion's underlying routing and analysis engine.
+              The API opens a third-party builder ecosystem. Developers can ship plugins, lightweight frontends, and CLI automations powered by Florus's underlying routing and analysis engine.
             </p>
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
               The on-chain layer is a chain-agnostic trust primitive, not a payment mechanism. EVM deployments can use ERC8004, while Solana-native deployments can use a Solana Agent Registry or SATI-style attestations.
@@ -1474,7 +1474,7 @@ const PitchDeckPage = () => {
               },
               {
                 title: 'API + cloud add-ons (Phase 1+)',
-                body: 'A usage-based API plus sync, collaboration, and analytics layers for teams that want GeoCompanion beyond the core app.',
+                body: 'A usage-based API plus sync, collaboration, and analytics layers for teams that want Florus beyond the core app.',
               },
               {
                 title: 'Local app + ecosystem (Phase 2+)',
@@ -1507,7 +1507,7 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              GeoCompanion starts with subscription revenue, expands into API and cloud usage, and later adds local app, plugin, and marketplace revenue once the ecosystem matures.
+              Florus starts with subscription revenue, expands into API and cloud usage, and later adds local app, plugin, and marketplace revenue once the ecosystem matures.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink/80 font-medium italic">
               Billing stays on fiat. The on-chain layer is chain-agnostic and exists to prove performance history, preserve provenance, and make agent selection auditable for enterprise buyers.
@@ -1557,7 +1557,7 @@ const PitchDeckPage = () => {
               <div className="space-y-3">
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="text-sm font-semibold text-ink mb-1">Vision Navigator</p>
-                  <p className="text-sm leading-relaxed text-ink/80 font-medium italic">As more teams use the system, GeoCompanion gets better at helping companies understand whether they are running in the right direction before scaling more budget and effort.</p>
+                  <p className="text-sm leading-relaxed text-ink/80 font-medium italic">As more teams use the system, Florus gets better at helping companies understand whether they are running in the right direction before scaling more budget and effort.</p>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="text-sm font-semibold text-ink mb-1">Marketplace routing</p>
@@ -1599,7 +1599,7 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              Most marketing AI startups have strong engineering or strong distribution. GeoCompanion has both,
+              Most marketing AI startups have strong engineering or strong distribution. Florus has both,
               plus product-level content science.
             </p>
           </div>
