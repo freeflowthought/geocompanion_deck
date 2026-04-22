@@ -29,7 +29,7 @@ const SlideShell = ({ id, index, title, subtitle, children }: SlideShellProps) =
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
         <div className="flex-1">
           <p className="deck-mono text-[10px] tracking-[0.3em] uppercase text-clay mb-4" aria-hidden="true">
-            {String(index).padStart(2, '0')} // AX-G
+            Page {String(index).padStart(2, '0')} / 13
           </p>
           <h2 className="deck-heading text-4xl font-light leading-[1.1] text-ink sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter uppercase italic text-balance">
             {title}
@@ -1470,7 +1470,7 @@ const PitchDeckPage = () => {
             {[
               {
                 title: 'SaaS subscriptions (now)',
-                body: 'Beta is free today. Paid launch starts under $10/month, then scales through Agency and Enterprise tiers.',
+                body: 'Start with a free trial, then convert into paid self-serve plans at $15/month (Starter) and $35/month (Pro).',
               },
               {
                 title: 'API + cloud add-ons (Phase 1+)',
