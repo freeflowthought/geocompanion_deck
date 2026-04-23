@@ -509,6 +509,7 @@ const PitchDeckPage = () => {
     <div className="relative min-h-screen overflow-hidden bg-void text-onyx">
       <style>{`
         *, *::before, *::after {
+          box-sizing: border-box;  // 
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
@@ -801,7 +802,7 @@ const PitchDeckPage = () => {
           subtitle="SaaS now, open ecosystem later. Signal to content to distribution to verified outcomes — one compounding loop."
         >
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-            <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform -rotate-1 lg:col-span-7">
+            <div className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-7">
               <div className="mb-6 flex items-center gap-3">
                 <GeoCompanionMark size={28} />
                 <span className="deck-mono text-[10px] tracking-[0.2em] uppercase text-sage/95 font-medium italic">Content Execution Infrastructure</span>
@@ -876,7 +877,7 @@ const PitchDeckPage = () => {
                 </article>
               ))}
             </div>
-            <div className="lg:col-span-4 bg-hull border-2 border-ink shadow-brutalist p-8 flex items-center justify-center text-center rotate-1">
+            <div className="lg:col-span-4 bg-hull border-2 border-ink shadow-brutalist p-8 flex items-center justify-center text-center">
                <p className="text-sm font-medium text-sage/95 font-medium italic italic">The gap between diagnosis and execution is the single biggest leak in marketing ROI today.</p>
             </div>
           </div>
@@ -964,7 +965,7 @@ const PitchDeckPage = () => {
           </div>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-12">
-            <div className="bg-hull border-2 border-ink shadow-brutalist p-10 transform -rotate-1 lg:col-span-7">
+            <div className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-7">
               <p className="deck-mono text-[10px] uppercase tracking-[0.16em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-3">The Window</p>
               <p className="text-xl font-medium leading-relaxed text-ink">
                 Incumbents still focus on reporting and dashboard software. But with <span className="text-clay font-bold">agent-to-agent infrastructure</span> now emerging, the <span className="text-clay font-bold"> SMB, creator, developer, and agent-native layer </span>is still wide open for a category-defining platform.
@@ -1572,7 +1573,7 @@ const PitchDeckPage = () => {
         <SlideShell id="slide-12" index={12} title="Team" subtitle="Engineering depth, product insight, and distribution in one founding group.">
           <div className="grid gap-5 lg:grid-cols-3">
             {teamMembers.map((member) => (
-              <article key={member.name} className="bg-hull border-2 border-ink shadow-brutalist p-8 transform rotate-1 flex h-full flex-col">
+              <article key={member.name} className="bg-hull border-2 border-ink shadow-brutalist p-8 flex h-full flex-col">
                 <div className="flex items-start gap-5">
                   <TeamAvatar member={member} />
                   <div className="pt-1">
