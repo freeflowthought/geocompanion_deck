@@ -28,7 +28,7 @@ const SlideShell = ({ id, index, title, subtitle, children }: SlideShellProps) =
     <div className="mx-auto w-full max-w-7xl relative z-10">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
         <div className="flex-1">
-          <p className="deck-mono text-[18px] tracking-[0.3em] uppercase text-clay mb-4" aria-hidden="true">
+          <p className="deck-mono text-[10px] tracking-[0.3em] uppercase text-clay mb-4" aria-hidden="true">
             Page {String(index).padStart(2, '0')} / 13
           </p>
           <h2 className="deck-heading text-4xl font-light leading-[1.1] text-ink sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter uppercase italic text-balance">
@@ -68,7 +68,7 @@ const SlideFootnotes = ({ items }: { items: SlideFootnoteLink[] }) => (
         href={item.href}
         target="_blank"
         rel="noreferrer"
-        className="deck-mono text-[18px] text-sage/95 font-medium italic hover:text-sage/95 font-medium italic transition-colors"
+        className="deck-mono text-[10px] text-sage/95 font-medium italic hover:text-sage/95 font-medium italic transition-colors"
       >
         &#8599; {item.label}
       </a>
@@ -119,8 +119,8 @@ type TeamMember = {
 const HookWeightBar = ({ label, weight, tone }: HookWeight) => (
   <div className="relative">
     <div className="flex items-center justify-between mb-1.5 px-1">
-      <span className="deck-mono text-[17px] font-bold tracking-[0.2em] uppercase text-ink">{label}</span>
-      <span className="deck-mono text-[17px] text-clay font-bold">{Math.round(weight * 100)}</span>
+      <span className="deck-mono text-[9px] font-bold tracking-[0.2em] uppercase text-ink">{label}</span>
+      <span className="deck-mono text-[9px] text-clay font-bold">{Math.round(weight * 100)}</span>
     </div>
     <div className="h-2 bg-void border border-ink/10 overflow-hidden relative">
       <div 
@@ -135,7 +135,7 @@ const HookWeightBar = ({ label, weight, tone }: HookWeight) => (
 
 const PublicAgentCard = ({ name, cloud, context, accent, hooks }: PublicAgentCardProps) => (
   <article className="h-full bg-hull border-2 border-ink shadow-brutalist p-6 relative overflow-hidden group">
-    <div className="absolute top-0 right-0 py-1 px-3 bg-ink text-void deck-mono text-[18px] tracking-widest uppercase rotate-90 origin-top-right transition-transform group-hover:translate-x-1">
+    <div className="absolute top-0 right-0 py-1 px-3 bg-ink text-void deck-mono text-[8px] tracking-widest uppercase rotate-90 origin-top-right transition-transform group-hover:translate-x-1">
       {cloud}
     </div>
     
@@ -216,7 +216,7 @@ const TeamAvatar = ({ member }: { member: TeamMember }) => {
       </div>
       
       {/* Industrial Label */}
-      <div className="absolute -bottom-4 -right-4 bg-clay text-void px-3 py-1 deck-mono text-[17px] font-bold uppercase tracking-widest border border-ink">
+      <div className="absolute -bottom-4 -right-4 bg-clay text-void px-3 py-1 deck-mono text-[9px] font-bold uppercase tracking-widest border border-ink">
         {member.role.split(' & ')[0]}
       </div>
     </div>
@@ -516,7 +516,6 @@ const PitchDeckPage = () => {
 
         body {
           font-family: 'Inter', system-ui, sans-serif;
-          font-size: 140%;
         }
 
         .deck-heading {
@@ -535,14 +534,14 @@ const PitchDeckPage = () => {
         .deck-table {
           width: 100%;
           border-collapse: collapse;
-          font-size: 1.2rem;
+          font-size: 0.875rem;
           border: 2px solid #121212;
         }
 
         .deck-table th {
           text-align: left;
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.95rem;
+          font-size: 0.65rem;
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: #FBFBFB;
@@ -578,7 +577,7 @@ const PitchDeckPage = () => {
           background: #121212;
           color: #FBFBFB;
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.9rem;
+          font-size: 0.6rem;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.15em;
@@ -591,7 +590,7 @@ const PitchDeckPage = () => {
         }
 
         .deck-card .text-sm {
-          font-size: 1.35rem;
+          font-size: 0.91rem;
           line-height: 1.65;
         }
 
@@ -750,14 +749,14 @@ const PitchDeckPage = () => {
             className="inline-flex items-center gap-2 text-sage/95 font-medium italic hover:text-onyx transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b14]"
           >
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-            <span className="deck-mono text-[18px] tracking-[0.15em] uppercase">Back</span>
+            <span className="deck-mono text-[10px] tracking-[0.15em] uppercase">Back</span>
           </button>
 
           <div className="flex items-center gap-3">
             <GeoCompanionMark size={28} />
             <div>
-              <p className="deck-mono text-[18px] tracking-[0.22em] text-onyx uppercase">GeoCompanion.ai</p>
-              <p className="deck-mono text-[17px] tracking-[0.14em] text-sage/95 font-medium italic">Investor Deck &middot; 2026</p>
+              <p className="deck-mono text-[10px] tracking-[0.22em] text-onyx uppercase">GeoCompanion.ai</p>
+              <p className="deck-mono text-[9px] tracking-[0.14em] text-sage/95 font-medium italic">Investor Deck &middot; 2026</p>
             </div>
           </div>
 
@@ -767,7 +766,7 @@ const PitchDeckPage = () => {
             className="inline-flex items-center gap-2 rounded-full border border-accent-cyan/20 bg-accent-cyan/8 px-4 py-2 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 transition hover:bg-accent-cyan/15 hover:border-accent-cyan/35 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b14]"
           >
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
-            <span className="deck-mono text-[18px] tracking-[0.1em] uppercase">{isDownloading ? 'Generating\u2026' : 'Export PDF'}</span>
+            <span className="deck-mono text-[10px] tracking-[0.1em] uppercase">{isDownloading ? 'Generating\u2026' : 'Export PDF'}</span>
           </button>
         </div>
       </header>
@@ -783,7 +782,7 @@ const PitchDeckPage = () => {
           >
             <span
               className="absolute left-full ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-150 whitespace-nowrap bg-onyx text-onyx px-2 py-0.5 rounded-md"
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px' }}
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px' }}
               aria-hidden="true"
             >
               {String(idx + 1).padStart(2, '0')}
@@ -806,9 +805,9 @@ const PitchDeckPage = () => {
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-7">
               <div className="mb-6 flex items-center gap-3">
                 <GeoCompanionMark size={28} />
-                <span className="deck-mono text-[18px] tracking-[0.2em] uppercase text-sage/95 font-medium italic">Content Execution Infrastructure</span>
+                <span className="deck-mono text-[10px] tracking-[0.2em] uppercase text-sage/95 font-medium italic">Content Execution Infrastructure</span>
               </div>
-              <p className="deck-mono text-[17px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-3">Core Mission</p>
+              <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-3">Core Mission</p>
               <p className="text-2xl font-semibold leading-relaxed text-ink sm:text-3xl">
                 The infrastructure layer connecting AI visibility signal, hook-based content execution, and a future open ecosystem of agents, plugins, and local workflows.
               </p>
@@ -819,7 +818,7 @@ const PitchDeckPage = () => {
 
             <div className="space-y-6 lg:col-span-5">
               <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.18em] text-sage/95 font-medium italic mb-4">The Destination</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.18em] text-sage/95 font-medium italic mb-4">The Destination</p>
                 <div className="space-y-5">
                   {[
                     { icon: <Radar className="h-5 w-5 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />, title: 'Strategic Intelligence', desc: 'Vision, market positioning, predictive analytics' },
@@ -847,7 +846,7 @@ const PitchDeckPage = () => {
                   <div key={item.label} className="bg-hull border-2 border-ink shadow-brutalist p-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50">{item.icon}</div>
                     <div>
-                      <p className="deck-mono text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{item.label}</p>
+                      <p className="deck-mono text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{item.label}</p>
                       <p className="text-sm font-bold text-ink">{item.value}</p>
                     </div>
                   </div>
@@ -856,7 +855,7 @@ const PitchDeckPage = () => {
             </div>
           </div>
 
-          <p className="deck-hint mt-6 inline-flex items-center gap-2 deck-mono text-[18px] uppercase tracking-[0.18em] text-slate-700">
+          <p className="deck-hint mt-6 inline-flex items-center gap-2 deck-mono text-[10px] uppercase tracking-[0.18em] text-slate-700">
             <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" /> Scroll for full 13-slide deck
           </p>
         </SlideShell>
@@ -872,9 +871,9 @@ const PitchDeckPage = () => {
                 { label: 'Execution Cost', value: '$1M+', note: 'Annual ops overhead' },
               ].map((item) => (
                 <article key={item.label} className="bg-hull border border-ink/10 shadow-brutalist p-6">
-                  <p className="deck-mono text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{item.label}</p>
+                  <p className="deck-mono text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{item.label}</p>
                   <p className="deck-heading mt-4 text-4xl font-bold text-ink tabular-nums">{item.value}</p>
-                  <p className="mt-3 text-[18px] leading-tight text-sage/95 font-medium italic">{item.note}</p>
+                  <p className="mt-3 text-[10px] leading-tight text-sage/95 font-medium italic">{item.note}</p>
                 </article>
               ))}
             </div>
@@ -885,16 +884,16 @@ const PitchDeckPage = () => {
 
           <div className="mt-5 grid gap-5 lg:grid-cols-2">
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
-              <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic flex items-center gap-2 mb-4">
+              <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic flex items-center gap-2 mb-4">
                 <Search className="h-3 w-3" aria-hidden="true" />
                 Discovery changed
               </p>
               <div className="rounded-xl border border-slate-100 bg-white p-4">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1.5">Old playbook</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1.5">Old playbook</p>
                 <p className="text-sm leading-relaxed text-ink/80 font-medium italic">SEO rankings on Google blue links.</p>
               </div>
               <div className="mt-3 rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-4">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-1.5">New reality</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-1.5">New reality</p>
                 <p className="text-sm leading-relaxed text-ink">
                   AI answer engines decide visibility. Ranking pages no longer guarantees citation in answers.
                 </p>
@@ -902,16 +901,16 @@ const PitchDeckPage = () => {
             </article>
 
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
-              <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic flex items-center gap-2 mb-4">
+              <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic flex items-center gap-2 mb-4">
                 <Sparkles className="h-3 w-3" aria-hidden="true" />
                 Content changed
               </p>
               <div className="rounded-xl border border-slate-100 bg-white p-4">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1.5">Old playbook</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1.5">Old playbook</p>
                 <p className="text-sm leading-relaxed text-ink/80 font-medium italic">Polished campaigns produced by large teams/agencies.</p>
               </div>
               <div className="mt-3 rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-4">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-1.5">New reality</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-1.5">New reality</p>
                 <p className="text-sm leading-relaxed text-ink">
                   Platform-native creator execution wins attention, but requires a repeatable multi-platform system.
                 </p>
@@ -920,7 +919,7 @@ const PitchDeckPage = () => {
           </div>
 
           <div className="bg-hull border-2 border-ink shadow-brutalist p-8 mt-5">
-            <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">The structural gap</p>
+            <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">The structural gap</p>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Visibility tools tell you what's broken. They don't fix it or create the content to replace it.</div>
               <div className="border border-ink/10 bg-void p-4 text-sm text-sage/95 font-medium italic">Content tools write posts. They don't know if AI assistants will ever cite that content.</div>
@@ -958,7 +957,7 @@ const PitchDeckPage = () => {
               },
             ].map((item, idx) => (
               <article key={item.tag} className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-4 flex flex-col justify-between">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-clay mb-4">{item.tag}</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-clay mb-4">{item.tag}</p>
                 <h3 className="text-xl font-bold text-ink">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink/80 font-medium italic">{item.body}</p>
               </article>
@@ -967,7 +966,7 @@ const PitchDeckPage = () => {
 
           <div className="mt-8 grid gap-6 lg:grid-cols-12">
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-7">
-              <p className="deck-mono text-[18px] uppercase tracking-[0.16em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-3">The Window</p>
+              <p className="deck-mono text-[10px] uppercase tracking-[0.16em] text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5 mb-3">The Window</p>
               <p className="text-xl font-medium leading-relaxed text-ink">
                 Incumbents still focus on reporting and dashboard software. But with <span className="text-clay font-bold">agent-to-agent infrastructure</span> now emerging, the <span className="text-clay font-bold"> SMB, creator, developer, and agent-native layer </span>is still wide open for a category-defining platform.
               </p>
@@ -993,7 +992,7 @@ const PitchDeckPage = () => {
             <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-2 w-2 rounded-full bg-sage" />
-                <p className="deck-mono text-[17px] uppercase tracking-[0.2em] text-sage font-bold">Live Now</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage font-bold">Live Now</p>
               </div>
               <div className="space-y-4">
                 {[
@@ -1030,7 +1029,7 @@ const PitchDeckPage = () => {
             <div className="bg-hull border-2 border-ink shadow-brutalist p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-2 w-2 rounded-full bg-clay" />
-                <p className="deck-mono text-[17px] uppercase tracking-[0.2em] text-clay font-bold">Coming</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-clay font-bold">Coming</p>
               </div>
               <div className="space-y-4">
                 {[
@@ -1078,16 +1077,16 @@ const PitchDeckPage = () => {
           <div className="mt-5 bg-hull border-2 border-ink shadow-brutalist p-6 transform -rotate-[0.3deg]">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.2em] text-sage font-bold mb-1">Core Platform</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage font-bold mb-1">Core Platform</p>
                 <p className="text-sm text-ink/80 font-medium italic">We own, ship, and guarantee this layer</p>
               </div>
               <div className="hidden md:flex flex-1 items-center gap-3 mx-4">
                 <div className="h-px flex-1 border-t-2 border-dashed border-ink/20" />
-                <span className="deck-mono text-[18px] uppercase tracking-widest text-ink/40">opens here</span>
+                <span className="deck-mono text-[8px] uppercase tracking-widest text-ink/40">opens here</span>
                 <div className="h-px flex-1 border-t-2 border-dashed border-ink/20" />
               </div>
               <div className="text-center md:text-right">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.2em] text-clay font-bold mb-1">Ecosystem Layer</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-clay font-bold mb-1">Ecosystem Layer</p>
                 <p className="text-sm text-ink/80 font-medium italic">Devs and agents build wrappers on top</p>
               </div>
             </div>
@@ -1128,7 +1127,7 @@ const PitchDeckPage = () => {
               ['SOM (Year 3)', '$150M', 'Under 1.5% SAM penetration target.'],
             ].map(([label, value, desc]) => (
               <article key={label} className="deck-card rounded-2xl p-5">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">{label}</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">{label}</p>
                 <p className="deck-heading text-4xl font-bold text-ink tabular-nums">{value}</p>
                 <p className="mt-2 text-xs leading-relaxed text-ink/80 font-medium italic">{desc}</p>
               </article>
@@ -1136,7 +1135,7 @@ const PitchDeckPage = () => {
           </div>
 
           <div className="deck-card mt-5 rounded-2xl p-6">
-            <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Market Focus</p>
+            <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Market Focus</p>
             <div className="space-y-4">
               {[
                 { label: 'TAM $87B', width: 100, tone: 'from-emerald-500 to-emerald-400' },
@@ -1145,7 +1144,7 @@ const PitchDeckPage = () => {
                 { label: 'SOM $150M', width: 8, tone: 'from-slate-600 to-slate-500' },
               ].map((bar) => (
                 <div key={bar.label}>
-                  <div className="deck-mono mb-1.5 text-[18px] tracking-[0.1em] text-sage/95 font-medium italic">{bar.label}</div>
+                  <div className="deck-mono mb-1.5 text-[10px] tracking-[0.1em] text-sage/95 font-medium italic">{bar.label}</div>
                   <div className="h-2 rounded-full bg-slate-100">
                     <div className={`h-full rounded-full bg-gradient-to-r ${bar.tone}`} style={{ width: `${bar.width}%` }} />
                   </div>
@@ -1196,7 +1195,7 @@ const PitchDeckPage = () => {
               'Open ecosystem + verifiable performance create platform defensibility.',
             ].map((gap, idx) => (
               <div key={gap} className="bg-hull border border-ink/10 shadow-brutalist p-5">
-                <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">Gap {idx + 1}</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-2">Gap {idx + 1}</p>
                 <p className="text-sm leading-relaxed text-ink">{gap}</p>
               </div>
             ))}
@@ -1227,7 +1226,7 @@ const PitchDeckPage = () => {
           </div>
 
           <div className="deck-card mt-5 rounded-2xl p-6">
-            <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Step-by-step build path</p>
+            <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Step-by-step build path</p>
             <div className="grid gap-4 md:grid-cols-3">
               {buildPathRows.map((item, idx) => {
                 const icon = [
@@ -1239,10 +1238,10 @@ const PitchDeckPage = () => {
                 return (
                   <article key={item.phase} className="rounded-xl border border-slate-100 bg-white p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="deck-mono text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{item.phase}</span>
+                      <span className="deck-mono text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{item.phase}</span>
                       {icon}
                     </div>
-                    <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{item.when}</p>
+                    <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{item.when}</p>
                     <p className="deck-heading text-base font-semibold text-ink mb-2">{item.ships}</p>
                     <p className="text-sm leading-relaxed text-ink/80 font-medium italic">{item.target}</p>
                   </article>
@@ -1278,22 +1277,22 @@ const PitchDeckPage = () => {
             <div className="grid gap-6 lg:grid-cols-[0.8fr,1.2fr]">
               <div className="space-y-4">
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
-                  <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">1. Private Context</p>
+                  <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">1. Private Context</p>
                   <p className="text-sm text-ink/90 font-medium italic">Brands send platform, product, and objective context.</p>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
-                  <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">2. Smart Routing</p>
+                  <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">2. Smart Routing</p>
                   <p className="text-sm text-ink/90 font-medium italic">Florus selects agents by verified hook performance and outcome history.</p>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
-                  <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">3. Native Execution</p>
+                  <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">3. Native Execution</p>
                   <p className="text-sm text-ink/90 font-medium italic">Agents execute and feed outcomes back into the ranking loop.</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div className="rounded-2xl border border-slate-100 bg-white p-4">
-                  <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Request flow</p>
+                  <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Request flow</p>
                   <div className="grid gap-3 md:grid-cols-3">
                     <div className="rounded-xl border border-slate-100 bg-white p-4">
                       <div className="flex items-center gap-3 mb-3">
@@ -1301,7 +1300,7 @@ const PitchDeckPage = () => {
                           <Bot className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />
                         </div>
                         <div>
-                          <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Personal agent</p>
+                          <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Personal agent</p>
                           <p className="text-xs font-semibold text-ink">Private context</p>
                         </div>
                       </div>
@@ -1314,7 +1313,7 @@ const PitchDeckPage = () => {
                           <Server className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" />
                         </div>
                         <div>
-                          <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Florus</p>
+                          <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Florus</p>
                           <p className="text-xs font-semibold text-ink">Routing layer</p>
                         </div>
                       </div>
@@ -1327,7 +1326,7 @@ const PitchDeckPage = () => {
                           <ShieldCheck className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />
                         </div>
                         <div>
-                          <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Public agents</p>
+                          <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Public agents</p>
                           <p className="text-xs font-semibold text-ink">Agents / plugins</p>
                         </div>
                       </div>
@@ -1339,10 +1338,10 @@ const PitchDeckPage = () => {
                 <div className="rounded-2xl border border-slate-100 bg-white p-4">
                   <div className="flex items-center justify-between gap-3 mb-4">
                     <div>
-                      <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic">Public agent examples</p>
+                      <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic">Public agent examples</p>
                       <p className="mt-1 text-xs text-sage/95 font-medium italic">Each agent mixes several hook patterns at different weights, like a recipe for tone and structure.</p>
                     </div>
-                    <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Cloud-deployed</p>
+                    <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic">Cloud-deployed</p>
                   </div>
                   <div className="grid gap-3 md:grid-cols-2">
                     <PublicAgentCard
@@ -1412,7 +1411,7 @@ const PitchDeckPage = () => {
             ].map((kpi) => (
               <article key={kpi.label} className="deck-card rounded-2xl p-5">
                 <div>{kpi.icon}</div>
-                <p className="deck-mono mt-3 text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{kpi.label}</p>
+                <p className="deck-mono mt-3 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">{kpi.label}</p>
                 <p className="deck-heading mt-2 text-5xl font-bold text-ink tabular-nums">{kpi.value}</p>
               </article>
             ))}
@@ -1458,7 +1457,7 @@ const PitchDeckPage = () => {
                       <p className="text-sm font-semibold text-ink">{channel.title}</p>
                     </div>
                     <p className="text-sm leading-relaxed text-ink/80 font-medium italic">{channel.desc}</p>
-                    <p className="deck-mono mt-2 text-[17px] uppercase tracking-[0.1em] text-sage/95 font-medium italic">{channel.target}</p>
+                    <p className="deck-mono mt-2 text-[9px] uppercase tracking-[0.1em] text-sage/95 font-medium italic">{channel.target}</p>
                   </div>
                 ))}
               </div>
@@ -1524,7 +1523,7 @@ const PitchDeckPage = () => {
               <article key={item.title} className="deck-card rounded-2xl p-5">
                 <div className="flex items-center justify-between mb-4">
                   <div>{item.icon}</div>
-                  <span className="deck-mono text-[17px] text-slate-700">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="deck-mono text-[9px] text-slate-700">{String(idx + 1).padStart(2, '0')}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-ink mb-2">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-ink/80 font-medium italic">{item.body}</p>
@@ -1534,7 +1533,7 @@ const PitchDeckPage = () => {
 
           <div className="mt-5 grid gap-5 lg:grid-cols-[1.1fr,1fr]">
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
-              <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-3">Compounding loop</p>
+              <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-3">Compounding loop</p>
               <p className="text-lg leading-relaxed text-ink">
                 Better audits drive better content. Better content creates better outcome data. Vision Navigator turns that
                 repeated usage into strategic guidance on whether the business is moving in the right direction before it
@@ -1547,7 +1546,7 @@ const PitchDeckPage = () => {
                   ['Phase 2', 'Plugin ecosystem and verified marketplace on top of the core engine'],
                 ].map(([phase, detail]) => (
                   <div key={phase} className="rounded-xl border border-slate-100 bg-white p-4">
-                    <p className="deck-mono text-[17px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{phase}</p>
+                    <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">{phase}</p>
                     <p className="text-sm leading-relaxed text-ink/80 font-medium italic">{detail}</p>
                   </div>
                 ))}
@@ -1555,7 +1554,7 @@ const PitchDeckPage = () => {
             </article>
 
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
-              <p className="deck-mono text-[17px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Longer-term upside</p>
+              <p className="deck-mono text-[9px] uppercase tracking-[0.16em] text-sage/95 font-medium italic mb-4">Longer-term upside</p>
               <div className="space-y-3">
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="text-sm font-semibold text-ink mb-1">Vision Navigator</p>
@@ -1579,7 +1578,7 @@ const PitchDeckPage = () => {
                   <TeamAvatar member={member} />
                   <div className="pt-1">
                     <h3 className="deck-heading text-3xl font-bold text-ink leading-none">{member.name}</h3>
-                    <p className="deck-mono mt-2 text-[17px] font-medium uppercase tracking-[0.18em] text-sage/95 font-medium italic">{member.role}</p>
+                    <p className="deck-mono mt-2 text-[9px] font-medium uppercase tracking-[0.18em] text-sage/95 font-medium italic">{member.role}</p>
                     <a
                       href={member.linkedin}
                       target="_blank"
@@ -1592,7 +1591,7 @@ const PitchDeckPage = () => {
                 </div>
                 </div>
 
-                <p className="mt-5 text-[21px] leading-relaxed text-sage/95 font-medium italic">
+                <p className="mt-5 text-[13px] leading-relaxed text-sage/95 font-medium italic">
                   {member.body}
                 </p>
               </article>
@@ -1645,7 +1644,7 @@ const PitchDeckPage = () => {
                           {icon}
                           <p className="text-sm font-semibold text-ink">{row.allocation}</p>
                         </div>
-                        <span className="deck-mono text-[17px] text-sage/95 font-medium italic">{pct}%</span>
+                        <span className="deck-mono text-[9px] text-sage/95 font-medium italic">{pct}%</span>
                       </div>
                       <p className="text-sm leading-relaxed text-ink/80 font-medium italic">{row.use}</p>
                     </div>
@@ -1664,7 +1663,7 @@ const PitchDeckPage = () => {
                 ].map((item) => (
                   <div key={item.title} className="rounded-xl border border-slate-100 bg-white p-4">
                     <div className="mb-2">{item.icon}</div>
-                    <p className="deck-mono text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic mb-1">{item.title}</p>
+                    <p className="deck-mono text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic mb-1">{item.title}</p>
                     <p className="deck-heading text-2xl font-bold text-ink tabular-nums">{item.value}</p>
                     <p className="mt-1 text-xs leading-relaxed text-ink/80 font-medium italic">{item.detail}</p>
                   </div>
@@ -1682,15 +1681,15 @@ const PitchDeckPage = () => {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Ask: $1.25M SAFE on $12M cap</span>
-            <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[17px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Accelerator participates only if it strengthens the same round</span>
+            <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Ask: $1.25M SAFE on $12M cap</span>
+            <span className="deck-mono inline-flex rounded-full border border-slate-100 bg-white/25 px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-sage/95 font-medium italic">Accelerator participates only if it strengthens the same round</span>
           </div>
 
           <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-slate-100 bg-white/40 px-4 py-3">
             <Mail className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />
             <a
               href="mailto:intern@geocompanion.ai"
-              className="deck-mono text-[18px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-sage"
+              className="deck-mono text-[10px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-sage"
             >
               intern@geocompanion.ai
             </a>
