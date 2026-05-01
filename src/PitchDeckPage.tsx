@@ -76,7 +76,7 @@ const SlideFootnotes = ({ items }: { items: SlideFootnoteLink[] }) => (
   </div>
 );
 
-const GeoCompanionMark = ({ size = 36 }: { size?: number }) => (
+const FlorusMark = ({ size = 36 }: { size?: number }) => (
   <div
     className="relative group transition-transform duration-500 hover:scale-110"
     style={{ width: size, height: size }}
@@ -493,7 +493,7 @@ const PitchDeckPage = () => {
       if (!pdf) {
         throw new Error('Could not initialize PDF export.');
       }
-      pdf.save('GeoCompanion_Pitch_Deck.pdf');
+      pdf.save('Florus_Investor_Deck.pdf');
     } catch (error) {
       console.error('Failed to export PDF:', error);
       window.alert('PDF export failed. Please try again after the page fully loads.');
@@ -742,7 +742,7 @@ const PitchDeckPage = () => {
 
       <header className="deck-topbar fixed left-0 right-0 top-0 z-40 border-b border-slate-200/50 bg-void/88 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
-          <h1 className="sr-only">GeoCompanion Investor Pitch Deck</h1>
+          <h1 className="sr-only">Florus.ai Investor Deck</h1>
 
           <button
             onClick={() => navigate('/')}
@@ -753,10 +753,10 @@ const PitchDeckPage = () => {
           </button>
 
           <div className="flex items-center gap-3">
-            <GeoCompanionMark size={28} />
+            <FlorusMark size={28} />
             <div>
-              <p className="deck-mono text-[10px] tracking-[0.22em] text-onyx uppercase">GeoCompanion.ai</p>
-              <p className="deck-mono text-[9px] tracking-[0.14em] text-sage/95 font-medium italic">Investor Deck &middot; 2026</p>
+              <p className="deck-mono text-[10px] tracking-[0.22em] text-onyx uppercase">Florus.ai</p>
+              <p className="deck-mono text-[9px] tracking-[0.14em] text-sage/95 font-medium italic">Investor Deck</p>
             </div>
           </div>
 
@@ -804,7 +804,7 @@ const PitchDeckPage = () => {
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
             <div className="bg-hull border-2 border-ink shadow-brutalist p-10 lg:col-span-7">
               <div className="mb-6 flex items-center gap-3">
-                <GeoCompanionMark size={28} />
+                <FlorusMark size={28} />
                 <span className="deck-mono text-[10px] tracking-[0.2em] uppercase text-sage/95 font-medium italic">Content Execution Infrastructure</span>
               </div>
               <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage/95 font-medium italic mb-3">Core Mission</p>
@@ -1406,8 +1406,8 @@ const PitchDeckPage = () => {
             {[
               { label: 'Activation Rate', value: '75%', icon: <DollarSign className="h-4 w-4 text-sage font-bold uppercase tracking-widest bg-ink/5 px-2 py-0.5" aria-hidden="true" /> },
               { label: 'Active Users', value: '571', icon: <Search className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
-              { label: 'Search Events', value: '4000+', icon: <BarChart3 className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
-              { label: 'Website Visitors', value: '457', icon: <Users className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
+              { label: 'Search Events', value: '5100+', icon: <BarChart3 className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
+              { label: 'Website Visitors', value: '832', icon: <Users className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" /> },
             ].map((kpi) => (
               <article key={kpi.label} className="deck-card rounded-2xl p-5">
                 <div>{kpi.icon}</div>
@@ -1421,7 +1421,7 @@ const PitchDeckPage = () => {
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8">
               <h3 className="text-xl font-semibold text-ink mb-4">The Beta Thesis</h3>
               <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-                We are seeing <span className="font-bold text-ink">75% activation</span> and 7 searches per active user, 68% active-user growth, and nearly 2x search events since our last measurement window, all with zero paid acquisition. This depth of engagement suggests users are treating GeoCompanion as a core operating surface, not a one-time demo.
+                We are seeing <span className="font-bold text-ink">75% activation</span> and 7 searches per active user, 68% active-user growth, and nearly 2x search events since our last measurement window, all with zero paid acquisition. This depth of engagement suggests users are treating Florus as a core operating surface, not a one-time demo.
               </p>
               <div className="mt-6 rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-4 text-sm leading-relaxed text-ink">
                 This round builds our upmarket intelligence layer and scales conversion to durable revenue.
@@ -1501,7 +1501,7 @@ const PitchDeckPage = () => {
 
             <article className="bg-hull border-2 border-ink shadow-brutalist p-8 bg-slate-50 flex flex-col justify-center">
               <p className="text-base font-semibold text-ink italic text-center">
-                GeoCompanion doesn't just manage workflows; it owns the outcome data that makes autonomous execution reliable.
+                Florus doesn't just manage workflows; it owns the outcome data that makes autonomous execution reliable.
               </p>
             </article>
           </div>
@@ -1688,10 +1688,10 @@ const PitchDeckPage = () => {
           <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-slate-100 bg-white/40 px-4 py-3">
             <Mail className="h-4 w-4 text-sage/95 font-medium italic" aria-hidden="true" />
             <a
-              href="mailto:intern@geocompanion.ai"
+              href="mailto:hello@florus.ai"
               className="deck-mono text-[10px] uppercase tracking-[0.14em] text-ink transition-colors hover:text-sage"
             >
-              intern@geocompanion.ai
+              hello@florus.ai
             </a>
           </div>
 
