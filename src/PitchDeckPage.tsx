@@ -5,7 +5,6 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import wilsonImage from './team/wilson_image_optimized.jpg';
 import huanImage from './team/huan_image.jpg';
-import austinImage from './team/Austin_image_optimized.jpg';
 
 type SlideShellProps = {
   id: string;
@@ -173,15 +172,6 @@ const teamMembers: TeamMember[] = [
     photoPosition: 'center 20%',
     linkedin: 'https://www.linkedin.com/in/huan-ying-713736146/',
     body: 'Product leader spanning Web3, AI, and traditional finance. At Florus, owns the loop between visibility signal and content execution — the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
-  },
-  {
-    name: 'Austin',
-    role: 'Co-Founder & GTM',
-    photo: austinImage,
-    photoAlt: 'Portrait of Austin',
-    photoPosition: 'center 16%',
-    linkedin: 'https://www.linkedin.com/in/austinchan910/',
-    body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook Florus sells to brands. Understands creator economics from both the operator side and the platform side.',
   },
 ];
 
@@ -1571,7 +1561,7 @@ const PitchDeckPage = () => {
 
         {/* Slide 12 */}
         <SlideShell id="slide-12" index={12} title="Team" subtitle="Engineering depth, product insight, and distribution in one founding group.">
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl gap-5 lg:grid-cols-2">
             {teamMembers.map((member) => (
               <article key={member.name} className="bg-hull border-2 border-ink shadow-brutalist p-8 flex h-full flex-col">
                 <div className="flex items-start gap-5">
@@ -1600,8 +1590,8 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              Most marketing AI startups have strong engineering or strong distribution. Florus has both,
-              plus product-level content science.
+              Most marketing AI startups are either engineering-led or distribution-led. Florus combines
+              deep engineering, founder-level product execution, and content science built into the product itself.
             </p>
           </div>
         </SlideShell>
