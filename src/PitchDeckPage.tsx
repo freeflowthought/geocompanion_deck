@@ -5,7 +5,6 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import wilsonImage from './team/wilson_image_optimized.jpg';
 import huanImage from './team/huan_image.jpg';
-import austinImage from './team/Austin_image_optimized.jpg';
 
 type SlideShellProps = {
   id: string;
@@ -173,15 +172,6 @@ const teamMembers: TeamMember[] = [
     photoPosition: 'center 20%',
     linkedin: 'https://www.linkedin.com/in/huan-ying-713736146/',
     body: 'Product leader spanning Web3, AI, and traditional finance. At Florus, owns the loop between visibility signal and content execution — the core conversion mechanic behind the platform thesis. Focuses on turning technical capability into workflows marketing teams can actually adopt, bridging product strategy, customer use cases, and day-to-day execution.',
-  },
-  {
-    name: 'Austin',
-    role: 'Co-Founder & GTM',
-    photo: austinImage,
-    photoAlt: 'Portrait of Austin',
-    photoPosition: 'center 16%',
-    linkedin: 'https://www.linkedin.com/in/austinchan910/',
-    body: 'Enterprise distribution leader with relationship-driven access into networks around LayerZero, Sei, and Xiaomi. Built and scaled a media project to 100M+ organic streams, demonstrating platform-native distribution at scale, the same playbook Florus sells to brands. Understands creator economics from both the operator side and the platform side.',
   },
 ];
 
@@ -985,7 +975,7 @@ const PitchDeckPage = () => {
         </SlideShell>
 
         {/* Slide 4 */}
-        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Three live modules today. Audit and execution are live now, powered by a proprietary intelligence layer underneath.">
+        <SlideShell id="slide-4" index={4} title="The Execution Stack" subtitle="Two live products, one shared Florus layer: diagnosis through GeoCompanion and execution through Launchvibes.">
           <div className="grid gap-6 lg:grid-cols-2">
 
             {/* Live Now */}
@@ -998,18 +988,18 @@ const PitchDeckPage = () => {
                 {[
                   {
                     icon: <Search className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
-                    name: 'AI Visibility Audit Engine',
-                    desc: 'Paste any URL, get a visibility score in 15 seconds. See where AI assistants skip your brand, then get the fixes you can ship right away.',
+                    name: 'GeoCompanion: From Invisible To Actionable',
+                    desc: 'Built for SMBs that need to move fast: input a site and optional competitors, then receive a GEO/E-E-A-T diagnosis, ranked backlog, schema or CTA fixes, and article opportunities.',
                   },
                   {
                     icon: <Sparkles className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
-                    name: 'Platform Content Engine',
-                    desc: 'Paste a brand page, get a 30/60/90-day content calendar. Generates platform-native posts, threads, and articles built for how discovery actually works now.',
+                    name: 'Launchvibes: Creator OS Across Channels',
+                    desc: 'The first major creator OS in Florus. It uses positioning, audience signals, and goals to generate platform-native ideas, posts, scripts, threads, and 30/60/90-day campaigns.',
                   },
                   {
                     icon: <Radar className="h-4 w-4 text-sage shrink-0 mt-0.5" aria-hidden="true" />,
-                    name: 'Hook Intelligence Engine',
-                    desc: 'The proprietary system underneath the platform. Continuously scores what drives engagement across channels and improves every audit and content plan.',
+                    name: 'Florus: Context That Compounds',
+                    desc: 'The shared layer combines a canonical hook system with creator and brand context. Over time, repeated use deepens recommendations around voice, audience, goals, and winning patterns.',
                   },
                 ].map((mod) => (
                   <div key={mod.name} className="rounded-xl border border-slate-100 bg-white p-5">
@@ -1073,25 +1063,25 @@ const PitchDeckPage = () => {
             </div>
           </div>
 
-          {/* Ecosystem boundary */}
+          {/* Product relationship */}
           <div className="mt-5 bg-hull border-2 border-ink shadow-brutalist p-6 transform -rotate-[0.3deg]">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
-                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage font-bold mb-1">Core Platform</p>
-                <p className="text-sm text-ink/80 font-medium italic">We own, ship, and guarantee this layer</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-sage font-bold mb-1">GeoCompanion</p>
+                <p className="text-sm text-ink/80 font-medium italic">Move from AI visibility gaps to concrete fixes</p>
               </div>
               <div className="hidden md:flex flex-1 items-center gap-3 mx-4">
                 <div className="h-px flex-1 border-t-2 border-dashed border-ink/20" />
-                <span className="deck-mono text-[8px] uppercase tracking-widest text-ink/40">opens here</span>
+                <span className="deck-mono text-[8px] uppercase tracking-widest text-ink/40">Florus shared core</span>
                 <div className="h-px flex-1 border-t-2 border-dashed border-ink/20" />
               </div>
               <div className="text-center md:text-right">
-                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-clay font-bold mb-1">Ecosystem Layer</p>
-                <p className="text-sm text-ink/80 font-medium italic">Devs and agents build wrappers on top</p>
+                <p className="deck-mono text-[9px] uppercase tracking-[0.2em] text-clay font-bold mb-1">Launchvibes</p>
+                <p className="text-sm text-ink/80 font-medium italic">Move from blank page to channel-native execution</p>
               </div>
             </div>
             <p className="mt-4 text-sm text-center leading-relaxed text-ink/70 font-medium italic">
-              Less is more. We keep the core focused so external developers can build a rich ecosystem of plugins, local workflows, CLI automations, and niche GTM wrappers without bloating the platform.
+              Florus is the ecosystem behind both products, not another closed social network. It helps users win across TikTok, YouTube, X, LinkedIn, Instagram, newsletters, and future channels; long term, its shared context can route work to specialist agents and rank their outcomes.
             </p>
           </div>
         </SlideShell>
@@ -1214,7 +1204,7 @@ const PitchDeckPage = () => {
             <div className="grid gap-4 lg:grid-cols-[1.2fr,0.8fr]">
               <div className="rounded-xl border border-accent-cyan/20 bg-accent-cyan/5 p-5">
                 <p className="text-base leading-relaxed text-ink">
-                  <span className="font-bold">The Moat:</span> Every audit and campaign feeds our ranking model. That training signal becomes even more defensible once it sits underneath an API, local app, CLI, and plugin ecosystem.
+                  <span className="font-bold">The Moat:</span> Every audit and creator workflow can deepen the context Florus has around voice, audience, goals, channels, and winning hooks. That makes recommendations more useful over time and raises switching costs without trapping users in one platform.
                 </p>
               </div>
               <div className="rounded-xl border border-slate-100 bg-white p-5">
@@ -1252,7 +1242,7 @@ const PitchDeckPage = () => {
 
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
-              ['Training signal', 'Each audit and campaign adds the ranking data that improves which agent wins future jobs.'],
+              ['Context moat', 'Repeat use compounds creator and brand context: voice, audience, goals, channel mix, and the patterns that earn attention.'],
               ['Local-first adoption', 'Teams can run analysis against private knowledge locally, then opt into sync, collaboration, or cloud workflows only when needed.'],
               ['API-First Standard', 'Florus stays focused on the core workflow. Developers can build wrappers on top of it, such as KOL publishing flows, richer media generation, or milestone check-ins.'],
               ['Chain-agnostic trust', 'Verification is not tied to one chain. We can support EVM deployments through ERC8004 and Solana-native deployments through registry or SATI-style attestations.'],
@@ -1278,7 +1268,7 @@ const PitchDeckPage = () => {
               <div className="space-y-4">
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">1. Private Context</p>
-                  <p className="text-sm text-ink/90 font-medium italic">Brands send platform, product, and objective context.</p>
+                  <p className="text-sm text-ink/90 font-medium italic">Creators and brands bring voice, audience, platform, and objective context.</p>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-white p-4">
                   <p className="deck-mono text-[9px] uppercase tracking-[0.12em] text-sage/95 font-medium italic mb-1">2. Smart Routing</p>
@@ -1570,8 +1560,8 @@ const PitchDeckPage = () => {
         </SlideShell>
 
         {/* Slide 12 */}
-        <SlideShell id="slide-12" index={12} title="Team" subtitle="Engineering depth, product insight, and distribution in one founding group.">
-          <div className="grid gap-5 lg:grid-cols-3">
+        <SlideShell id="slide-12" index={12} title="Team" subtitle="Technical execution and product insight at the core.">
+          <div className="grid gap-5 lg:grid-cols-2">
             {teamMembers.map((member) => (
               <article key={member.name} className="bg-hull border-2 border-ink shadow-brutalist p-8 flex h-full flex-col">
                 <div className="flex items-start gap-5">
@@ -1600,8 +1590,7 @@ const PitchDeckPage = () => {
 
           <div className="deck-card mt-5 rounded-2xl p-6">
             <p className="text-sm leading-relaxed text-ink/80 font-medium italic">
-              Most marketing AI startups have strong engineering or strong distribution. Florus has both,
-              plus product-level content science.
+              Florus combines technical product execution with the product judgment needed to make AI visibility and content workflows usable for real marketing teams.
             </p>
           </div>
         </SlideShell>
