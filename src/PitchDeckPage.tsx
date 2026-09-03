@@ -1737,8 +1737,8 @@ const PitchDeckPage = () => {
           </div>
 
           <p className="mt-5 border-l-2 border-clay pl-5 text-[13px] leading-relaxed text-graphite">
-            Florus combines technical product execution with the product judgment needed to make AI visibility and
-            content workflows usable for real marketing teams.
+            Most marketing AI startups are either engineering-led or distribution-led. Florus combines deep
+            engineering, founder-level product execution, and content science built into the product itself.
           </p>
         </SlideShell>
 
