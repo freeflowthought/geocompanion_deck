@@ -4,8 +4,8 @@ import { ArrowLeft, Download, ChevronDown, Sparkles, Radar, Bot, ShieldCheck, Ba
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import wilsonImage from './team/wilson_image_optimized.jpg';
-import huanImage from './team/huan_image.jpg';
-import amandaImage from './team/amanda_image.jpg';
+import huanImage from './team/huan_image_optimized.jpg';
+import amandaImage from './team/amanda_image_optimized.jpg';
 
 /* ------------------------------------------------------------------ *
  *  Design system
