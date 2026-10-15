@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Download, ChevronDown, Sparkles, Radar, Bot, BarChart3, Users, Search, DollarSign, Building2, Rocket, Target, Activity, Wallet, Cpu, Server, CheckCircle2, Linkedin, Mail } from 'lucide-react';
+import { ArrowLeft, Download, ChevronDown, Sparkles, Radar, Bot, BarChart3, Users, Search, DollarSign, Building2, Rocket, Target, Activity, Cpu, Server, CheckCircle2, Linkedin, Mail } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import wilsonImage from './team/wilson_image_optimized.jpg';
@@ -92,7 +92,7 @@ type SlideShellProps = {
   children: React.ReactNode;
 };
 
-const TOTAL_SLIDES = 13;
+const TOTAL_SLIDES = 14;
 
 const SlideShell = ({ id, index, kicker, title, subtitle, children }: SlideShellProps) => {
   const t = T;
@@ -391,14 +391,14 @@ const roadmapRows = [
     phase: 'Phase 0',
     round: 'Pre-seed',
     when: 'Now → Q4 2026',
-    ships: 'Signal + Execution + RSI Agent pilots',
+    ships: 'Self-serve + RSI Agent pilots → shippable RSI Agent',
     target: '1.5K users, 10K searches, 50 creator/KOL accounts, 10 paying brand or agency teams, $5K–$10K MRR.',
   },
   {
     phase: 'Phase 1',
     round: 'Seed',
     when: '2027',
-    ships: 'RSI Agent at scale + API / MCP',
+    ships: 'FDE at scale + metered API / MCP (Blueprint V5.3)',
     target: '$100K MRR, 25+ brand or agency customers, 500 creator/KOL accounts, <3-month payback, strong retention.',
   },
   {
@@ -415,25 +415,17 @@ const shippedRows = [
   { when: 'Jul 2026', what: 'Draft-led GEO campaigns', product: 'GeoCompanion' },
   { when: 'Jul 2026', what: 'Drafts handed straight into native social composers', product: 'Both', lastMile: true },
   { when: 'Sep 2026', what: 'Browser-agent (WebMCP) audit and assessment prep', product: 'Both' },
-  { when: 'Oct 2026', what: 'RSI Agent introduced — demo-led deployments', product: 'Florus', lastMile: true },
+  { when: 'Oct 2026', what: 'RSI Agent introduced — forward-deployed pilots', product: 'Florus', lastMile: true },
 ];
 
 const askRows = [
   {
-    allocation: '40% Engineering',
-    use: 'RSI Agent, the governed learning ledger, channel and measurement connectors, and a provider-agnostic model runtime',
+    allocation: '70% Engineering',
+    use: 'Reach the first milestone: a shippable RSI Agent — the governed learning ledger, review and rollback, channel and measurement connectors, and the evaluation harness behind the accepted-assets-per-dollar claim',
   },
   {
-    allocation: '30% GTM',
-    use: 'Founder-team and agency pilots, RSI Agent deployments, and partner channels',
-  },
-  {
-    allocation: '20% Infrastructure',
-    use: 'Multi-model inference, evaluation harnesses, data pipeline, and analytics',
-  },
-  {
-    allocation: '10% Product Ops',
-    use: 'Onboarding, feedback loops, and the review workflows that turn pilots into retained accounts',
+    allocation: '30% FDE',
+    use: 'Forward-deployed engineers who deploy the RSI Agent into client GTM stacks themselves — our primary business model and our first revenue engine',
   },
 ];
 
@@ -443,14 +435,15 @@ const slideMeta: { id: string; kicker: string }[] = [
   { id: 'slide-3', kicker: 'Why Now' },
   { id: 'slide-4', kicker: 'Solution' },
   { id: 'slide-5', kicker: 'Product' },
-  { id: 'slide-6', kicker: 'Market' },
-  { id: 'slide-7', kicker: 'Competition' },
-  { id: 'slide-8', kicker: 'Moat' },
-  { id: 'slide-9', kicker: 'Traction' },
-  { id: 'slide-10', kicker: 'Model' },
-  { id: 'slide-11', kicker: 'Roadmap' },
-  { id: 'slide-12', kicker: 'Team' },
-  { id: 'slide-13', kicker: 'The Ask' },
+  { id: 'slide-6', kicker: 'API + MCP' },
+  { id: 'slide-7', kicker: 'Market' },
+  { id: 'slide-8', kicker: 'Competition' },
+  { id: 'slide-9', kicker: 'Moat' },
+  { id: 'slide-10', kicker: 'Traction' },
+  { id: 'slide-11', kicker: 'Model' },
+  { id: 'slide-12', kicker: 'Roadmap' },
+  { id: 'slide-13', kicker: 'Team' },
+  { id: 'slide-14', kicker: 'The Ask' },
 ];
 
 const PDF_EXPORT_WIDTH = 1440;
@@ -1155,7 +1148,7 @@ const PitchDeckPage = () => {
           index={5}
           kicker="Product"
           title="The Last Mile, End to End"
-          subtitle="Signal, execution, and the loop that learns from both. All three are live today."
+          subtitle="Signal, execution, and the loop that learns from both. Signal and execution are live; the RSI Agent runs in forward-deployed pilots."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             {[
@@ -1180,7 +1173,7 @@ const PitchDeckPage = () => {
               {
                 role: 'Learning',
                 name: 'RSI Agent',
-                mode: 'Live · Demo-led',
+                mode: 'Pilot · Forward-deployed',
                 promise: 'Runs recurring GTM work and keeps what worked.',
                 points: ['Campaign execution across channels', 'Outcome measurement and review', 'Governed learning ledger, human-approved'],
                 Icon: Bot,
@@ -1235,10 +1228,89 @@ const PitchDeckPage = () => {
           </Panel>
         </SlideShell>
 
-        {/* ============================ 06 · MARKET ============================ */}
+        {/* ============================ 06 · API + MCP ============================ */}
         <SlideShell
           id="slide-6"
           index={6}
+          kicker="API + MCP"
+          title="One Core, Every Agent"
+          subtitle="Blueprint V5.3 freezes the contract for a metered API and MCP business: one Content Core behind our apps, AI agents, and partner surfaces."
+        >
+          <div className="grid gap-4 lg:grid-cols-12">
+            {/* Service boundary, as drawn in the blueprint (§02) */}
+            <Panel className="p-6 lg:col-span-7">
+              <Eyebrow>Service boundary</Eyebrow>
+              <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {['GeoCompanion', 'Launchvibes', 'AI agents · MCP hosts', 'Partner apps · REST / SDK'].map((surface) => (
+                  <div key={surface} className="border border-line bg-paper px-3 py-2.5 text-center">
+                    <p className="text-[12px] font-medium leading-snug text-ink">{surface}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center py-1.5 text-mist" aria-hidden="true">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M4 0v11M4 11l-3-3M4 11l3-3" stroke="currentColor" strokeWidth="1" /></svg>
+              </div>
+              <div className="border border-ink/25 bg-hull px-4 py-3 text-center">
+                <p className="deck-heading text-[15px] font-semibold text-ink">API / MCP Policy Gateway</p>
+                <p className="deck-mono mt-1 text-[8px] uppercase tracking-[0.16em] text-mist">Signed quote · idempotency · payment adapter · audit</p>
+              </div>
+              <div className="flex justify-center py-1.5 text-mist" aria-hidden="true">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M4 0v11M4 11l-3-3M4 11l3-3" stroke="currentColor" strokeWidth="1" /></svg>
+              </div>
+              <div className="relative bg-ink px-4 py-4">
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-clay" aria-hidden="true" />
+                <p className="deck-heading text-center text-[15px] font-semibold text-paper">Florus Content Core</p>
+                <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+                  {['Context graph', 'Capability & recipe runtime', 'Durable jobs', 'Artifact store', 'Billing ledger'].map((part) => (
+                    <span key={part} className="deck-mono border border-paper/20 px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-paper/80">
+                      {part}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Panel>
+
+            <Panel invert accent className="flex flex-col p-6 lg:col-span-5">
+              <p className="deck-mono text-[9px] font-medium uppercase tracking-[0.24em] text-clay">Where it stands</p>
+              <div className="mt-4 flex-1 space-y-4">
+                {[
+                  ['Contract frozen', 'Blueprint V5.3 (Aug 2026): candidate contract across Florus, GeoCompanion, Launchvibes, and social-factories, with 34 decisions listed for approval. Not yet built.'],
+                  ['Already live', '10 WebMCP browser tools across GeoCompanion, Launchvibes, and Florus (Sep 2026). Agents can discover, prepare, and read; paid work stays human-submitted.'],
+                  ['Build plan', 'Eight milestones (M0–M7), sized at 8–14 weeks in the blueprint, scheduled for Phase 1 of the roadmap.'],
+                ].map(([head, body]) => (
+                  <div key={head} className="border-l-2 border-clay/60 pl-3">
+                    <p className="text-[13px] font-semibold text-paper">{head}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-paper/70">{body}</p>
+                  </div>
+                ))}
+              </div>
+            </Panel>
+          </div>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {[
+              ['One source of truth', 'REST, MCP, SDKs, and our own apps hit the same runtime, jobs, artifacts, and ledger. A fix or policy change lands once.'],
+              ['Context that can be checked', 'Every call is Actor / Subject / Source / Intent: facts verified, sources snapshotted and rights-checked, voice guarded.'],
+              ['Plan before execute', 'campaign.plan → choose briefs → campaign.generate. The expensive step is explicitly authorized — essential when an agent is the caller.'],
+              ['Agent-native MCP', '10 tools in Core, Campaign, and Replies packs behind one public URL with OAuth. Targets MCP 2026-07-28 with async Tasks.'],
+              ['Recipes, not endpoints', 'Verticals ship as signed, versioned recipes, so a new use case needs no contract change. No raw prompts or models are exposed.'],
+              ['Metered on its own ledger', 'SKU per format, priced above a P95 cost floor — e.g. a social post ~$1.00 single, $0.25/unit at 50 (provisional). Never mixed with SaaS credits.'],
+            ].map(([head, body], idx) => (
+              <div key={head} className="border-l-2 border-line bg-hull p-4">
+                <div className="flex items-baseline gap-2">
+                  <span className="deck-mono text-[9px] tabular-nums text-clay">{String(idx + 1).padStart(2, '0')}</span>
+                  <p className="text-[13px] font-semibold text-ink">{head}</p>
+                </div>
+                <p className="mt-1.5 text-xs leading-relaxed text-graphite">{body}</p>
+              </div>
+            ))}
+          </div>
+        </SlideShell>
+
+        {/* ============================ 07 · MARKET ============================ */}
+        <SlideShell
+          id="slide-7"
+          index={7}
           kicker="Market"
           title="Market Size"
           subtitle="Self-improving GTM agents sit where four fast-growing markets converge."
@@ -1307,10 +1379,10 @@ const PitchDeckPage = () => {
           />
         </SlideShell>
 
-        {/* ============================ 07 · COMPETITION ============================ */}
+        {/* ============================ 08 · COMPETITION ============================ */}
         <SlideShell
-          id="slide-7"
-          index={7}
+          id="slide-8"
+          index={8}
           kicker="Competition"
           title="Why We're Different"
           subtitle="Everyone is racing from dashboards to agents. We are built for the part they leave behind: shipping, measuring, and governed learning."
@@ -1364,10 +1436,10 @@ const PitchDeckPage = () => {
           />
         </SlideShell>
 
-        {/* ============================ 08 · MOAT ============================ */}
+        {/* ============================ 09 · MOAT ============================ */}
         <SlideShell
-          id="slide-8"
-          index={8}
+          id="slide-9"
+          index={9}
           kicker="Moat"
           title="What Compounds"
           subtitle="Coordination spend should behave like capex: pay once to create an asset that makes every future run cheaper."
@@ -1431,13 +1503,13 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        {/* ============================ 09 · TRACTION ============================ */}
+        {/* ============================ 10 · TRACTION ============================ */}
         <SlideShell
-          id="slide-9"
-          index={9}
+          id="slide-10"
+          index={10}
           kicker="Traction"
           title="Early Signal"
-          subtitle="Two self-serve products live, a paying customer, and the RSI Agent now open through demo-led deployments."
+          subtitle="Two self-serve products live, a paying customer, and the RSI Agent in forward-deployed pilots."
         >
           <div className="grid gap-4 lg:grid-cols-12">
             <div className="grid grid-cols-2 gap-4 lg:col-span-9 lg:grid-cols-4">
@@ -1511,78 +1583,104 @@ const PitchDeckPage = () => {
           </p>
         </SlideShell>
 
-        {/* ============================ 10 · MODEL ============================ */}
+        {/* ============================ 11 · MODEL ============================ */}
         <SlideShell
-          id="slide-10"
-          index={10}
+          id="slide-11"
+          index={11}
           kicker="Model"
           title="Business Model"
-          subtitle="Self-serve today, agent deployments now, usage-based API next."
+          subtitle="Forward-deployed engineering is the core business: we deploy the RSI Agent into each client ourselves. Self-serve feeds it; metered API + MCP follows."
         >
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                step: '01',
-                title: 'Self-serve SaaS',
-                when: 'Now',
-                body: 'GeoCompanion and Launchvibes: free trial, then $15/month (Starter) and $35/month (Pro).',
-              },
-              {
-                step: '02',
-                title: 'RSI Agent deployments',
-                when: 'Now',
-                body: 'Demo-led, custom deployment, priced by the GTM workflows the agent runs for each team.',
-              },
-              {
-                step: '03',
-                title: 'API + MCP access',
-                when: 'Phase 1',
-                body: 'Usage-based access so other agent stacks and AI clients can plug into Florus signal, execution, and governed learning.',
-              },
-            ].map((item, idx) => (
-              <Panel key={item.title} accent={idx === 1} className="p-6">
-                <div className="flex items-baseline justify-between">
-                  <span className="deck-heading text-3xl font-bold leading-none text-clay/25">{item.step}</span>
-                  <span className="deck-mono border border-line px-2 py-0.5 text-[8px] uppercase tracking-[0.16em] text-mist">{item.when}</span>
-                </div>
-                <h3 className="mt-4 text-base font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-graphite">{item.body}</p>
-              </Panel>
-            ))}
-          </div>
-
-          <div className="mt-4 grid gap-4 lg:grid-cols-12">
-            <Panel className="p-6 lg:col-span-7">
-              <h3 className="deck-heading text-base font-semibold text-ink">Why revenue compounds</h3>
-              <ul className="mt-4 space-y-3">
+          <div className="grid gap-4 lg:grid-cols-12">
+            <Panel invert accent raised className="p-7 lg:col-span-6">
+              <CropMarks />
+              <div className="flex items-baseline justify-between">
+                <span className="deck-heading text-3xl font-bold leading-none text-clay">01</span>
+                <span className="deck-mono bg-clay px-2 py-0.5 text-[8px] uppercase tracking-[0.16em] text-paper">Primary · Now</span>
+              </div>
+              <h3 className="deck-heading mt-4 text-xl font-semibold text-paper">Forward-deployed RSI Agent</h3>
+              <p className="mt-2 text-[13px] leading-relaxed text-paper/80">
+                Our engineers deploy the RSI Agent into a client’s GTM stack — channels, data, and review workflow — and
+                run it with them. Priced per deployment by the workflows it runs.
+              </p>
+              <ul className="mt-4 space-y-2 border-t border-paper/15 pt-4">
                 {[
-                  ['Asset library', 'Each team’s governed memory, playbooks, and checks get more valuable every cycle — and stay theirs.'],
-                  ['Outcome data', 'Every shipped campaign returns evidence that sharpens review, routing, and checks.'],
-                  ['Falling cost to serve', 'Reuse should lower cost per accepted asset, so margins widen as accounts mature.'],
-                ].map(([head, body]) => (
-                  <li key={head} className="flex items-baseline gap-3 border-b border-line pb-3 last:border-0 last:pb-0">
-                    <span className="h-1 w-1 shrink-0 translate-y-[-2px] rounded-full bg-clay" aria-hidden="true" />
-                    <p className="text-[13px] leading-relaxed text-graphite">
-                      <span className="font-semibold text-ink">{head}:</span> {body}
-                    </p>
+                  'Revenue from day one of a deployment, not after self-serve adoption',
+                  'Hands-on deployments are where we learn what to productize next',
+                  'Each client keeps its governed asset library — memory, playbooks, checks',
+                ].map((pt) => (
+                  <li key={pt} className="flex gap-2 text-xs leading-relaxed text-paper/75">
+                    <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-clay" aria-hidden="true" />
+                    {pt}
                   </li>
                 ))}
               </ul>
             </Panel>
 
-            <Panel invert className="flex items-center p-7 lg:col-span-5">
-              <p className="deck-heading text-lg font-medium leading-snug text-paper">
-                We don’t sell more seats or more tokens. We sell a GTM loop whose{' '}
-                <span className="text-clay">cost per accepted result falls</span> over time.
-              </p>
-            </Panel>
+            <div className="grid gap-4 lg:col-span-6">
+              {[
+                {
+                  step: '02',
+                  title: 'Self-serve SaaS',
+                  when: 'Now · Funnel',
+                  body: 'GeoCompanion and Launchvibes — free trial, then $15/month (Starter) and $35/month (Pro). Surfaces the teams that need a deployment.',
+                },
+                {
+                  step: '03',
+                  title: 'Metered API + MCP',
+                  when: 'Phase 1',
+                  body: 'An independent metered business on its own ledger: SKU per format, prepaid packs, API balance, or invoice. Never converts with SaaS credits.',
+                },
+              ].map((item) => (
+                <Panel key={item.title} className="p-5">
+                  <div className="flex items-baseline justify-between">
+                    <span className="deck-heading text-2xl font-bold leading-none text-clay/25">{item.step}</span>
+                    <span className="deck-mono border border-line px-2 py-0.5 text-[8px] uppercase tracking-[0.16em] text-mist">{item.when}</span>
+                  </div>
+                  <h3 className="mt-3 text-base font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-graphite">{item.body}</p>
+                </Panel>
+              ))}
+            </div>
           </div>
+
+          <Panel className="mt-4 p-6">
+            <div className="grid gap-5 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <Eyebrow tone="clay">The FDE trap — and how we avoid it</Eyebrow>
+                <p className="mt-3 text-[13px] leading-relaxed text-graphite">
+                  Gartner expects <span className="font-semibold text-ink">70% of enterprises</span> to abandon agentic AI
+                  built by vendor FDE by 2028, trapped by cost and unable to evolve it — and{' '}
+                  <span className="font-semibold text-ink">fewer than 20%</span> of FDE engagements to turn recurring
+                  needs into core product.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-3 lg:col-span-7">
+                {[
+                  ['One product, deployed', 'We deploy the same RSI Agent to every client — not a bespoke build per engagement.'],
+                  ['Client owns the assets', 'Memory, playbooks, and checks belong to the client, with a clean exit.'],
+                  ['Recurring needs ship to core', 'What repeats across deployments becomes product, not one-off code.'],
+                ].map(([head, body]) => (
+                  <div key={head} className="border-l-2 border-clay/40 pl-3">
+                    <p className="text-[13px] font-semibold text-ink">{head}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-graphite">{body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Panel>
+
+          <SlideFootnotes
+            items={[
+              { label: 'Gartner: vendor FDE and agentic AI (Sep 2026)', href: 'https://www.gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028' },
+            ]}
+          />
         </SlideShell>
 
-        {/* ============================ 11 · ROADMAP ============================ */}
+        {/* ============================ 12 · ROADMAP ============================ */}
         <SlideShell
-          id="slide-11"
-          index={11}
+          id="slide-12"
+          index={12}
           kicker="Roadmap"
           title="Roadmap"
           subtitle="Go-to-market first. Then the governed learning layer for any team that runs agents."
@@ -1640,10 +1738,10 @@ const PitchDeckPage = () => {
           </div>
         </SlideShell>
 
-        {/* ============================ 12 · TEAM ============================ */}
+        {/* ============================ 13 · TEAM ============================ */}
         <SlideShell
-          id="slide-12"
-          index={12}
+          id="slide-13"
+          index={13}
           kicker="Team"
           title="Team"
           subtitle="Agent architecture, product execution, and ecosystem growth at the core."
@@ -1684,13 +1782,13 @@ const PitchDeckPage = () => {
           </p>
         </SlideShell>
 
-        {/* ============================ 13 · THE ASK ============================ */}
+        {/* ============================ 14 · THE ASK ============================ */}
         <SlideShell
-          id="slide-13"
-          index={13}
+          id="slide-14"
+          index={14}
           kicker="The Ask"
           title="The Ask"
-          subtitle="Raising a focused pre-seed to turn live products into paid, compounding GTM loops — and publish the curve that proves it."
+          subtitle="Raising a focused pre-seed to ship the RSI Agent and deploy it to clients ourselves."
         >
           <div className="grid gap-5 lg:grid-cols-12">
             <Panel className="p-7 lg:col-span-5">
@@ -1698,10 +1796,8 @@ const PitchDeckPage = () => {
 
               <div className="mt-5 flex h-2 w-full overflow-hidden">
                 {[
-                  { pct: 40, tone: 'bg-clay' },
-                  { pct: 30, tone: 'bg-clay/65' },
-                  { pct: 20, tone: 'bg-clay/45' },
-                  { pct: 10, tone: 'bg-clay/20' },
+                  { pct: 70, tone: 'bg-clay' },
+                  { pct: 30, tone: 'bg-ink' },
                 ].map((seg, idx) => (
                   <span key={`${seg.pct}-${idx}`} className={`block h-full ${seg.tone}`} style={{ width: `${seg.pct}%` }} />
                 ))}
@@ -1710,8 +1806,8 @@ const PitchDeckPage = () => {
               <div className="mt-5 space-y-3.5">
                 {askRows.map((row, idx) => {
                   const pct = Number.parseInt(row.allocation, 10) || 0;
-                  const Icon = [Cpu, Target, Server, Wallet][idx] ?? Activity;
-                  const tone = ['bg-clay', 'bg-clay/65', 'bg-clay/45', 'bg-clay/20'][idx];
+                  const Icon = [Cpu, Target][idx] ?? Activity;
+                  const tone = ['bg-clay', 'bg-ink'][idx];
                   return (
                     <div key={row.allocation} className="border-b border-line pb-3.5 last:border-0 last:pb-0">
                       <div className="mb-1.5 flex items-center gap-2.5">
@@ -1730,9 +1826,9 @@ const PitchDeckPage = () => {
             <div className="space-y-4 lg:col-span-7">
               <div className="grid gap-3 sm:grid-cols-3">
                 {[
-                  { title: 'Raise', value: '$800K', detail: 'Pre-seed to reach paid traction, a published measurement report, and seed readiness', Icon: Rocket, hot: true },
-                  { title: 'Near-term focus', value: 'RSI Agent + paid', detail: 'Deploy the RSI Agent with founder teams and agencies, and convert self-serve usage to paid', Icon: Building2, hot: false },
-                  { title: 'Next milestone', value: '$100K MRR', detail: 'Durable revenue, strong retention, and the next institutional round', Icon: CheckCircle2, hot: false },
+                  { title: 'Raise', value: '$800K', detail: 'Pre-seed: 70% engineering, 30% forward-deployed engineering', Icon: Rocket, hot: true },
+                  { title: 'First milestone', value: 'Shippable RSI Agent', detail: 'Governed learning, review and rollback, and measurement — ready to deploy', Icon: CheckCircle2, hot: false },
+                  { title: 'Business model', value: 'FDE', detail: 'We deploy the RSI Agent into each client ourselves and grow toward $100K MRR', Icon: Building2, hot: false },
                 ].map(({ title, value, detail, Icon, hot }) => (
                   <Panel key={title} accent={hot} className="p-5">
                     <Icon className={`h-4 w-4 ${hot ? 'text-clay' : 'text-mist'}`} aria-hidden="true" />
@@ -1746,9 +1842,10 @@ const PitchDeckPage = () => {
               <Panel accent raised className="p-7">
                 <CropMarks />
                 <p className="text-[15px] leading-relaxed text-ink">
-                  We are raising <span className="font-semibold text-clay">$800K</span> to own the last mile of AI
-                  marketing for founder teams, SMBs, and agencies: paid self-serve revenue, the first RSI Agent
-                  deployments, and a published cost-per-accepted-asset curve that turns our core claim into evidence.
+                  We are raising <span className="font-semibold text-clay">$800K</span>. Seventy percent goes to
+                  engineering for the first milestone — a shippable RSI Agent. Thirty percent funds the forward-deployed
+                  engineers who put it to work inside client GTM stacks: our primary business model, and the fastest
+                  path from a shipped agent to revenue.
                 </p>
                 <p className="mt-4 border-t border-line pt-4 text-[13px] leading-relaxed text-graphite">
                   We are building alongside {programs.map((p) => p.name).join(', ').replace(/, ([^,]*)$/, ', and $1')}.
