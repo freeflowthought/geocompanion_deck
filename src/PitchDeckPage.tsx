@@ -355,10 +355,16 @@ const competitorRows = [
     stops: 'Inside one vendor. What the agent learns stays there.',
   },
   {
+    category: 'Single-job sales and front-desk agents',
+    examples: 'Nooks, Broccoli',
+    builtFor: 'One job each: sales calls and sequences, or answering and booking calls.',
+    stops: 'At one function. What sales hears never reaches marketing or the front desk.',
+  },
+  {
     category: 'Florus',
     examples: 'GeoCompanion · Launchvibes · RSI Agent',
-    builtFor: 'Finds the problem, creates the content, publishes it, and measures it.',
-    stops: 'Learns from every round, with your approval and an undo. Priced for founders and agencies.',
+    builtFor: 'Runs marketing, sales, and customer service from one shared memory, through publishing and measuring.',
+    stops: 'Learns from every round, with your approval and an undo. Priced for small businesses, from contractors to agencies.',
   },
 ];
 
@@ -829,23 +835,21 @@ const PitchDeckPage = () => {
                 className="deck-heading mt-8 text-balance font-semibold uppercase leading-[0.94] tracking-[-0.04em] text-ink"
                 style={{ fontSize: 'clamp(2.3rem, 5vw, 4.6rem)' }}
               >
-                Go-to-market that <span className="text-clay">improves itself.</span>
+                The front office that <span className="text-clay">improves itself.</span>
               </h2>
 
               <div className="mt-8 flex max-w-2xl gap-4">
                 <span className="w-[2px] shrink-0 bg-clay" aria-hidden="true" />
                 <p className="text-[15px] leading-relaxed text-graphite">
-                  AI can write a campaign in seconds. Getting it edited, approved, published, and measured still takes
-                  people and time, and the lessons get lost. Florus does that work, and our RSI Agent learns from every
-                  result. You approve what it keeps.
+                  Every business runs a front office: get found, win the work, look after the customer. AI can draft any piece of it in seconds, but the follow-through still takes people, and lessons get lost between marketing, sales, and service. Our RSI Agent runs that front office and learns from every result. You approve what it keeps.
                 </p>
               </div>
 
               <div className="mt-10 grid gap-3 sm:grid-cols-3">
                 {[
-                  { label: 'Find what to fix', value: 'GeoCompanion', Icon: Radar },
-                  { label: 'Create content', value: 'Launchvibes', Icon: Sparkles },
-                  { label: 'Learn from results', value: 'RSI Agent', Icon: Bot },
+                  { label: 'Get found', value: 'Marketing', Icon: Radar },
+                  { label: 'Win the work', value: 'Sales', Icon: Sparkles },
+                  { label: 'Look after customers', value: 'Customer service', Icon: Bot },
                 ].map(({ label, value, Icon }) => (
                   <div key={label} className="flex items-start gap-3 border-t-2 border-ink pt-3">
                     <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-clay" aria-hidden="true" />
@@ -867,8 +871,7 @@ const PitchDeckPage = () => {
                   round better.
                 </p>
                 <p className="mt-5 border-t border-paper/15 pt-5 text-[13px] leading-relaxed text-paper/70">
-                  We start with marketing because the same work repeats every week, results come back in days, and every
-                  piece of content is either approved or not. That gives the agent clear feedback to learn from.
+                  We start with marketing because the work repeats every week, results come back in days, and every piece is approved or not. Sales and customer service come next: the same customers move through all three, so a lesson learned in one improves the others.
                 </p>
               </Panel>
 
@@ -1018,8 +1021,7 @@ const PitchDeckPage = () => {
               <p className="mt-3 text-[17px] font-medium leading-snug text-ink">
                 Investors are already betting on this space. Profound raised <span className="text-clay">$180M at a $1.8B
                 valuation</span> in September 2026 to move from AI search analytics to agents that do marketing work.
-                But it sells to large enterprises. <span className="text-clay">Founders, small businesses, and
-                agencies</span> feel the last-mile pain most, and still lack an affordable agent that does the work and
+                But it sells to large enterprises. <span className="text-clay">Small businesses, from contractors to software startups, and agencies</span> feel the last-mile pain most, and still lack an affordable agent that does the work and
                 learns from it.
               </p>
             </Panel>
@@ -1061,7 +1063,7 @@ const PitchDeckPage = () => {
           index={4}
           kicker="Solution"
           title="The RSI Agent"
-          subtitle="An AI agent team that runs your marketing, checks the results, and gets better each round. You approve what it learns."
+          subtitle="A self-improving AI front office. One agent team runs your marketing, sales, and customer service, checks the results, and gets better each round. You approve what it learns."
         >
           <Panel className="p-6">
             <div className="flex items-baseline justify-between gap-4">
@@ -1122,9 +1124,9 @@ const PitchDeckPage = () => {
               <ul className="mt-4 divide-y divide-line border-y border-line">
                 {[
                   ['Run', 'LinkedIn post series and 3 website fixes published'],
-                  ['Measure', 'Replies and AI search mentions collected'],
-                  ['Review', '2 problems: a weak opening line and a claim with no source'],
-                  ['Keep', 'A new playbook and a new check before publishing'],
+                  ['Measure', 'Callers keep asking about weekend pricing'],
+                  ['Review', 'The same question stalls 2 open deals'],
+                  ['Keep', 'One pricing answer for the website, front desk, and follow-up emails'],
                 ].map(([step, text]) => (
                   <li key={step} className="grid grid-cols-[84px_1fr] items-baseline gap-3 py-2.5">
                     <span className={`deck-mono text-[9px] uppercase tracking-[0.16em] ${step === 'Keep' ? 'text-clay' : 'text-mist'}`}>{step}</span>
@@ -1133,7 +1135,7 @@ const PitchDeckPage = () => {
                 ))}
               </ul>
               <p className="mt-4 text-xs leading-relaxed text-mist">
-                In round 8, the agent uses the new playbook and checks every claim for a source before anything goes out.
+                In round 8, marketing, sales, and the front desk all start from the same answer.
               </p>
             </Panel>
           </div>
@@ -1171,7 +1173,7 @@ const PitchDeckPage = () => {
                 role: 'Learn',
                 name: 'RSI Agent',
                 mode: 'Pilot · Deployed by us',
-                promise: 'Runs your repeat marketing work and keeps what worked.',
+                promise: 'Runs your front office, marketing first, then sales and customer service, and keeps what worked.',
                 points: ['Publishes across channels', 'Measures and reviews the results', 'Saves lessons once you approve them'],
                 Icon: Bot,
                 hot: true,
@@ -1682,7 +1684,7 @@ const PitchDeckPage = () => {
           index={12}
           kicker="Roadmap"
           title="Roadmap"
-          subtitle="Marketing first. Later, the same learning system for any company that runs AI agents."
+          subtitle="Marketing first, then sales and customer service: one front office. Later, the same learning system for any company that runs AI agents."
         >
           <Panel className="p-6">
             <div className="grid gap-0 md:grid-cols-3">
@@ -1716,7 +1718,7 @@ const PitchDeckPage = () => {
               <CropMarks />
               <Eyebrow tone="clay">Why this order</Eyebrow>
               <p className="mt-3 text-[15px] font-medium leading-snug text-ink">
-                Marketing is the best place to start: results come back fast and are easy to judge. The approval,
+                Marketing is the best place to start: results come back fast and are easy to judge. Sales and customer service share the same customers, so they come next. The approval,
                 record-keeping, and undo system underneath does not depend on marketing, so it can later sit on top of
                 other teams’ AI agents too.
               </p>
@@ -1849,7 +1851,7 @@ const PitchDeckPage = () => {
                   Raise: $800K
                 </span>
                 <span className="deck-mono inline-flex border border-line px-3 py-1.5 text-[9px] uppercase tracking-[0.14em] text-graphite">
-                  Go-to-market that improves itself
+                  The front office that improves itself
                 </span>
                 <a
                   href="mailto:hello@florus.ai"
