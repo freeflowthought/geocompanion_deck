@@ -370,24 +370,29 @@ const competitorRows = [
 
 const marketRows = [
   {
-    market: 'AI Agents (all functions)',
-    size: '~$7.8B (2025) → $52.6B (2030)',
-    growth: '46% CAGR',
+    market: 'AI for customer service',
+    size: '$12.1B (2024) → $47.8B (2030)',
+    growth: '26% CAGR',
   },
   {
-    market: 'AI Search & Answer Optimization',
-    size: '~$1B today → $10B+',
-    growth: '40%+ CAGR',
+    market: 'AI receptionists (61% bought by SMEs)',
+    size: '$2.7B (2025) → $31.3B (2035)',
+    growth: '28% CAGR',
   },
   {
-    market: 'Marketing AI SaaS',
-    size: '~$8B today → $20B+',
+    market: 'Sales enablement platforms',
+    size: '$4.2B (2025) → $12.4B (2031)',
     growth: '20% CAGR',
   },
   {
-    market: 'Creator Economy + Social Tools',
-    size: '$214B–$314B',
-    growth: '22% CAGR',
+    market: 'Marketing automation software',
+    size: '$8.2B (2026) → $15.0B (2031)',
+    growth: '13% CAGR',
+  },
+  {
+    market: 'AI search & answer optimization',
+    size: '~$1B today → $10B+',
+    growth: '40%+ CAGR',
   },
 ];
 
@@ -1312,11 +1317,11 @@ const PitchDeckPage = () => {
           index={7}
           kicker="Market"
           title="Market Size"
-          subtitle="Our customers sit where four fast-growing markets meet."
+          subtitle="Every business has a front office: marketing, sales, and customer service. AI agents are rebuilding the software for all three."
         >
           <div className="grid gap-5 lg:grid-cols-12">
             <Panel className="overflow-x-auto p-6 lg:col-span-7">
-              <Eyebrow className="mb-4">Markets we sit in</Eyebrow>
+              <Eyebrow className="mb-4">Front-office markets</Eyebrow>
               <table className="deck-table min-w-[420px]">
                 <thead>
                   <tr>
@@ -1341,10 +1346,10 @@ const PitchDeckPage = () => {
               <p className="deck-mono text-[9px] uppercase tracking-[0.24em] text-paper/75">Where we focus</p>
               <div className="mt-6 space-y-5">
                 {[
-                  { label: 'TAM', value: '$87B', width: 100 },
-                  { label: 'SAM', value: '$12B', width: 38 },
-                  { label: 'Creators and small businesses', value: '$6B', width: 24 },
-                  { label: 'SOM · Year 3', value: '$150M', width: 8 },
+                  { label: 'TAM · 2030', value: '$81B', width: 100 },
+                  { label: 'SAM · US small businesses', value: '$23B', width: 29 },
+                  { label: 'SMBs already buying AI front desks', value: '$1.6B', width: 10 },
+                  { label: 'SOM · Year 3', value: '$150M', width: 5 },
                 ].map((bar, idx) => (
                   <div key={bar.label}>
                     <div className="mb-2 flex items-baseline justify-between">
@@ -1362,10 +1367,10 @@ const PitchDeckPage = () => {
 
           <div className="mt-5 grid gap-4 md:grid-cols-4">
             {[
-              ['Total market (TAM)', '$87B', 'Software for marketing analytics, content, and creator tools worldwide.'],
-              ['Serviceable market (SAM)', '$12B', 'AI-first marketing tools, from small businesses to enterprises.'],
-              ['Creators and small businesses', '$6B', 'The part of that market made up of creators and small businesses.'],
-              ['Our 3-year target (SOM)', '$150M', 'Less than 1.5% of the serviceable market.'],
+              ['Total market (TAM)', '$81B', 'Global front-office software AI is rebuilding, by 2030: customer service AI, AI receptionists, sales enablement, and marketing automation. About $29B in 2025.'],
+              ['Serviceable market (SAM)', '$23B', '6.4M US small businesses with employees, at about $300 a month for an AI front office (our pricing assumption).'],
+              ['Already buying', '$1.6B', 'Small and mid-size businesses’ share of AI receptionist spend in 2025. Owners already pay to automate one front-office job.'],
+              ['Our 3-year target (SOM)', '$150M', 'About 42,000 businesses at $300 a month, under 1% of US small employers.'],
             ].map(([label, value, desc], idx) => (
               <Figure key={label} label={label} value={value} note={desc} accent={idx === 3} />
             ))}
@@ -1373,7 +1378,11 @@ const PitchDeckPage = () => {
 
           <SlideFootnotes
             items={[
-              { label: 'MarketsandMarkets, AI agents market (2025–2030)', href: 'https://www.marketsandmarkets.com/Market-Reports/ai-agent-market-15761548.html' },
+              { label: 'MarketsandMarkets, AI for customer service (2024–2030)', href: 'https://prnewswire.co.uk/news-releases/ai-for-customer-service-market-worth-47-82-billion-by-2030---exclusive-report-by-marketsandmarkets-302372174.html' },
+              { label: 'Market.us, AI receptionist (2025–2035)', href: 'https://market.us/report/ai-receptionist-market/' },
+              { label: 'Mordor, sales enablement (2025–2031)', href: 'https://www.mordorintelligence.com/industry-reports/sales-enablement-platform-market' },
+              { label: 'Mordor, marketing automation (2026–2031)', href: 'https://www.mordorintelligence.com/industry-reports/global-marketing-automation-software-market-industry' },
+              { label: 'SBA Office of Advocacy, FAQ 2026 (2022 data)', href: 'https://advocacy.sba.gov/2026/02/03/frequently-asked-questions-about-small-business-2026/' },
             ]}
           />
         </SlideShell>
